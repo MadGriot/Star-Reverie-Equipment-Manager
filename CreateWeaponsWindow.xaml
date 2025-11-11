@@ -11,6 +11,17 @@
             <StackPanel Margin="10">
                 <TextBox x:Name="nameTextBox"
                        Margin="0,0,0,5"/>
+                
+                <ComboBox x:Name="damageTypeComboBox"
+              Margin="0,0,0,5"
+              ItemsSource="{Binding DamageTypes}"
+              SelectedItem="{Binding SelectedDamageType, Mode=TwoWay}" />
+
+                <ComboBox x:Name="weaponTypeComboBox"
+              Margin="0,0,0,5"
+              ItemsSource="{Binding WeaponTypes}"
+              SelectedItem="{Binding SelectedWeaponType, Mode=TwoWay}" />
+                
                 <TextBox x:Name="damageTextBox"
                        Margin="0,0,0,5"/>
                 <TextBox x:Name="accTextBox"

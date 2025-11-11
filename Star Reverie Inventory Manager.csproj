@@ -13,4 +13,10 @@
     <Folder Include="Controls\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="StarReverieCore">
+      <HintPath>bin\Debug\net8.0-windows\StarReverieCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
