@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using StarReverieCore;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,6 +10,7 @@ namespace Star_Reverie_Inventory_Manager
     /// </summary>
     public partial class App : Application
     {
+        public static StarReverieDbContext StarReverieDbContext = new StarReverieDbContext();
     }
 
 }

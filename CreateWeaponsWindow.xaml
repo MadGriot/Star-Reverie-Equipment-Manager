@@ -21,6 +21,11 @@
               Margin="0,0,0,5"
               ItemsSource="{Binding WeaponTypes}"
               SelectedItem="{Binding SelectedWeaponType, Mode=TwoWay}" />
+
+                <ComboBox x:Name="weaponClassComboBox"
+              Margin="0,0,0,5"
+              ItemsSource="{Binding WeaponClasses}"
+              SelectedItem="{Binding SelectedWeaponClass, Mode=TwoWay}" />
                 
                 <TextBox x:Name="damageTextBox"
                        Margin="0,0,0,5"/>

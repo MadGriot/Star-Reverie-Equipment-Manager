@@ -21,10 +21,16 @@ namespace Star_Reverie_Inventory_Manager
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CreateWeaponButton_Click(object sender, RoutedEventArgs e)
         {
             CreateWeaponsWindow createWeaponsWindow = new();
             createWeaponsWindow.ShowDialog();
+        }
+
+        private void DisplayWeaponsButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayWeaponsWindow displayWeaponsWindow = new();
+            displayWeaponsWindow.ShowDialog();
         }
     }
 }

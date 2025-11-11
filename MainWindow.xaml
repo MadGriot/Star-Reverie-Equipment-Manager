@@ -8,7 +8,9 @@
         Title="MainWindow" Height="450" Width="300
         ">
     <StackPanel Margin="10">
-        <Button Content="Create Weapon"
-                Click="Button_Click"/>
+        <Button Content="Create Weapon" Margin="5"
+                Click="CreateWeaponButton_Click"/>
+        <Button Content="Display Weapons" Margin="5"
+                Click="DisplayWeaponsButton_Click"/>
     </StackPanel>
 </Window>
