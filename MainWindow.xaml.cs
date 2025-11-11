@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using StarReverieCore.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +21,7 @@ namespace Star_Reverie_Inventory_Manager
         public MainWindow()
         {
             InitializeComponent();
+            ReadCharactersFromDatabase();
         }
 
         private void CreateWeaponButton_Click(object sender, RoutedEventArgs e)
@@ -31,6 +34,16 @@ namespace Star_Reverie_Inventory_Manager
         {
             DisplayWeaponsWindow displayWeaponsWindow = new();
             displayWeaponsWindow.ShowDialog();
+        }
+
+        void ReadCharactersFromDatabase()
+        {
+            List<Character> characters = App.StarReverieDbContext.Characters
+                .Include(w => w.Weapon)
+                .Include(o => o.Armor)
+                .ToList();
+
+            ItemsListView.ItemsSource = characters;
         }
     }
 }
