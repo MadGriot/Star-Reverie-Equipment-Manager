@@ -1,0 +1,25 @@
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\Star Reverie Inventory Manager.exe
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\Star Reverie Inventory Manager.deps.json
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\Star Reverie Inventory Manager.runtimeconfig.json
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\Star Reverie Inventory Manager.dll
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\Star Reverie Inventory Manager.pdb
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ArmorWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager_MarkupCompile.cache
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager_MarkupCompile.lref
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ArmorWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.g.resources
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.AssemblyInfoInputs.cache
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.AssemblyInfo.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.csproj.CoreCompileInputs.cache
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.sourcelink.json
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.dll
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\refint\Star Reverie Inventory Manager.dll
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.pdb
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.genruntimeconfig.cache
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ref\Star Reverie Inventory Manager.dll
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateWeaponsWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateWeaponsWindow.baml
