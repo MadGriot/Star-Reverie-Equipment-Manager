@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="DisplayWeaponsWindow" Height="450" Width="300">
     <Grid>
-        
+        <ListView x:Name="ItemsListView" Margin="0 5 0 0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontSize="20"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="{Binding WeaponClass}" FontSize="15"
+                                   Foreground="DodgerBlue"/>
+                        <TextBlock Text="{Binding Skill}" FontSize="15"
+                                   FontStyle="Italic"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

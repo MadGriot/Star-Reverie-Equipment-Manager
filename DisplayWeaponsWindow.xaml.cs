@@ -29,6 +29,8 @@ namespace Star_Reverie_Inventory_Manager
         void ReadWeaponsFromDatabase()
         {
             List<WeaponModel> weapons = App.StarReverieDbContext.Weapons.ToList();
+
+            ItemsListView.ItemsSource = weapons;
         }
     }
 }
