@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
         mc:Ignorable="d"
-        Title="DisplayWeaponsWindow" Height="450" Width="300">
+        Title="DisplayWeaponsWindow" Height="450" Width="500">
     <Grid>
         <ListView x:Name="ItemsListView" Margin="0 5 0 0">
             <ListView.ItemTemplate>
