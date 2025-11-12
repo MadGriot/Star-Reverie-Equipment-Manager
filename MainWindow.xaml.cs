@@ -31,7 +31,11 @@ namespace Star_Reverie_Inventory_Manager
             CreateWeaponsWindow createWeaponsWindow = new();
             createWeaponsWindow.ShowDialog();
         }
-
+        private void CreateArmorButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateArmorWindow createArmorWindow = new();
+            createArmorWindow.ShowDialog();
+        }
         private void DisplayWeaponsButton_Click(object sender, RoutedEventArgs e)
         {
             DisplayWeaponsWindow displayWeaponsWindow = new();
