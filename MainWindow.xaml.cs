@@ -18,9 +18,11 @@ namespace Star_Reverie_Inventory_Manager
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Character> characters;
         public MainWindow()
         {
             InitializeComponent();
+            characters = new();
             ReadCharactersFromDatabase();
         }
 
@@ -38,12 +40,23 @@ namespace Star_Reverie_Inventory_Manager
 
         void ReadCharactersFromDatabase()
         {
-            List<Character> characters = App.StarReverieDbContext.Characters
+            characters = App.StarReverieDbContext.Characters
                 .Include(w => w.Weapon)
                 .Include(o => o.Armor)
                 .ToList();
 
             ItemsListView.ItemsSource = characters;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox searchTextBox = (TextBox)sender;
+
+            List<Character> filteredList = characters
+                .Where(c => c.FirstName.ToLower().Contains(searchTextBox.Text.ToLower()))
+                .ToList();
+
+            ItemsListView.ItemsSource = filteredList;
         }
     }
 }

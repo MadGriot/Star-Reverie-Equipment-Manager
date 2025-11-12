@@ -15,22 +15,36 @@ using System.Windows.Shapes;
 
 namespace Star_Reverie_Inventory_Manager
 {
+
     /// <summary>
     /// Interaction logic for DisplayWeaponsWindow.xaml
     /// </summary>
     public partial class DisplayWeaponsWindow : Window
     {
+        List<WeaponModel> weapons;
         public DisplayWeaponsWindow()
         {
             InitializeComponent();
+            weapons = new();
             ReadWeaponsFromDatabase();
         }
 
         void ReadWeaponsFromDatabase()
         {
-            List<WeaponModel> weapons = App.StarReverieDbContext.Weapons.ToList();
+            weapons = App.StarReverieDbContext.Weapons.ToList();
 
             ItemsListView.ItemsSource = weapons;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox searchTextBox = (TextBox)sender;
+
+            List<WeaponModel> filteredList = weapons
+                .Where(c => c.Name.ToLower().Contains(searchTextBox.Text.ToLower()))
+                .ToList();
+
+            ItemsListView.ItemsSource = filteredList;
         }
     }
 }

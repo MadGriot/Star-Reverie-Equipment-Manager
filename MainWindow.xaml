@@ -12,6 +12,8 @@
                 Click="CreateWeaponButton_Click"/>
         <Button Content="Display Weapons" Margin="5"
                 Click="DisplayWeaponsButton_Click"/>
+        <TextBox Margin="0 5 0 5"
+                 TextChanged="TextBox_TextChanged"/>
         <ListView x:Name="ItemsListView"
                   Height="280"
                   Margin="0 5 0 0">
