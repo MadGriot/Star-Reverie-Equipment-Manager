@@ -156,3 +156,6 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\DisplayItemsWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Controls\ItemControl.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Controls\ItemControl.baml

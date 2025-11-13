@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
+        xmlns:ic="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
         mc:Ignorable="d"
         Title="DisplayWeaponsWindow" Height="450" Width="500">
     <Grid>
@@ -15,15 +16,7 @@
                       Margin="0 5 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-
-                        <TextBlock Text="{Binding Name}" FontSize="20"
-                                   FontWeight="Bold"/>
-                        <TextBlock Text="....." FontSize="15"
-                                   Foreground="DodgerBlue"/>
-                        <TextBlock Text="...." FontSize="15"
-                                   FontStyle="Italic"/>
-                    </StackPanel>
+                        <ic:ItemControl Item="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

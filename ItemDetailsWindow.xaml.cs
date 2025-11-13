@@ -29,12 +29,12 @@ namespace Star_Reverie_Inventory_Manager
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }
