@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\App.xaml
-4792364777
+5-30982910
 
-91039499371
-218-926396913
-CreateArmorWindow.xaml;CreateWeaponsWindow.xaml;DisplayWeaponsWindow.xaml;MainWindow.xaml;
+101423110672
+2181723922689
+CreateArmorWindow.xaml;CreateShieldWindow.xaml;CreateWeaponsWindow.xaml;DisplayWeaponsWindow.xaml;MainWindow.xaml;
 
 False
 

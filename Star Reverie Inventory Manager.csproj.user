@@ -5,6 +5,9 @@
     <Compile Update="CreateArmorWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CreateShieldWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreateWeaponsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

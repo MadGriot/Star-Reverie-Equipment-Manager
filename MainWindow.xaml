@@ -5,42 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500
-        ">
-    <StackPanel Margin="10">
-        <Button Content="Create Weapon" Margin="5"
-                Click="CreateWeaponButton_Click"/>
-        <Button Content="Display Weapons" Margin="5"
-                Click="DisplayWeaponsButton_Click"/>
-        <Button Content="Create Armor" Margin="5"
-                Click="CreateArmorButton_Click"/>
-        <TextBox Margin="0 5 0 5"
+        Title="MainWindow" Height="450" Width="500">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Create Item">
+                <MenuItem Header="_Create Weapon" Click="CreateWeaponButton_Click" />
+                <MenuItem Header="_Create Armor" Click="CreateArmorButton_Click"/>
+                <MenuItem Header="_Create Shield" Click="CreateShieldButton_Click"/>
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Display Items">
+                <MenuItem Header="_Display Weapons" Click="DisplayWeaponsButton_Click" />
+            </MenuItem>
+        </Menu>
+        <StackPanel Margin="10">
+            <TextBox Margin="0 5 0 5"
                  TextChanged="TextBox_TextChanged"/>
-        <ListView x:Name="ItemsListView"
+            <ListView x:Name="ItemsListView"
                   Height="280"
                   Margin="0 5 0 0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock FontSize="20" Foreground="DarkCyan" FontWeight="Bold">
-                            <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding Path="FirstName" />
-                                <Binding Path="LastName" />
-                            </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="15" FontWeight="Bold" Text="Equipped Weapon: "/>
-                            <TextBlock FontSize="15" Text="{Binding Weapon.Name}"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock FontSize="20" Foreground="DarkCyan" FontWeight="Bold">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="FirstName" />
+                                        <Binding Path="LastName" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="15" FontWeight="Bold" Text="Equipped Weapon: "/>
+                                <TextBlock FontSize="15" Text="{Binding Weapon.Name}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="15" FontWeight="Bold" Text="Equipped Armor: "/>
+                                <TextBlock FontSize="15" Text="{Binding Armor.Name}"/>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="15" FontWeight="Bold" Text="Equipped Armor: "/>
-                            <TextBlock FontSize="15" Text="{Binding Armor.Name}"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </DockPanel>
+
 </Window>
