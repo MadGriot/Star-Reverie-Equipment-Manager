@@ -181,7 +181,7 @@ namespace Star_Reverie_Inventory_Manager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/createweaponswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/createweaponswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CreateWeaponsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

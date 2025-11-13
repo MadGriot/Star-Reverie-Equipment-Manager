@@ -17,6 +17,8 @@
             </MenuItem>
             <MenuItem Header="_Display Items">
                 <MenuItem Header="_Display Weapons" Click="DisplayWeaponsButton_Click" />
+                <MenuItem Header="_Display Armors" Click="DisplayArmorsButton_Click" />
+                <MenuItem Header="_Display Shields" Click="DisplayShieldsButton_Click" />
             </MenuItem>
         </Menu>
         <StackPanel Margin="10">

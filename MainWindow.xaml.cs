@@ -44,10 +44,19 @@ namespace Star_Reverie_Inventory_Manager
         }
         private void DisplayWeaponsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayWeaponsWindow displayWeaponsWindow = new();
+            DisplayItemsWindow displayWeaponsWindow = new(ItemType.Weapon);
             displayWeaponsWindow.ShowDialog();
         }
-
+        private void DisplayArmorsButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayItemsWindow displayWeaponsWindow = new(ItemType.Armor);
+            displayWeaponsWindow.ShowDialog();
+        }
+        private void DisplayShieldsButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayItemsWindow displayWeaponsWindow = new(ItemType.Shield);
+            displayWeaponsWindow.ShowDialog();
+        }
         void ReadCharactersFromDatabase()
         {
             characters = App.StarReverieDbContext.Characters

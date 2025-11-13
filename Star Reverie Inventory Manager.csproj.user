@@ -11,7 +11,10 @@
     <Compile Update="CreateWeaponsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="DisplayWeaponsWindow.xaml.cs">
+    <Compile Update="DisplayItemsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ItemDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
