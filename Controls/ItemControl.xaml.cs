@@ -22,37 +22,48 @@ namespace Star_Reverie_Inventory_Manager.Controls
     public partial class ItemControl : UserControl
     {
 
-        private Unit item;
-
         public Unit Item
         {
-            get { return item; }
-            set
+            get { return (Unit)GetValue(ItemProperty); }
+            set { SetValue(ItemProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Item.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ItemProperty =
+            DependencyProperty.Register(nameof(Item), typeof(Unit), typeof(ItemControl), new PropertyMetadata(null, SetText));
+
+        private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ItemControl itemControl = (ItemControl)d;
+
+            if (itemControl != null )
             {
-                item = value;
+                Unit item = (Unit)e.NewValue;
                 switch (item)
                 {
                     case WeaponModel:
                         WeaponModel weapon = (WeaponModel)item;
-                        nameTextBlock.Text = weapon.Name;
-                        itemProperty1TextBlock.Text = weapon.WeaponClass.ToString();
-                        itemProperty2Block.Text = weapon.WeaponType.ToString();
+                        itemControl.nameTextBlock.Text = weapon.Name;
+                        itemControl.itemProperty1TextBlock.Text = weapon.WeaponClass.ToString();
+                        itemControl.itemProperty2Block.Text = weapon.WeaponType.ToString();
                         break;
                     case ArmorModel:
                         ArmorModel armor = (ArmorModel)item;
-                        nameTextBlock.Text = armor.Name;
-                        itemProperty1TextBlock.Text = $"Damage Resistance {armor.DamageResistance}";
-                        itemProperty2Block.Text = armor.ArmorLocation.ToString();
+                        itemControl.nameTextBlock.Text = armor.Name;
+                        itemControl.itemProperty1TextBlock.Text = $"Damage Resistance {armor.DamageResistance}";
+                        itemControl.itemProperty2Block.Text = armor.ArmorLocation.ToString();
                         break;
                     case ShieldModel:
                         ShieldModel shield = (ShieldModel)item;
-                        nameTextBlock.Text = shield.Name;
-                        itemProperty1TextBlock.Text = $"SP: {shield.MaxSP}";
-                        itemProperty2Block.Text = $"SP Cost: {shield.SPCost}";
+                        itemControl.nameTextBlock.Text = shield.Name;
+                        itemControl.itemProperty1TextBlock.Text = $"SP: {shield.MaxSP}";
+                        itemControl.itemProperty2Block.Text = $"SP Cost: {shield.SPCost}";
                         break;
                 }
+
             }
         }
+
 
         public ItemControl()
         {
