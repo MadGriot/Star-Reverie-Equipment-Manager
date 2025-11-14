@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="90" d:DesignWidth="450">
-    <Grid Background="#AAE5E5E5">
+    <Grid>
         <StackPanel Margin="5">
 
             <TextBlock x:Name="nameTextBlock" Text="Name" FontSize="20"

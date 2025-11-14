@@ -28,4 +28,12 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\.editorconfig" />
+  </ItemGroup>
+
 </Project>
