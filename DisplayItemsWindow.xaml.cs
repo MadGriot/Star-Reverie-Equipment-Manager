@@ -4,6 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using Star_Reverie_Inventory_Manager.ItemDetailsWindow;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -68,8 +69,18 @@ namespace Star_Reverie_Inventory_Manager
 
             if (selectedItem != null)
             {
-                ItemDetailsWindow itemDetailsWindow = new(selectedItem);
-                itemDetailsWindow.ShowDialog();
+
+                switch (selectedItem)
+                {
+                    case WeaponModel:
+                        WeaponDetailsWindow weaponDetailsWindow = new((WeaponModel)selectedItem);
+                        weaponDetailsWindow.ShowDialog();
+                        break;
+                    case ArmorModel:
+                        break;
+                    case ShieldModel:
+                        break;
+                }
             }
         }
     }

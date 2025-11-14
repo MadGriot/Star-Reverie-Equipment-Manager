@@ -19,8 +19,6 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.pdb
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.genruntimeconfig.cache
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ref\Star Reverie Inventory Manager.dll
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateWeaponsWindow.g.cs
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateWeaponsWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Reverie Inventory Manager.csproj.AssemblyReference.cache
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Star Rev.97576041.Up2Date
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
@@ -148,14 +146,16 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateArmorWindow.g.cs
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateArmorWindow.baml
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateShieldWindow.g.cs
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateShieldWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\DisplayItemsWindow.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\DisplayItemsWindow.baml
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow.g.cs
-C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Controls\ItemControl.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\Controls\ItemControl.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateArmorWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateShieldWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateWeaponsWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow\WeaponDetailsWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateArmorWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateShieldWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateWeaponsWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow\WeaponDetailsWindow.baml

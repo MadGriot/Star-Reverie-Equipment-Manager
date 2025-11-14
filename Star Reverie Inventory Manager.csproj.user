@@ -5,19 +5,19 @@
     <Compile Update="Controls\ItemControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CreateArmorWindow.xaml.cs">
+    <Compile Update="CreateItemWindows\CreateArmorWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CreateShieldWindow.xaml.cs">
+    <Compile Update="CreateItemWindows\CreateShieldWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CreateWeaponsWindow.xaml.cs">
+    <Compile Update="CreateItemWindows\CreateWeaponsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="DisplayItemsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ItemDetailsWindow.xaml.cs">
+    <Compile Update="ItemDetailsWindow\WeaponDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
