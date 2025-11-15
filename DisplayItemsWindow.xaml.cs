@@ -23,10 +23,10 @@ namespace Star_Reverie_Inventory_Manager
         {
             InitializeComponent();
             items = new();
-            ReadWeaponsFromDatabase(itemType);
+            ReadItemsFromDatabase(itemType);
         }
 
-        void ReadWeaponsFromDatabase(ItemType itemType)
+        public void ReadItemsFromDatabase(ItemType itemType)
         {
             switch (itemType)
             {
@@ -73,7 +73,7 @@ namespace Star_Reverie_Inventory_Manager
                 switch (selectedItem)
                 {
                     case WeaponModel:
-                        WeaponDetailsWindow weaponDetailsWindow = new((WeaponModel)selectedItem);
+                        WeaponDetailsWindow weaponDetailsWindow = new((WeaponModel)selectedItem, this);
                         weaponDetailsWindow.ShowDialog();
                         break;
                     case ArmorModel:

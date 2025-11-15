@@ -17,6 +17,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
     public partial class WeaponDetailsWindow : Window
     {
         private WeaponModel weapon;
+        private DisplayItemsWindow displayItemsWindow;
         public Array DamageTypes { get; } = Enum.GetValues(typeof(DamageType));
         public Array WeaponTypes { get; } = Enum.GetValues(typeof(WeaponType));
         public Array WeaponClasses { get; } = Enum.GetValues(typeof(WeaponClass));
@@ -33,11 +34,12 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
             Skill.HeavyWeapons,
             Skill.MartialArts,
         };
-        public WeaponDetailsWindow(WeaponModel weapon)
+        public WeaponDetailsWindow(WeaponModel weapon, DisplayItemsWindow displayItemsWindow)
         {
             InitializeComponent();
             DataContext = this;
             this.weapon = weapon;
+            this.displayItemsWindow = displayItemsWindow;
             nameTextBox.Text = weapon.Name;
             SelectedDamageType = weapon.DamageType;
             SelectedWeaponType = weapon.WeaponType;
@@ -58,28 +60,27 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            WeaponModel weaponModel = new()
-            {
-                Name = nameTextBox.Text,
-                DamageType = SelectedDamageType,
-                WeaponType = SelectedWeaponType,
-                WeaponClass = SelectedWeaponClass,
-                Accuracy = int.Parse(accTextBox.Text),
-                Range = int.Parse(rangeTextBox.Text),
-                WeaponWeight = decimal.Parse(weightTextBox.Text),
-                AmmoWeight = decimal.Parse(ammoWeightTextBox.Text),
-                RoF = int.Parse(roFTextBox.Text),
-                MaxAmmo = int.Parse(ShotsTextBox.Text),
-                CurrentAmmo = int.Parse(ShotsTextBox.Text),
-                STRRequirement = int.Parse(STRTextBox.Text),
-                Bulk = int.Parse(bulkTextBox.Text),
-                Cost = int.Parse(costTextBox.Text),
-                Skill = SelectedSkill,
-                DiceCount = int.Parse(damageTextBox.Text),
-                Modifier = int.Parse(modifierTextBox.Text),
-            };
-            App.StarReverieDbContext.Weapons.Update(weaponModel);
+
+            weapon.Name = nameTextBox.Text;
+            weapon.DamageType = SelectedDamageType;
+            weapon.WeaponType = SelectedWeaponType;
+            weapon.WeaponClass = SelectedWeaponClass;
+            weapon.Accuracy = int.Parse(accTextBox.Text);
+            weapon.Range = int.Parse(rangeTextBox.Text);
+            weapon.WeaponWeight = decimal.Parse(weightTextBox.Text);
+            weapon.AmmoWeight = decimal.Parse(ammoWeightTextBox.Text);
+            weapon.RoF = int.Parse(roFTextBox.Text);
+            weapon.MaxAmmo = int.Parse(ShotsTextBox.Text);
+            weapon.CurrentAmmo = int.Parse(ShotsTextBox.Text);
+            weapon.STRRequirement = int.Parse(STRTextBox.Text);
+            weapon.Bulk = int.Parse(bulkTextBox.Text);
+            weapon.Cost = int.Parse(costTextBox.Text);
+            weapon.Skill = SelectedSkill;
+            weapon.DiceCount = int.Parse(damageTextBox.Text);
+            weapon.Modifier = int.Parse(modifierTextBox.Text);
+            App.StarReverieDbContext.Weapons.Update(weapon);
             App.StarReverieDbContext.SaveChanges();
+            displayItemsWindow.ReadItemsFromDatabase(ItemType.Weapon);
             Close();
         }
 
@@ -87,7 +88,10 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
         {
             App.StarReverieDbContext.Weapons.Remove(weapon);
             App.StarReverieDbContext.SaveChanges();
+            displayItemsWindow.ReadItemsFromDatabase(ItemType.Weapon);
             Close();
         }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 }
