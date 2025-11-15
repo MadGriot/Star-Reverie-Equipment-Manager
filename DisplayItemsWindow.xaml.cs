@@ -77,6 +77,8 @@ namespace Star_Reverie_Inventory_Manager
                         weaponDetailsWindow.ShowDialog();
                         break;
                     case ArmorModel:
+                        ArmorDetailsWindow armorDetailsWindow = new((ArmorModel)selectedItem, this);
+                        armorDetailsWindow.ShowDialog();
                         break;
                     case ShieldModel:
                         break;

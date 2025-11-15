@@ -159,3 +159,5 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateShieldWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\CreateItemWindows\CreateWeaponsWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow\WeaponDetailsWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow\ArmorDetailsWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net8.0-windows\ItemDetailsWindow\ArmorDetailsWindow.baml
