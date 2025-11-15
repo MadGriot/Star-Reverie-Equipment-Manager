@@ -81,6 +81,8 @@ namespace Star_Reverie_Inventory_Manager
                         armorDetailsWindow.ShowDialog();
                         break;
                     case ShieldModel:
+                        ShieldDetailsWindow shieldDetailsWindow = new((ShieldModel)selectedItem, this);
+                        shieldDetailsWindow.ShowDialog();
                         break;
                 }
             }
