@@ -16,5 +16,5 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 2181723922689
 Controls\InventoryControl.xaml;Controls\ItemControl.xaml;CreateItemWindows\CreateArmorWindow.xaml;CreateItemWindows\CreateShieldWindow.xaml;CreateItemWindows\CreateWeaponsWindow.xaml;DisplayItemsWindow.xaml;ItemDetailsWindow\ArmorDetailsWindow.xaml;ItemDetailsWindow\CharacterDetailsWindow.xaml;ItemDetailsWindow\ShieldDetailsWindow.xaml;ItemDetailsWindow\WeaponDetailsWindow.xaml;MainWindow.xaml;
 
-False
+True
 

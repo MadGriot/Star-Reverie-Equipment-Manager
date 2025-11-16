@@ -1,0 +1,20 @@
+﻿Star Reverie Inventory Manager
+
+
+winexe
+C#
+.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\
+Star_Reverie_Inventory_Manager
+none
+false
+TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\App.xaml
+11257660424
+462009289287
+15-1273563655
+224-141140906
+Controls\InventoryControl.xaml;Controls\ItemControl.xaml;CreateItemWindows\CreateArmorWindow.xaml;CreateItemWindows\CreateShieldWindow.xaml;CreateItemWindows\CreateWeaponsWindow.xaml;DisplayItemsWindow.xaml;ItemDetailsWindow\ArmorDetailsWindow.xaml;ItemDetailsWindow\CharacterDetailsWindow.xaml;ItemDetailsWindow\ShieldDetailsWindow.xaml;ItemDetailsWindow\WeaponDetailsWindow.xaml;MainWindow.xaml;
+
+False
+
