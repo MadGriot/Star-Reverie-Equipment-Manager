@@ -5,6 +5,7 @@
 //  -----------------------------------------------------------------------
 
 using Microsoft.EntityFrameworkCore;
+using Star_Reverie_Inventory_Manager.ItemDetailsWindow;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -55,11 +56,19 @@ namespace Star_Reverie_Inventory_Manager
             DisplayItemsWindow displayItemsWindow = new(ItemType.Shield);
             displayItemsWindow.ShowDialog();
         }
+        private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Character character = (Character)ItemsListView.SelectedItem;
+            CharacterDetailsWindow characterDetailsWindow = new(character);
+            characterDetailsWindow.ShowDialog();
+        }
         void ReadCharactersFromDatabase()
         {
             characters = App.StarReverieDbContext.Characters
                 .Include(w => w.Weapon)
+                .Include(a => a.AttributeScore)
                 .Include(o => o.Armor)
+                .Include(o => o.Shield)
                 .ToList();
 
             ItemsListView.ItemsSource = characters;
