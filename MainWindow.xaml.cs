@@ -69,6 +69,9 @@ namespace Star_Reverie_Inventory_Manager
                 .Include(a => a.AttributeScore)
                 .Include(o => o.Armor)
                 .Include(o => o.Shield)
+                .Include(i => i.Inventory)
+                    .ThenInclude(u => u.Units)
+                        .ThenInclude(us => us.Unit)
                 .ToList();
 
             ItemsListView.ItemsSource = characters;

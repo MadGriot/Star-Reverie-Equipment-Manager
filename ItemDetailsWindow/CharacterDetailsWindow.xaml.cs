@@ -15,11 +15,22 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
     public partial class CharacterDetailsWindow : Window
     {
         private Character character;
+        private List<UnitStack> inventory;
         public CharacterDetailsWindow(Character character)
         {
             InitializeComponent();
             this.character = character;
+            if (character.Inventory != null )
+            {
+                inventory = character.Inventory.Units.ToList();
+
+            }
+            else
+                inventory = new();
+
             SetText();
+
+            ItemsListView.ItemsSource = inventory;
         }
 
         private void SetText()
@@ -29,6 +40,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
             EquippedArmorText.Text = character.Armor?.Name;
             EquippedShieldText.Text = character.Shield?.Name;
 
+            LevelText.Text = character.Level.ToString();
             StrengthText.Text = character.AttributeScore.Strength.ToString();
             DexterityText.Text = character.AttributeScore.Dexterity.ToString();
             IntelligenceText.Text = character.AttributeScore.Intelligence.ToString();
