@@ -15,21 +15,22 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
     public partial class CharacterDetailsWindow : Window
     {
         private Character character;
-        private List<UnitStack> inventory;
+        private List<UnitStack> inventory = new();
         public CharacterDetailsWindow(Character character)
         {
             InitializeComponent();
             this.character = character;
-            if (character.Inventory != null )
+            SetInventory();
+            SetText();
+        }
+
+        public void SetInventory()
+        {
+            if (character.Inventory != null)
             {
                 inventory = character.Inventory.Units.ToList();
 
             }
-            else
-                inventory = new();
-
-            SetText();
-
             ItemsListView.ItemsSource = inventory;
         }
 
@@ -58,17 +59,20 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
         }
         private void AddWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, character, this);
+            displayItemsWindow.ShowDialog();
         }
 
         private void AddArmorButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Armor, character, this);
+            displayItemsWindow.ShowDialog();
         }
 
         private void AddShieldButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Shield, character, this);
+            displayItemsWindow.ShowDialog();
         }
 
         private void EquipWeaponButton_Click(object sender, RoutedEventArgs e)

@@ -18,13 +18,29 @@ namespace Star_Reverie_Inventory_Manager
     public partial class DisplayItemsWindow : Window
     {
         List<Unit> items;
-
+        private bool isAdding;
+        private Character character = new() { FirstName = "Unknown", LastName = "Person" };
+        private int quantity = 1;
+        private ItemType itemType;
+        private CharacterDetailsWindow characterDetailsWindow = null;
+        public DisplayItemsWindow(ItemType itemType, Character character, CharacterDetailsWindow characterDetailsWindow)
+        {
+            InitializeComponent();
+            items = new();
+            this.character = character;
+            isAdding = true;
+            this.itemType = itemType;
+            ReadItemsFromDatabase(itemType);
+            this.characterDetailsWindow = characterDetailsWindow;
+        }
         public DisplayItemsWindow(ItemType itemType)
         {
             InitializeComponent();
             items = new();
+            this.itemType = itemType;
             ReadItemsFromDatabase(itemType);
         }
+
 
         public void ReadItemsFromDatabase(ItemType itemType)
         {
@@ -69,7 +85,14 @@ namespace Star_Reverie_Inventory_Manager
 
             if (selectedItem != null)
             {
-
+                if (isAdding)
+                {
+                    Equipper.AddItemsIntoInventory(selectedItem, character, quantity);
+                    isAdding = false;
+                    characterDetailsWindow.SetInventory();
+                    Close();
+                    return;
+                }
                 switch (selectedItem)
                 {
                     case WeaponModel:
