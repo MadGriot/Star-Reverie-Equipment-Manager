@@ -66,9 +66,11 @@ namespace Star_Reverie_Inventory_Manager
         {
             characters = App.StarReverieDbContext.Characters
                 .Include(w => w.Weapon)
+                .Include(wi => wi.WeaponInstances)
                 .Include(a => a.AttributeScore)
                 .Include(o => o.Armor)
                 .Include(o => o.Shield)
+                .Include(si => si.ShieldInstances)
                 .Include(i => i.Inventory)
                     .ThenInclude(u => u.Units)
                         .ThenInclude(us => us.Unit)

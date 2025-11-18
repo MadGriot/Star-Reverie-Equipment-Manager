@@ -57,6 +57,12 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
             EncumbranceText.Text = character.AttributeScore.Encumbrance.ToString();
 
         }
+        public void UpdateCharacterStats()
+        {
+            EquippedWeaponText.Text = character.Weapon?.Name;
+            EquippedArmorText.Text = character.Armor?.Name;
+            EquippedShieldText.Text = character.Shield?.Name;
+        }
         private void AddWeaponButton_Click(object sender, RoutedEventArgs e)
         {
             DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, character, this);
@@ -77,18 +83,23 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
 
         private void EquipWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, inventory);
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, character);
+            displayItemsWindow.SetCharacterDetailsWindow(this);
             displayItemsWindow.ShowDialog();
         }
 
         private void EquipArmorButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Armor, character);
+            displayItemsWindow.SetCharacterDetailsWindow(this);
+            displayItemsWindow.ShowDialog();
         }
 
         private void EquipShieldButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Shield, character);
+            displayItemsWindow.SetCharacterDetailsWindow(this);
+            displayItemsWindow.ShowDialog();
         }
     }
 }

@@ -11,23 +11,28 @@ using System.Windows.Controls;
 
 namespace Star_Reverie_Inventory_Manager
 {
-
+    public enum ActionStatus
+    {
+        None,
+        AddingItem,
+        EquippingItem,
+    }
     /// <summary>
     /// Interaction logic for DisplayItemssWindow.xaml
     /// </summary>
     public partial class DisplayItemsWindow : Window
     {
         List<Unit> items;
-        private bool isAdding;
         private Character character = new() { FirstName = "Unknown", LastName = "Person" };
         private int quantity = 1;
+        private ActionStatus actionStatus = ActionStatus.None;
         private CharacterDetailsWindow characterDetailsWindow = null;
         public DisplayItemsWindow(ItemType itemType, Character character, CharacterDetailsWindow characterDetailsWindow)
         {
             InitializeComponent();
             items = new();
             this.character = character;
-            isAdding = true;
+            actionStatus = ActionStatus.AddingItem;
             ReadItemsFromDatabase(itemType);
             this.characterDetailsWindow = characterDetailsWindow;
         }
@@ -35,15 +40,20 @@ namespace Star_Reverie_Inventory_Manager
         {
             InitializeComponent();
             items = new();
+            actionStatus = ActionStatus.None;
             ReadItemsFromDatabase(itemType);
         }
 
-        public DisplayItemsWindow(ItemType itemType, List<UnitStack> inventory)
+        public DisplayItemsWindow(ItemType itemType, Character character)
         {
             InitializeComponent();
-            ReadItemsFromInventory(inventory, itemType);
+            actionStatus = ActionStatus.EquippingItem;
+            this.character = character;
+            ReadItemsFromInventory(character.Inventory.Units, itemType);
         }
 
+        public void SetCharacterDetailsWindow(CharacterDetailsWindow characterDetailsWindow) 
+            => this.characterDetailsWindow = characterDetailsWindow;
         public void ReadItemsFromInventory(List<UnitStack> inventory, ItemType itemType)
         {
             switch (itemType)
@@ -61,6 +71,14 @@ namespace Star_Reverie_Inventory_Manager
                         .Select(s => s.Unit)
                         .ToList();
                     ItemsListView.ItemsSource = shields;
+                    break;
+
+                case ItemType.Armor:
+                    List<Unit?> armors = inventory
+                        .Where(s => s.Unit is ArmorModel)
+                        .Select(s => s.Unit)
+                        .ToList();
+                    ItemsListView.ItemsSource = armors;
                     break;
             }
 
@@ -108,13 +126,42 @@ namespace Star_Reverie_Inventory_Manager
 
             if (selectedItem != null)
             {
-                if (isAdding)
+                if (actionStatus == ActionStatus.AddingItem)
                 {
                     Equipper.AddItemsIntoInventory(selectedItem, character, quantity);
-                    isAdding = false;
+                    actionStatus = ActionStatus.None;
                     characterDetailsWindow.SetInventory();
                     Close();
                     return;
+                }
+
+                if (actionStatus == ActionStatus.EquippingItem)
+                {
+
+                    switch(selectedItem)
+                    {
+                        case WeaponModel:
+                            Equipper.EquipWeapon(selectedItem, character);
+                            actionStatus = ActionStatus.None;
+                            characterDetailsWindow.UpdateCharacterStats();
+                            Close();
+                            return;
+                        case ArmorModel:
+                            Equipper.EquipArmor(selectedItem, character);
+                            actionStatus = ActionStatus.None;
+                            characterDetailsWindow.UpdateCharacterStats();
+                            Close();
+                            return;
+                        case ShieldModel:
+                            Equipper.EquipShield(selectedItem, character);
+                            actionStatus = ActionStatus.None;
+                            characterDetailsWindow.UpdateCharacterStats();
+                            Close();
+                            return;
+
+
+                    }
+
                 }
                 switch (selectedItem)
                 {

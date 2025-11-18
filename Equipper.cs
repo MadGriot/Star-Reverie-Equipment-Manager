@@ -38,8 +38,47 @@ namespace Star_Reverie_Inventory_Manager
                     IsEquipped = true
                 };
                 character.WeaponInstances.Add(characterWeaponInstance);
-                App.StarReverieDbContext.SaveChanges();
+
             }
+            App.StarReverieDbContext.SaveChanges();
+        }
+
+        public static void EquipArmor(Unit item, Character character)
+        {
+            //Equipping armor.. no instances needed for now
+            character.Armor = (ArmorModel)item;
+            App.StarReverieDbContext.SaveChanges();
+        }
+
+        public static void EquipShield(Unit item, Character character)
+        {
+            //Unequipping current shield
+            CharacterShieldInstance characterShieldInstance = character.ShieldInstances.FirstOrDefault(s => s.ShieldModel == character.Shield);
+            if (characterShieldInstance != null)
+            {
+                characterShieldInstance.IsEquipped = false;
+            }
+
+            //Equipping Shield
+            character.Shield = (ShieldModel)item;
+            characterShieldInstance = character.ShieldInstances.FirstOrDefault(s => s.ShieldModel == character.Shield);
+            if (characterShieldInstance != null)
+            {
+                characterShieldInstance.IsEquipped = true;
+            }
+            else
+            {
+                characterShieldInstance = new()
+                {
+                    ShieldModel = character.Shield,
+                    Character = character,
+                    CurrentSP = character.Shield.MaxSP,
+                    IsEquipped = true
+                };
+                character.ShieldInstances.Add(characterShieldInstance);
+            }
+            App.StarReverieDbContext.SaveChanges();
+
         }
         public static void AddItemsIntoInventory(Unit item, Character character, int quantity)
         {
