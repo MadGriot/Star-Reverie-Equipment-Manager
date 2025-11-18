@@ -77,7 +77,8 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
 
         private void EquipWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, inventory);
+            displayItemsWindow.ShowDialog();
         }
 
         private void EquipArmorButton_Click(object sender, RoutedEventArgs e)

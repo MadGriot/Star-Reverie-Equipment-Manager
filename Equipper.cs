@@ -8,8 +8,39 @@ using StarReverieCore.Models;
 
 namespace Star_Reverie_Inventory_Manager
 {
+
     public static class Equipper
     {
+        public static void EquipWeapon(Unit item, Character character)
+        {
+            //Unequipping current weapon
+            CharacterWeaponInstance characterWeaponInstance = character.WeaponInstances.FirstOrDefault(w => w.WeaponModel == character.Weapon);
+            if (characterWeaponInstance != null)
+            {
+                characterWeaponInstance.IsEquipped = false;
+
+            }
+
+            //Equipping weapon
+            character.Weapon = (WeaponModel)item;
+            characterWeaponInstance = character.WeaponInstances.FirstOrDefault(w => w.WeaponModel == character.Weapon);
+            if (characterWeaponInstance != null)
+            {
+                characterWeaponInstance.IsEquipped = true;
+            }
+            else
+            {
+                characterWeaponInstance = new()
+                {
+                    WeaponModel = character.Weapon,
+                    Character = character,
+                    CurrentAmmo = character.Weapon.MaxAmmo,
+                    IsEquipped = true
+                };
+                character.WeaponInstances.Add(characterWeaponInstance);
+                App.StarReverieDbContext.SaveChanges();
+            }
+        }
         public static void AddItemsIntoInventory(Unit item, Character character, int quantity)
         {
             UnitStack unitStack = character.Inventory.Units.FirstOrDefault(u => u.Unit == item, null);
@@ -29,6 +60,27 @@ namespace Star_Reverie_Inventory_Manager
                 character.Inventory.Units.Add(unitStack);
             }
             App.StarReverieDbContext.SaveChanges();
+        }
+
+        public static void RemoveItemsFromInventory(Unit item, Character character, int quantity)
+        {
+            UnitStack unitStack = character.Inventory.Units.First(u => u.Unit == item);
+            unitStack.Quantity -= quantity;
+            if (unitStack.Quantity <= 0)
+            {
+                character.Inventory.Units.Remove(unitStack);
+                switch (unitStack.Unit)
+                {
+                    case WeaponModel:
+                        character.WeaponInstances.Remove(
+                            character.WeaponInstances.First(w => w.WeaponModel == item));
+                        break;
+                    case ShieldModel:
+                        character.ShieldInstances.Remove(
+                            character.ShieldInstances.First(w => w.ShieldModel == item));
+                        break;
+                }
+            }
         }
     }
 }

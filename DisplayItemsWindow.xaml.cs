@@ -21,7 +21,6 @@ namespace Star_Reverie_Inventory_Manager
         private bool isAdding;
         private Character character = new() { FirstName = "Unknown", LastName = "Person" };
         private int quantity = 1;
-        private ItemType itemType;
         private CharacterDetailsWindow characterDetailsWindow = null;
         public DisplayItemsWindow(ItemType itemType, Character character, CharacterDetailsWindow characterDetailsWindow)
         {
@@ -29,7 +28,6 @@ namespace Star_Reverie_Inventory_Manager
             items = new();
             this.character = character;
             isAdding = true;
-            this.itemType = itemType;
             ReadItemsFromDatabase(itemType);
             this.characterDetailsWindow = characterDetailsWindow;
         }
@@ -37,11 +35,36 @@ namespace Star_Reverie_Inventory_Manager
         {
             InitializeComponent();
             items = new();
-            this.itemType = itemType;
             ReadItemsFromDatabase(itemType);
         }
 
+        public DisplayItemsWindow(ItemType itemType, List<UnitStack> inventory)
+        {
+            InitializeComponent();
+            ReadItemsFromInventory(inventory, itemType);
+        }
 
+        public void ReadItemsFromInventory(List<UnitStack> inventory, ItemType itemType)
+        {
+            switch (itemType)
+            {
+                case ItemType.Weapon:
+                    List<Unit?> weapons = inventory
+                        .Where(s => s.Unit is WeaponModel)
+                        .Select(s => s.Unit)
+                        .ToList();
+                    ItemsListView.ItemsSource = weapons;
+                    break;
+                case ItemType.Shield:
+                    List<Unit?> shields = inventory
+                        .Where(s => s.Unit is ShieldModel)
+                        .Select(s => s.Unit)
+                        .ToList();
+                    ItemsListView.ItemsSource = shields;
+                    break;
+            }
+
+        }
         public void ReadItemsFromDatabase(ItemType itemType)
         {
             switch (itemType)
