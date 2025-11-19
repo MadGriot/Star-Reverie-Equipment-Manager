@@ -46,59 +46,59 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Dice Count: "/>
-            <TextBox Width="25" x:Name="damageTextBox"
+            <TextBox Width="75" x:Name="damageTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Modifier: "/>
-            <TextBox Width="25" x:Name="modifierTextBox"
+            <TextBox Width="75" x:Name="modifierTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Accuracy: "/>
-            <TextBox Width="25" x:Name="accTextBox"
+            <TextBox Width="75" x:Name="accTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Range: "/>
-            <TextBox Width="25" x:Name="rangeTextBox"
+            <TextBox Width="75" x:Name="rangeTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Weight: "/>
-            <TextBox Width="25" x:Name="weightTextBox"
+            <TextBox Width="75" x:Name="weightTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="AmmoWeight: "/>
-            <TextBox Width="25" x:Name="ammoWeightTextBox"
+            <TextBox Width="75" x:Name="ammoWeightTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="RoF: "/>
-            <TextBox Width="25" x:Name="roFTextBox"
+            <TextBox Width="75" x:Name="roFTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Shots: "/>
-            <TextBox Width="25" x:Name="ShotsTextBox"
+            <TextBox Width="75" x:Name="ShotsTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="STR: "/>
-            <TextBox Width="25" x:Name="STRTextBox"
+            <TextBox Width="75" x:Name="STRTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Bulk: "/>
-            <TextBox Width="25" x:Name="bulkTextBox"
+            <TextBox Width="75" x:Name="bulkTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Cost: "/>
-            <TextBox Width="25" x:Name="costTextBox"
+            <TextBox Width="75" x:Name="costTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <Button Content="Save"

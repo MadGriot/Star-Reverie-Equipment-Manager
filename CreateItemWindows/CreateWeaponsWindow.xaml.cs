@@ -8,7 +8,9 @@ using StarReverieCore.Equipment;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
 using System.Windows;
+using System.Windows.Controls;
 
+using static Star_Reverie_Inventory_Manager.InputValidator;
 namespace Star_Reverie_Inventory_Manager
 {
     /// <summary>
@@ -42,6 +44,22 @@ namespace Star_Reverie_Inventory_Manager
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                MessageBox.Show("Name is required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!TryParseInt(accTextBox, "Accuracy", out int accuracy)) return;
+            if (!TryParseInt(rangeTextBox, "Range", out int range)) return;
+            if (!TryParseDecimal(weightTextBox, "Weapon Weight", out decimal weaponWeight)) return;
+            if (!TryParseDecimal(ammoWeightTextBox, "Ammo Weight", out decimal ammoWeight)) return;
+            if (!TryParseInt(roFTextBox, "Rate of Fire", out int rof)) return;
+            if (!TryParseInt(ShotsTextBox, "Max Ammo", out int maxAmmo)) return;
+            if (!TryParseInt(STRTextBox, "STR Requirement", out int strReq)) return;
+            if (!TryParseInt(bulkTextBox, "Bulk", out int bulk)) return;
+            if (!TryParseInt(costTextBox, "Cost", out int cost)) return;
+            if (!TryParseInt(damageTextBox, "Dice Count", out int diceCount)) return;
+            if (!TryParseInt(modifierTextBox, "Damage Modifier", out int modifier)) return;
             //Save weapon
             WeaponModel weaponModel = new()
             {
@@ -65,6 +83,9 @@ namespace Star_Reverie_Inventory_Manager
             };
             App.StarReverieDbContext.Weapons.Add(weaponModel);
             App.StarReverieDbContext.SaveChanges();
+
+            MessageBox.Show("Weapon saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
             Close();
         }
     }
