@@ -5,6 +5,7 @@
 //  -----------------------------------------------------------------------
 
 using Microsoft.EntityFrameworkCore;
+using Star_Reverie_Inventory_Manager.CharacterManager;
 using Star_Reverie_Inventory_Manager.ItemDetailsWindow;
 using StarReverieCore.Models;
 using System.Windows;
@@ -55,6 +56,11 @@ namespace Star_Reverie_Inventory_Manager
         {
             DisplayItemsWindow displayItemsWindow = new(ItemType.Shield);
             displayItemsWindow.ShowDialog();
+        }
+        private void CreateCharacterButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateCharacterWindow createCharacterWindow = new();
+            createCharacterWindow.ShowDialog();
         }
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
