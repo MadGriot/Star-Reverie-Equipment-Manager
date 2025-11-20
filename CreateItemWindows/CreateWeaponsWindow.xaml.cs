@@ -21,6 +21,7 @@ namespace Star_Reverie_Inventory_Manager
         public Array DamageTypes { get; } = Enum.GetValues(typeof(DamageType));
         public Array WeaponTypes { get; } = Enum.GetValues(typeof(WeaponType));
         public Array WeaponClasses { get; } = Enum.GetValues(typeof(WeaponClass));
+        public AmmoModel[] AmmoModels { get; } = App.StarReverieDbContext.Ammos.ToArray();
 
         public Skill[] Skills { get; } =
         {
@@ -34,12 +35,14 @@ namespace Star_Reverie_Inventory_Manager
         public DamageType SelectedDamageType { get; set; } = DamageType.Piercing;
         public WeaponType SelectedWeaponType { get; set; } = WeaponType.RangedPhysical;
         public WeaponClass SelectedWeaponClass { get; set; } = WeaponClass.Pistol;
+        public AmmoModel SelectedAmmo { get; set; }
         public Skill SelectedSkill { get; set; } = Skill.BallisticWeapons;
 
         public CreateWeaponsWindow()
         {
             InitializeComponent();
             DataContext = this;
+            SelectedAmmo = AmmoModels[0];
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -67,6 +70,7 @@ namespace Star_Reverie_Inventory_Manager
                 DamageType = SelectedDamageType,
                 WeaponType = SelectedWeaponType,
                 WeaponClass = SelectedWeaponClass,
+                Ammo = SelectedAmmo,
                 Accuracy = int.Parse(accTextBox.Text),
                 Range = int.Parse(rangeTextBox.Text),
                 WeaponWeight = decimal.Parse(weightTextBox.Text),

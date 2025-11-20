@@ -44,6 +44,15 @@
               ItemsSource="{Binding WeaponClasses}"
               SelectedItem="{Binding SelectedWeaponClass, Mode=TwoWay}" />
         </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Weapon Ammo: "/>
+            <ComboBox x:Name="ammoComboBox"
+                    Margin="0,0,0,5"
+                    ItemsSource="{Binding AmmoModels}"
+                    SelectedItem="{Binding SelectedAmmo, Mode=TwoWay}"
+                    DisplayMemberPath="Name"/>
+        </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="75" Text="Dice Count: "/>
             <TextBox Width="75" x:Name="damageTextBox"
