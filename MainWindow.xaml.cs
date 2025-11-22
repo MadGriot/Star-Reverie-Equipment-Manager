@@ -6,6 +6,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using Star_Reverie_Inventory_Manager.CharacterManager;
+using Star_Reverie_Inventory_Manager.CreateTechniquesWindows;
 using Star_Reverie_Inventory_Manager.ItemDetailsWindow;
 using StarReverieCore.Models;
 using System.Windows;
@@ -35,6 +36,12 @@ namespace Star_Reverie_Inventory_Manager
         {
             CreateArmorWindow createArmorWindow = new();
             createArmorWindow.ShowDialog();
+        }
+
+        private void CreateAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAstralTechniqueWindow createAstralTechniqueWindow = new();
+            createAstralTechniqueWindow.ShowDialog();
         }
 
         private void CreateShieldButton_Click(object sender, RoutedEventArgs e)

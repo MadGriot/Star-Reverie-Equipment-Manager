@@ -74,7 +74,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindow
             weapon.CurrentAmmo = int.Parse(ShotsTextBox.Text);
             weapon.STRRequirement = int.Parse(STRTextBox.Text);
             weapon.Bulk = int.Parse(bulkTextBox.Text);
-            weapon.Cost = int.Parse(costTextBox.Text);
+            weapon.Cost = decimal.Parse(costTextBox.Text);
             weapon.Skill = SelectedSkill;
             weapon.DiceCount = int.Parse(damageTextBox.Text);
             weapon.Modifier = int.Parse(modifierTextBox.Text);

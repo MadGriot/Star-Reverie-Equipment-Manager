@@ -13,7 +13,9 @@
                 <MenuItem Header="_Create Armor" Click="CreateArmorButton_Click"/>
                 <MenuItem Header="_Create Shield" Click="CreateShieldButton_Click"/>
                 <Separator />
-                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Create Techniques">
+                <MenuItem Header="_Create Astral Technique" Click="CreateAstralTechniqueButton_Click" />
             </MenuItem>
             <MenuItem Header="_Display Items">
                 <MenuItem Header="_Display Weapons" Click="DisplayWeaponsButton_Click" />
