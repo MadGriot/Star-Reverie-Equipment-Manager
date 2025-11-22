@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CreateTechniquesWindows"
         mc:Ignorable="d"
-        Title="CreateAstralTechnique" Height="450" Width="500">
+        Title="CreateAstralTechnique" Height="475" Width="500">
     <Grid>
         <StackPanel Margin="10">
             <StackPanel Orientation="Horizontal">
@@ -40,6 +40,11 @@
                       SelectedItem="{Binding StatusEffect, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
+                <TextBlock Width="80" Text="Effect Strength: "/>
+                <TextBox Width="100" x:Name="statusEffectStrengthTextBox"
+                       Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <TextBlock Width="75" Text="Accuracy: "/>
                 <TextBox Width="100" x:Name="accuracyTextBox"
                        Margin="0,0,0,5"/>
@@ -52,6 +57,11 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="75" Text="Turn Count: "/>
                 <TextBox Width="100" x:Name="turnCountTextBox"
+                       Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="75" Text="Turn Duration: "/>
+                <TextBox Width="100" x:Name="turnDurationTextBox"
                        Margin="0,0,0,5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -70,9 +80,21 @@
                        Margin="0,0,0,5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="cost: "/>
+                <TextBlock Width="75" Text="Cost: "/>
                 <TextBox Width="100" x:Name="costTextBox"
                        Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Target Area: "/>
+                <ComboBox x:Name="targetAreaBox"
+                      Margin="0,0,0,5"
+                      ItemsSource="{Binding TargetAreas}"
+                      SelectedItem="{Binding TargetArea, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="75" Text="Is Offensive: " />
+                <CheckBox IsChecked="{Binding IsOffensive, Mode=TwoWay}"
+              VerticalAlignment="Center"/>
             </StackPanel>
             <Button Content="Save"
                     Click="SaveButton_Click"/>
