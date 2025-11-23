@@ -23,19 +23,22 @@
     <Compile Update="CreateTechniquesWindows\CreateAstralTechniqueWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CreateTechniquesWindows\CreateTechniqueWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DisplayItemsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ItemDetailsWindow\ArmorDetailsWindow.xaml.cs">
+    <Compile Update="ItemDetailsWindows\ArmorDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ItemDetailsWindow\CharacterDetailsWindow.xaml.cs">
+    <Compile Update="ItemDetailsWindows\CharacterDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ItemDetailsWindow\ShieldDetailsWindow.xaml.cs">
+    <Compile Update="ItemDetailsWindows\ShieldDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ItemDetailsWindow\WeaponDetailsWindow.xaml.cs">
+    <Compile Update="ItemDetailsWindows\WeaponDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

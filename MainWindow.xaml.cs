@@ -7,7 +7,7 @@
 using Microsoft.EntityFrameworkCore;
 using Star_Reverie_Inventory_Manager.CharacterManager;
 using Star_Reverie_Inventory_Manager.CreateTechniquesWindows;
-using Star_Reverie_Inventory_Manager.ItemDetailsWindow;
+using Star_Reverie_Inventory_Manager.ItemDetailsWindows;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,7 +43,22 @@ namespace Star_Reverie_Inventory_Manager
             CreateAstralTechniqueWindow createAstralTechniqueWindow = new();
             createAstralTechniqueWindow.ShowDialog();
         }
+        private void CreateTechniqueButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateTechniqueWindow createTechniqueWindow = new();
+            createTechniqueWindow.ShowDialog();
+        }
 
+        private void DisplayTechniqueButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayItemsWindow displayItemsWindow = new(ItemType.Technique);
+            displayItemsWindow.ShowDialog();
+        }
+        private void DisplayAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayItemsWindow displayItemsWindow = new(ItemType.AstralTechnique);
+            displayItemsWindow.ShowDialog();
+        }
         private void CreateShieldButton_Click(object sender, RoutedEventArgs e)
         {
             CreateShieldWindow createShieldWindow = new();
@@ -82,6 +97,8 @@ namespace Star_Reverie_Inventory_Manager
                 .Include(wi => wi.WeaponInstances)
                 .Include(a => a.AttributeScore)
                 .Include(o => o.Armor)
+                .Include(a => a.AstralTech)
+                .Include(t => t.Techniques)
                 .Include(o => o.Shield)
                 .Include(si => si.ShieldInstances)
                 .Include(i => i.Inventory)

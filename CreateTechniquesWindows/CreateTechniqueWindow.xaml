@@ -1,0 +1,40 @@
+﻿<Window x:Class="Star_Reverie_Inventory_Manager.CreateTechniquesWindows.CreateTechniqueWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CreateTechniquesWindows"
+        mc:Ignorable="d"
+        Title="CreateTechniqueWindow" Height="450" Width="500">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Name: "/>
+            <TextBox Width="300" x:Name="nameTextBox"
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="115" Text="Turn Count: "/>
+            <TextBox Width="75" x:Name="turnCountTextBox"
+                    Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="80" Text="Stamina Cost: "/>
+            <TextBox Width="100" x:Name="staminaCostTextBox"
+                       Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Cost: "/>
+            <TextBox Width="100" x:Name="costTextBox"
+                       Margin="0,0,0,5"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Is Offensive: " />
+            <CheckBox IsChecked="{Binding IsOffensive, Mode=TwoWay}"
+              VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button Content="Save"
+                    Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>

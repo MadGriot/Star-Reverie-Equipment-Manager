@@ -53,6 +53,18 @@ namespace Star_Reverie_Inventory_Manager.Controls
                         itemControl.itemProperty1TextBlock.Text = $"SP: {shield.MaxSP}";
                         itemControl.itemProperty2Block.Text = $"SP Cost: {shield.SPCost}";
                         break;
+                    case Technique:
+                        Technique technique = (Technique)item;
+                        itemControl.nameTextBlock.Text = technique.Name;
+                        itemControl.itemProperty1TextBlock.Text = technique.IsOffensive ? "Offensive" : "Defensive";
+                        itemControl.itemProperty2Block.Text = $"Stamina Cost: {technique.StaminaCost}";
+                        break;
+                    case AstralTech:
+                        AstralTech astralTech = (AstralTech)item;
+                        itemControl.nameTextBlock.Text = astralTech.Name;
+                        itemControl.itemProperty1TextBlock.Text = $"Stamina Cost: {astralTech.StaminaCost}";
+                        itemControl.itemProperty2Block.Text = $"Cost: {astralTech.Cost}";
+                        break;
                 }
 
             }

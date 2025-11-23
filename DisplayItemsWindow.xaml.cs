@@ -4,7 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
-using Star_Reverie_Inventory_Manager.ItemDetailsWindow;
+using Star_Reverie_Inventory_Manager.ItemDetailsWindows;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -100,6 +100,18 @@ namespace Star_Reverie_Inventory_Manager
                     break;
                 case ItemType.Shield:
                     items = App.StarReverieDbContext.Shields
+                        .OfType<Unit>()
+                        .ToList();
+                    break;
+
+                case ItemType.Technique:
+                    items = App.StarReverieDbContext.Techniques
+                        .OfType<Unit>()
+                        .ToList();
+                    break;
+
+                case ItemType.AstralTechnique:
+                    items = App.StarReverieDbContext.AstralTechniques
                         .OfType<Unit>()
                         .ToList();
                     break;

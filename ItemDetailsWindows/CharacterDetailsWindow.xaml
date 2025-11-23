@@ -1,0 +1,149 @@
+﻿<Window x:Class="Star_Reverie_Inventory_Manager.ItemDetailsWindows.CharacterDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.ItemDetailsWindows"
+        xmlns:ic="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
+        mc:Ignorable="d"
+        Title="CharacterDetailsWindow" Height="550" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Add Item">
+                    <MenuItem Header="_Add Weapon" Click="AddWeaponButton_Click" />
+                    <MenuItem Header="_Add Armor" Click="AddArmorButton_Click"/>
+                    <MenuItem Header="_Add Shield" Click="AddShieldButton_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Equip Item">
+                    <MenuItem Header="_Equip Weapon" Click="EquipWeaponButton_Click" />
+                    <MenuItem Header="_Equip Armor" Click="EquipArmorButton_Click" />
+                    <MenuItem Header="_Equip Shield" Click="EquipShieldButton_Click" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <!-- CHARACTER STATS -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <TextBlock Text="Character Stats" FontWeight="Bold" FontSize="14"/>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
+
+            <!-- Name -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Name: " FontWeight="SemiBold"/>
+                <TextBlock x:Name="NameText" Text="First Last"/>
+            </StackPanel>
+
+            <!-- Equipped Items -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Equipped Weapon: " FontWeight="SemiBold"/>
+                <TextBlock x:Name="EquippedWeaponText" Text="None"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Equipped Armor: " FontWeight="SemiBold"/>
+                <TextBlock x:Name="EquippedArmorText" Text="None"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Equipped Shield: " FontWeight="SemiBold"/>
+                <TextBlock x:Name="EquippedShieldText" Text="None"/>
+            </StackPanel>
+
+            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
+
+            <!-- STATS -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Level: " />
+                <TextBlock x:Name="LevelText" Text="0"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Strength: " />
+                <TextBlock x:Name="StrengthText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Dexterity: " />
+                <TextBlock x:Name="DexterityText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Intelligence: " />
+                <TextBlock x:Name="IntelligenceText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Constitution: " />
+                <TextBlock x:Name="ConstitutionText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Wisdom: " />
+                <TextBlock x:Name="WisdomText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Perception: " />
+                <TextBlock x:Name="PerceptionText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Basic Lift: " />
+                <TextBlock x:Name="BasicLiftText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Speed: " />
+                <TextBlock x:Name="SpeedText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Dodge: " />
+                <TextBlock x:Name="DodgeText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Damage: " />
+                <TextBlock x:Name="DamageText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Damage Resistance: " />
+                <TextBlock x:Name="DamageResistanceText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Weight: " />
+                <TextBlock x:Name="WeightText" Text="0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Encumbrance: " />
+                <TextBlock x:Name="EncumbranceText" Text="0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- INVENTORY -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+            <TextBlock Text="Character Inventory" FontWeight="Bold" FontSize="14"/>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
+            <ListView x:Name="ItemsListView"
+                      Height="400"
+                      Margin="0 5 0 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ic:InventoryControl Items="{Binding}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

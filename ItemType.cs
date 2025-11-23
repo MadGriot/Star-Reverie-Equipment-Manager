@@ -10,6 +10,8 @@ namespace Star_Reverie_Inventory_Manager
     {
         Weapon,
         Armor,
-        Shield
+        Shield,
+        Technique,
+        AstralTechnique,
     }
 }

@@ -16,11 +16,14 @@
             </MenuItem>
             <MenuItem Header="_Create Techniques">
                 <MenuItem Header="_Create Astral Technique" Click="CreateAstralTechniqueButton_Click" />
+                <MenuItem Header="_Create Technique" Click="CreateTechniqueButton_Click" />
             </MenuItem>
             <MenuItem Header="_Display Items">
                 <MenuItem Header="_Display Weapons" Click="DisplayWeaponsButton_Click" />
                 <MenuItem Header="_Display Armors" Click="DisplayArmorsButton_Click" />
                 <MenuItem Header="_Display Shields" Click="DisplayShieldsButton_Click" />
+                <MenuItem Header="_Display Techniques" Click="DisplayTechniqueButton_Click"/>
+                <MenuItem Header="_Display Astral Techniques" Click="DisplayAstralTechniqueButton_Click" />
             </MenuItem>
             <MenuItem Header="_Character Manager">
                 <MenuItem Header="_Create Character" Click="CreateCharacterButton_Click"/>
