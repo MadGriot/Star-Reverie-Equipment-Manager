@@ -52,12 +52,24 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
 
         private void SubtractStrengthButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentStrength = int.Parse(strengthNumber.Text);
+            if (currentStrength > 3)
+            {
+                currentStrength -= 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
+                carryWeight.Text = CalculateCarryWeight(currentStrength).ToString();
+            }
+            strengthNumber.Text = currentStrength.ToString();
         }
 
         private void AddStrengthButton_Click(object sender, RoutedEventArgs e)
         {
+            int currentStrength = int.Parse(strengthNumber.Text);
 
+            currentStrength += 1;
+            attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) - 1).ToString();
+            carryWeight.Text = CalculateCarryWeight(currentStrength).ToString();
+            strengthNumber.Text = currentStrength.ToString();
         }
 
         private void SubtractDexterityButton_Click(object sender, RoutedEventArgs e)
@@ -89,5 +101,28 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         {
 
         }
+
+        private void SubtractWisdomButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddWisdomButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddPerceptionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SubtractPerceptionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private int CalculateCarryWeight(int carryWeight) => (carryWeight * carryWeight) / 5;
+
     }
 }

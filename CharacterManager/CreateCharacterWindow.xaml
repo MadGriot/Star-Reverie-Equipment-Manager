@@ -38,7 +38,7 @@
             </StackPanel>
 
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="SubtractStrengthButton" Click="SubtractStrengthButton_Click" Margin="5">-</Button>
                 <TextBlock Text="Strength" Margin="2" VerticalAlignment="Center"/>
@@ -65,6 +65,38 @@
                 <TextBlock Text="Constitution" Margin="2" VerticalAlignment="Center"/>
                 <TextBlock  x:Name="constitutionNumber" Text="10" VerticalAlignment="Center"/>
                 <Button x:Name="AddConstitutionButton" Click="AddConstitutionButton_Click" Margin="5">+</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SubtractWisdomButton" Click="SubtractWisdomButton_Click" Margin="5">-</Button>
+                <TextBlock Text="Wisdom" Margin="2" VerticalAlignment="Center"/>
+                <TextBlock  x:Name="wisdomNumber" Text="10" VerticalAlignment="Center"/>
+                <Button x:Name="AddWisdomButton" Click="AddWisdomButton_Click" Margin="5">+</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SubtractPerceptionButton" Click="SubtractPerceptionButton_Click" Margin="5">-</Button>
+                <TextBlock Text="Perception" Margin="2" VerticalAlignment="Center"/>
+                <TextBlock  x:Name="perceptionNumber" Text="10" VerticalAlignment="Center"/>
+                <Button x:Name="AddPerceptionButton" Click="AddPerceptionButton_Click" Margin="5">+</Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                <TextBlock Text="Carry Weight: " VerticalAlignment="Center"/>
+                <TextBlock x:Name="carryWeight" Text="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                <TextBlock Text="Speed: " VerticalAlignment="Center"/>
+                <TextBlock x:Name="speed" Text="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                <TextBlock Text="Dodge: " VerticalAlignment="Center"/>
+                <TextBlock x:Name="dodge" Text="8"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Encumbrance: "/>
+                <TextBlock x:Name="encumbranceText" Text="None" />
             </StackPanel>
         </StackPanel>
     </Grid>

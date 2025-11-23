@@ -93,8 +93,8 @@ namespace Star_Reverie_Inventory_Manager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/createitemwindows/createshieldwindow.xa" +
-                    "ml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/createitemwindows/createshield" +
+                    "window.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CreateItemWindows\CreateShieldWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
