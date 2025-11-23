@@ -20,7 +20,21 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         public Array SpeciesList { get; } = Enum.GetValues(typeof(Species));
         public Array Genders { get; } = Enum.GetValues(typeof(Gender));
 
-        public Species SelectedSpecies { get; set; } = Species.Human;
+        private Species selectedSpecies = Species.Human;
+        private Species previousSpecies = Species.Human;
+        public Species SelectedSpecies
+        {
+            get => selectedSpecies;
+            set
+            {
+                if (selectedSpecies != value)
+                {
+                    previousSpecies = selectedSpecies;
+                    selectedSpecies = value;
+                    OnSpeciesChange(previousSpecies, selectedSpecies);
+                }
+            }
+        }
         public Gender SelectedGender { get; set; } = Gender.Male;
         public CreateCharacterWindow()
         {
@@ -224,6 +238,30 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             }
         }
 
+        private void OnSpeciesChange(Species oldSpecies, Species newSpecies)
+        {
+            switch (oldSpecies)
+            {
+                case Species.Sutharian:
+                    perceptionNumber.Text = (int.Parse(perceptionNumber.Text) - 2).ToString();
+                    break;
+                case Species.Karnok:
+                    strengthNumber.Text = (int.Parse(strengthNumber.Text) - 4).ToString();
+                    intelligenceNumber.Text = (int.Parse(intelligenceNumber.Text) + 4).ToString();
+                    break;
+            }
+            switch (newSpecies)
+            {
+                case Species.Sutharian:
+                    perceptionNumber.Text = (int.Parse(perceptionNumber.Text) + 2).ToString();
+                    break;
+                case Species.Karnok:
+                    strengthNumber.Text = (int.Parse(strengthNumber.Text) + 4).ToString();
+                    intelligenceNumber.Text = (int.Parse(intelligenceNumber.Text) - 4).ToString();
+                    break;
+            }
+        }
+
         public Character CreateCharacter()
         {
             Character character = new()
@@ -234,9 +272,10 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
                 Species = SelectedSpecies,
                 Gender = SelectedGender,
                 Level = 1,
-                PowerLevel = 0,
+                PowerLevel = 81,
                 AttributePoints = int.Parse(attributePointsNumber.Text),
                 SkillPoints = int.Parse(skillPointsNumber.Text),
+                PortraitPath = portraitPath.Text,
                 AttributeScore = new()
                 {
                     Strength = int.Parse(strengthNumber.Text),
@@ -279,5 +318,15 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             .Cast<Skill>()
             .Select(s => new SkillModel { Skill = s }));
 
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Character character = CreateCharacter();
+            App.StarReverieDbContext.Characters.Add(character);
+            App.StarReverieDbContext.SaveChanges();
+
+            MessageBox.Show("Character saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            Close();
+        }
     }
 }
