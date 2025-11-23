@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------
+// 	AssemblyInfo.cs
+// 	Author: Trenton Scott 
+// 	Copyright (c) Centuras. All rights reserved.
+//  -----------------------------------------------------------------------
+
 using System.Windows;
 
 [assembly: ThemeInfo(

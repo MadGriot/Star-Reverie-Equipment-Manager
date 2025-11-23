@@ -4,8 +4,10 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using Star_Reverie_Inventory_Manager.Controls;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace Star_Reverie_Inventory_Manager.CharacterManager
@@ -216,13 +218,66 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             }
             perceptionNumber.Text = currentPerception.ToString();
 
+            foreach (SkillModel skill in Skills)
+            {
+                
+            }
         }
-        public int AvailableSkillPoints
+
+        public Character CreateCharacter()
         {
-            get => int.Parse(skillPointsNumber.Text);
-            set => skillPointsNumber.Text = value.ToString();
+            Character character = new()
+            {
+                FirstName = firstName.Text,
+                LastName = lastName.Text,
+                Age = int.Parse(ageNumber.Text),
+                Species = SelectedSpecies,
+                Gender = SelectedGender,
+                Level = 1,
+                PowerLevel = 0,
+                AttributePoints = int.Parse(attributePointsNumber.Text),
+                SkillPoints = int.Parse(skillPointsNumber.Text),
+                AttributeScore = new()
+                {
+                    Strength = int.Parse(strengthNumber.Text),
+                    Dexterity = int.Parse(dexterityNumber.Text),
+                    Constitution = int.Parse(constitutionNumber.Text),
+                    Intelligence = int.Parse(intelligenceNumber.Text),
+                    Wisdom = int.Parse(wisdomNumber.Text),
+                    Perception = int.Parse(perceptionNumber.Text),
+                    HP = int.Parse(hpNumber.Text),
+                    MinHP = int.Parse(hpNumber.Text),
+                    Stamina = int.Parse(staminaNumber.Text),
+                    MinStamina = int.Parse(staminaNumber.Text),
+                    BasicLift = int.Parse(carryWeight.Text),
+                    Speed = decimal.Parse(speed.Text),
+                    Dodge = int.Parse(dodge.Text),
+                    XP = 1000,
+                },
+            };
+
+            foreach (SkillModel skill in Skills)
+            {
+                if (skill.Level > 0)
+                {
+                    character.Skills.Add(new SkillModel
+                    {
+                        Skill = skill.Skill,
+                        Level = skill.Level,
+                        Character = character
+                    });
+                }
+            }
+
+            return character;
         }
+
         private int CalculateCarryWeight(int carryWeight) => (carryWeight * carryWeight) / 5;
+
+        public ObservableCollection<SkillModel> Skills { get; } = new ObservableCollection<SkillModel>(
+            Enum.GetValues(typeof(Skill))
+            .Cast<Skill>()
+            .Select(s => new SkillModel { Skill = s }));
 
     }
 }

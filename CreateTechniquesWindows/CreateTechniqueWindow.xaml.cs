@@ -4,8 +4,8 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
-using System.Windows;
 using StarReverieCore.Models;
+using System.Windows;
 using static Star_Reverie_Inventory_Manager.InputValidator;
 namespace Star_Reverie_Inventory_Manager.CreateTechniquesWindows
 {
@@ -31,7 +31,7 @@ namespace Star_Reverie_Inventory_Manager.CreateTechniquesWindows
 
             if (!TryParseInt(turnCountTextBox, "Turn Count", out int turnCount)) return;
             if (!TryParseInt(staminaCostTextBox, "Stamina Cost", out int staminaCost)) return;
-            if (!TryParseInt(costTextBox, "Cost", out int  cost)) return;
+            if (!TryParseInt(costTextBox, "Cost", out int cost)) return;
 
             //Save Technique
 

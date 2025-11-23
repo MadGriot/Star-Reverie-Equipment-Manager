@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// 	CreateAstralTechnique.xaml.cs
+// 	CreateAstralTechniqueWindow.xaml.cs
 // 	Author: Trenton Scott 
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------

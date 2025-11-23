@@ -8,7 +8,6 @@ using StarReverieCore.Equipment;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
 using System.Windows;
-using System.Windows.Controls;
 
 using static Star_Reverie_Inventory_Manager.InputValidator;
 namespace Star_Reverie_Inventory_Manager

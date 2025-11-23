@@ -1,4 +1,12 @@
-﻿using StarReverieCore.Mechanics;
+﻿// -----------------------------------------------------------------------
+// 	SkillControl.xaml.cs
+// 	Author: Trenton Scott 
+// 	Copyright (c) Centuras. All rights reserved.
+//  -----------------------------------------------------------------------
+
+using Star_Reverie_Inventory_Manager.CharacterManager;
+using StarReverieCore.Mechanics;
+using StarReverieCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
@@ -20,14 +28,24 @@ namespace Star_Reverie_Inventory_Manager.Controls
     /// </summary>
     public partial class SkillControl : UserControl
     {
+        private CreateCharacterWindow? CreateCharacterWindow;
+        private TextBlock? CurrentSkillPointsTextBlock;
         public SkillControl()
         {
+
             InitializeComponent();
+            CreateCharacterWindow = Application.Current.Windows
+                        .OfType<CreateCharacterWindow>()
+                        .FirstOrDefault();
+            if (CreateCharacterWindow != null)
+            {
+                CurrentSkillPointsTextBlock = CreateCharacterWindow.skillPointsNumber;
+            }
         }
 
 
 
-        public Skill Skills
+        public Skill? Skills
         {
             get { return (Skill)GetValue(SkillsProperty); }
             set { SetValue(SkillsProperty, value); }
@@ -35,16 +53,9 @@ namespace Star_Reverie_Inventory_Manager.Controls
 
         // Using a DependencyProperty as the backing store for Skills.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SkillsProperty =
-            DependencyProperty.Register(nameof(Skills), typeof(Skill), typeof(SkillControl), new PropertyMetadata(default(Skill), SetText));
+            DependencyProperty.Register(nameof(Skills), typeof(Skill?), typeof(SkillControl), new PropertyMetadata(null, SetText));
 
-        public int SkillPoints
-        {
-            get => (int)GetValue(SkillPointsProperty);
-            set => SetValue(SkillPointsProperty, value);
-        }
 
-        public static readonly DependencyProperty SkillPointsProperty =
-            DependencyProperty.Register(nameof(SkillPoints), typeof(int), typeof(SkillControl), new PropertyMetadata(0));
 
         public int Level
         {
@@ -53,34 +64,49 @@ namespace Star_Reverie_Inventory_Manager.Controls
         }
 
         public static readonly DependencyProperty LevelProperty =
-            DependencyProperty.Register(nameof(Level), typeof(int), typeof(SkillControl), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(Level), typeof(int), typeof(SkillControl), new PropertyMetadata(0, OnLevelChanged));
+
+        private static void OnLevelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            SkillControl control = (SkillControl)d;
+            control.skillLevel.Text = e.NewValue.ToString();
+        }
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            SkillControl skillControl = (SkillControl)d;
 
-            if (skillControl != null)
-            {
-                Skill skill = (Skill)e.NewValue;
-                skillControl.nameTextBlock.Text = skill.ToString();
-            }
+            SkillControl skillControl = (SkillControl)d;
+            skillControl.nameTextBlock.Text = e.NewValue.ToString();
         }
 
         private void SubtractSkillButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SkillPoints > 0)
+
+            int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
+            int currentLevel = int.Parse(skillLevel.Text);
+            int skillCost = SkillMechanics.GetSkillCost(currentLevel - 1);
+            if (Level > 0)
             {
-                Level += 1;
-                SkillPoints -= 1;
+                Level = (currentLevel - 1);
+                currentSkillPoints += skillCost;
+                CurrentSkillPointsTextBlock.Text = currentSkillPoints.ToString();
             }
         }
 
         private void AddSkillButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Level > 0)
+            if (DataContext is SkillModel skill)
             {
-                Level -= 1;
-                SkillPoints += 1;
+
+            }
+            int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
+            int currentLevel = int.Parse(skillLevel.Text);
+            int skillCost = SkillMechanics.GetSkillCost(currentLevel);
+            if (currentSkillPoints >= skillCost)
+            {
+                Level = (currentLevel + 1);
+                currentSkillPoints -= skillCost;
+                CurrentSkillPointsTextBlock.Text = currentSkillPoints.ToString();
             }
         }
     }

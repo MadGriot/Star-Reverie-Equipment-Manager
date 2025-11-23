@@ -52,7 +52,7 @@ namespace Star_Reverie_Inventory_Manager
             ReadItemsFromInventory(character.Inventory.Units, itemType);
         }
 
-        public void SetCharacterDetailsWindow(CharacterDetailsWindow characterDetailsWindow) 
+        public void SetCharacterDetailsWindow(CharacterDetailsWindow characterDetailsWindow)
             => this.characterDetailsWindow = characterDetailsWindow;
         public void ReadItemsFromInventory(List<UnitStack> inventory, ItemType itemType)
         {
@@ -150,7 +150,7 @@ namespace Star_Reverie_Inventory_Manager
                 if (actionStatus == ActionStatus.EquippingItem)
                 {
 
-                    switch(selectedItem)
+                    switch (selectedItem)
                     {
                         case WeaponModel:
                             Equipper.EquipWeapon(selectedItem, character);
