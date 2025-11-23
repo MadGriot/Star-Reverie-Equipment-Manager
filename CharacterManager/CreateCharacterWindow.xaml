@@ -138,7 +138,7 @@
                       Margin="0 5 0 0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <sc:SkillControl Skills="{Binding}"
+                        <sc:SkillControl SkillModel="{Binding}"
                                          Level="{Binding Level, Mode=TwoWay}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>

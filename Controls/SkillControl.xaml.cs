@@ -7,19 +7,8 @@
 using Star_Reverie_Inventory_Manager.CharacterManager;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
-using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Star_Reverie_Inventory_Manager.Controls
 {
@@ -45,15 +34,15 @@ namespace Star_Reverie_Inventory_Manager.Controls
 
 
 
-        public Skill? Skills
+        public SkillModel SkillModel
         {
-            get { return (Skill)GetValue(SkillsProperty); }
-            set { SetValue(SkillsProperty, value); }
+            get { return (SkillModel)GetValue(SkillModelProperty); }
+            set { SetValue(SkillModelProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Skills.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SkillsProperty =
-            DependencyProperty.Register(nameof(Skills), typeof(Skill?), typeof(SkillControl), new PropertyMetadata(null, SetText));
+        // Using a DependencyProperty as the backing store for SkillModel.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SkillModelProperty =
+            DependencyProperty.Register(nameof(SkillModel), typeof(SkillModel), typeof(SkillControl), new PropertyMetadata(null, OnSkillModelChanged));
 
 
 
@@ -72,41 +61,45 @@ namespace Star_Reverie_Inventory_Manager.Controls
             control.skillLevel.Text = e.NewValue.ToString();
         }
 
-        private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnSkillModelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
 
             SkillControl skillControl = (SkillControl)d;
-            skillControl.nameTextBlock.Text = e.NewValue.ToString();
+            SkillModel skillModel = (SkillModel)e.NewValue;
+
+            if (skillModel != null)
+            {
+                skillControl.nameTextBlock.Text = skillModel.Skill.ToString();
+                skillControl.skillLevel.Text = skillModel.Level.ToString();
+
+            }
         }
 
         private void SubtractSkillButton_Click(object sender, RoutedEventArgs e)
         {
 
-            int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
-            int currentLevel = int.Parse(skillLevel.Text);
-            int skillCost = SkillMechanics.GetSkillCost(currentLevel - 1);
-            if (Level > 0)
+            if (SkillModel.Level > 0)
             {
-                Level = (currentLevel - 1);
-                currentSkillPoints += skillCost;
-                CurrentSkillPointsTextBlock.Text = currentSkillPoints.ToString();
+                int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
+                int refund = SkillMechanics.GetSkillCost(SkillModel.Level - 1);
+
+                SkillModel.Level -= 1;
+                skillLevel.Text = SkillModel.Level.ToString();
+                CurrentSkillPointsTextBlock.Text = (currentSkillPoints + refund).ToString();
             }
         }
 
         private void AddSkillButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is SkillModel skill)
-            {
 
-            }
             int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
-            int currentLevel = int.Parse(skillLevel.Text);
-            int skillCost = SkillMechanics.GetSkillCost(currentLevel);
-            if (currentSkillPoints >= skillCost)
+            int cost = SkillMechanics.GetSkillCost(SkillModel.Level);
+
+            if (currentSkillPoints >= cost)
             {
-                Level = (currentLevel + 1);
-                currentSkillPoints -= skillCost;
-                CurrentSkillPointsTextBlock.Text = currentSkillPoints.ToString();
+                SkillModel.Level += 1;
+                skillLevel.Text = SkillModel.Level.ToString();
+                CurrentSkillPointsTextBlock.Text = (currentSkillPoints - cost).ToString();
             }
         }
     }
