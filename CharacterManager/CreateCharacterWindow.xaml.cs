@@ -4,17 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Star_Reverie_Inventory_Manager.CharacterManager
 {
@@ -65,60 +55,150 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         private void AddStrengthButton_Click(object sender, RoutedEventArgs e)
         {
             int currentStrength = int.Parse(strengthNumber.Text);
+            int currentAttributePoints = int.Parse(attributePointsNumber.Text);
+            if (currentAttributePoints > 0)
+            {
+                currentStrength += 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) - 1).ToString();
+                carryWeight.Text = CalculateCarryWeight(currentStrength).ToString();
+                strengthNumber.Text = currentStrength.ToString();
+            }
 
-            currentStrength += 1;
-            attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) - 1).ToString();
-            carryWeight.Text = CalculateCarryWeight(currentStrength).ToString();
-            strengthNumber.Text = currentStrength.ToString();
         }
 
         private void SubtractDexterityButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentDexterity = int.Parse(dexterityNumber.Text);
+            int currentConstitution = int.Parse(constitutionNumber.Text);
+            int currentDodge = int.Parse(dodge.Text);
+            if (currentDexterity > 3)
+            {
+                currentDexterity -= 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
+                decimal currentSpeed = (decimal)(currentDexterity + currentConstitution) / 4;
+                speed.Text = currentSpeed.ToString();
+                dodge.Text = ((int)Math.Round(currentSpeed + 3)).ToString();
+                dexterityNumber.Text = currentDexterity.ToString();
+            }
         }
 
         private void AddDexterityButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentDexterity = int.Parse(dexterityNumber.Text);
+            int currentConstitution = int.Parse(constitutionNumber.Text);
+            int currentAttributePoints = int.Parse(attributePointsNumber.Text);
+            int currentDodge = int.Parse(dodge.Text);
+            if (currentAttributePoints > 0)
+            {
+                currentDexterity += 1;
+                attributePointsNumber.Text = (currentAttributePoints - 1).ToString();
+                decimal currentSpeed = (decimal)(currentDexterity + currentConstitution) / 4;
+                speed.Text = currentSpeed.ToString();
+                dodge.Text = ((int)Math.Round(currentSpeed + 3)).ToString();
+                dexterityNumber.Text = currentDexterity.ToString();
+            }
         }
 
         private void SubtractIntelligenceButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentIntelligence = int.Parse(intelligenceNumber.Text);
+            if (currentIntelligence > 3)
+            {
+                currentIntelligence -= 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
+            }
+            intelligenceNumber.Text = currentIntelligence.ToString();
         }
 
         private void AddIntelligenceButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentIntelligence = int.Parse(intelligenceNumber.Text);
+            int currentAttributePoints = int.Parse(attributePointsNumber.Text);
+            if (currentAttributePoints > 0)
+            {
+                currentIntelligence += 1;
+                attributePointsNumber.Text = (currentAttributePoints - 1).ToString();
+            }
+            intelligenceNumber.Text = currentIntelligence.ToString();
         }
 
         private void SubtractConstitutionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentDexterity = int.Parse(dexterityNumber.Text);
+            int currentConstitution = int.Parse(constitutionNumber.Text);
+            int currentDodge = int.Parse(dodge.Text);
+            if (currentConstitution > 3)
+            {
+                currentConstitution -= 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
+                decimal currentSpeed = (decimal)(currentDexterity + currentConstitution) / 4;
+                speed.Text = currentSpeed.ToString();
+                dodge.Text = ((int)Math.Round(currentSpeed + 3)).ToString();
+                constitutionNumber.Text = currentConstitution.ToString();
+            }
         }
 
         private void AddConstitutionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentDexterity = int.Parse(dexterityNumber.Text);
+            int currentConstitution = int.Parse(constitutionNumber.Text);
+            int currentAttributePoints = int.Parse(attributePointsNumber.Text);
+            int currentDodge = int.Parse(dodge.Text);
+            if (currentAttributePoints > 0)
+            {
+                currentConstitution += 1;
+                attributePointsNumber.Text = (currentAttributePoints - 1).ToString();
+                decimal currentSpeed = (decimal)(currentDexterity + currentConstitution) / 4;
+                speed.Text = currentSpeed.ToString();
+                dodge.Text = ((int)Math.Round(currentSpeed + 3)).ToString();
+                constitutionNumber.Text = currentConstitution.ToString();
+            }
         }
 
         private void SubtractWisdomButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentWisdom = int.Parse(wisdomNumber.Text);
+            if (currentWisdom > 3)
+            {
+                currentWisdom -= 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
+            }
+            wisdomNumber.Text = currentWisdom.ToString();
         }
 
         private void AddWisdomButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentWisdom = int.Parse(wisdomNumber.Text);
+            int currentAttributePoints = int.Parse(attributePointsNumber.Text);
+            if (currentAttributePoints > 0)
+            {
+                currentWisdom += 1;
+                attributePointsNumber.Text = (currentAttributePoints - 1).ToString();
+            }
+            wisdomNumber.Text = currentWisdom.ToString();
         }
 
         private void AddPerceptionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int currentPerception = int.Parse(perceptionNumber.Text);
+            int currentAttributePoints = int.Parse(attributePointsNumber.Text);
+            if (currentAttributePoints > 0)
+            {
+                currentPerception += 1;
+                attributePointsNumber.Text = (currentAttributePoints - 1).ToString();
+            }
+            perceptionNumber.Text = currentPerception.ToString();
         }
 
         private void SubtractPerceptionButton_Click(object sender, RoutedEventArgs e)
         {
+            int currentPerception = int.Parse(perceptionNumber.Text);
+            if (currentPerception > 3)
+            {
+                currentPerception -= 1;
+                attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
+            }
+            perceptionNumber.Text = currentPerception.ToString();
 
         }
 

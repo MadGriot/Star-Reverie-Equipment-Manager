@@ -206,8 +206,8 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/itemdetailswindows/characterde" +
-                    "tailswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/itemdetailswindows/characterdetailswind" +
+                    "ow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ItemDetailsWindows\CharacterDetailsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
