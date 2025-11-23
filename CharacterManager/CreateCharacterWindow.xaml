@@ -99,5 +99,29 @@
                 <TextBlock x:Name="encumbranceText" Text="None" />
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Species: "/>
+                <ComboBox x:Name="speciesTypeBox"
+                      Margin="0,0,0,5"
+                      ItemsSource="{Binding SpeciesList}"
+                      SelectedItem="{Binding Species, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Gender: "/>
+                <ComboBox x:Name="genderTypeBox"
+                      Margin="0,0,0,5"
+                      ItemsSource="{Binding Genders}"
+                      SelectedItem="{Binding Gender, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="HP: "/>
+                <TextBlock x:Name="hpNumber"  Text="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Stamina: "/>
+                <TextBlock x:Name="staminaNumber"  Text="30"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

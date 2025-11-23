@@ -4,6 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using StarReverieCore.Models;
 using System.Windows;
 
 namespace Star_Reverie_Inventory_Manager.CharacterManager
@@ -13,9 +14,15 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
     /// </summary>
     public partial class CreateCharacterWindow : Window
     {
+        public Array SpeciesList { get; } = Enum.GetValues(typeof(Species));
+        public Array Genders { get; } = Enum.GetValues(typeof(Gender));
+
+        public Species SelectedSpecies { get; set; } = Species.Human;
+        public Gender SelectedGender { get; set; } = Gender.Male;
         public CreateCharacterWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void SubtractAgeButton_Click(object sender, RoutedEventArgs e)
@@ -46,6 +53,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             if (currentStrength > 3)
             {
                 currentStrength -= 1;
+                hpNumber.Text = (int.Parse(hpNumber.Text) - 1).ToString();
                 attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
                 carryWeight.Text = CalculateCarryWeight(currentStrength).ToString();
             }
@@ -59,6 +67,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             if (currentAttributePoints > 0)
             {
                 currentStrength += 1;
+                hpNumber.Text = (int.Parse(hpNumber.Text) + 1).ToString();
                 attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) - 1).ToString();
                 carryWeight.Text = CalculateCarryWeight(currentStrength).ToString();
                 strengthNumber.Text = currentStrength.ToString();
@@ -130,6 +139,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             if (currentConstitution > 3)
             {
                 currentConstitution -= 1;
+                staminaNumber.Text = (int.Parse(staminaNumber.Text) - 1).ToString();
                 attributePointsNumber.Text = (int.Parse(attributePointsNumber.Text) + 1).ToString();
                 decimal currentSpeed = (decimal)(currentDexterity + currentConstitution) / 4;
                 speed.Text = currentSpeed.ToString();
@@ -147,6 +157,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             if (currentAttributePoints > 0)
             {
                 currentConstitution += 1;
+                staminaNumber.Text = (int.Parse(staminaNumber.Text) + 1).ToString();
                 attributePointsNumber.Text = (currentAttributePoints - 1).ToString();
                 decimal currentSpeed = (decimal)(currentDexterity + currentConstitution) / 4;
                 speed.Text = currentSpeed.ToString();
