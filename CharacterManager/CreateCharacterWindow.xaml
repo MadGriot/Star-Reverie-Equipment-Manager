@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CharacterManager"
+        xmlns:sc="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
         mc:Ignorable="d"
         Title="CreateCharacterWindow" Height="450" Width="800">
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -105,14 +106,14 @@
                 <ComboBox x:Name="speciesTypeBox"
                       Margin="0,0,0,5"
                       ItemsSource="{Binding SpeciesList}"
-                      SelectedItem="{Binding Species, Mode=TwoWay}" />
+                      SelectedItem="{Binding SelectedSpecies, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Gender: "/>
                 <ComboBox x:Name="genderTypeBox"
                       Margin="0,0,0,5"
                       ItemsSource="{Binding Genders}"
-                      SelectedItem="{Binding Gender, Mode=TwoWay}" />
+                      SelectedItem="{Binding SelectedGender, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="HP: "/>
@@ -122,6 +123,19 @@
                 <TextBlock Text="Stamina: "/>
                 <TextBlock x:Name="staminaNumber"  Text="30"/>
             </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="6" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
+            <ListView x:Name="ItemsListView"
+                      Height="400"
+                      Margin="0 5 0 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <sc:SkillControl Skills="{Binding}"
+                                         Level="{Binding}"
+                                         SkillPoints="{Binding AvailableSkillPoints, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
     </Grid>
 </Window>

@@ -4,6 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
 using System.Windows;
 
@@ -23,8 +24,12 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         {
             InitializeComponent();
             DataContext = this;
+            GetSkills();
         }
-
+        public void GetSkills()
+        {
+            ItemsListView.ItemsSource = Enum.GetValues(typeof(Skill));
+        }
         private void SubtractAgeButton_Click(object sender, RoutedEventArgs e)
         {
             int currentAge = int.Parse(ageNumber.Text);
@@ -212,7 +217,11 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             perceptionNumber.Text = currentPerception.ToString();
 
         }
-
+        public int AvailableSkillPoints
+        {
+            get => int.Parse(skillPointsNumber.Text);
+            set => skillPointsNumber.Text = value.ToString();
+        }
         private int CalculateCarryWeight(int carryWeight) => (carryWeight * carryWeight) / 5;
 
     }

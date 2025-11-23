@@ -11,6 +11,9 @@
     <Compile Update="Controls\ItemControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\SkillControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreateItemWindows\CreateArmorWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
