@@ -303,7 +303,12 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
                     });
                 }
             }
-
+            string[] names = { "Attack", "Dodge", "Shield" };
+            List<Technique> techniques = App.StarReverieDbContext.Techniques
+                .Where(t => names.Contains(t.Name))
+                .ToList();
+            character.Techniques.AddRange(techniques);
+            
             return character;
         }
 
