@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="Star Reverie Database Manager" Height="450" Width="500">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Create Item">
                 <MenuItem Header="_Create Weapon" Click="CreateWeaponButton_Click" />
                 <MenuItem Header="_Create Armor" Click="CreateArmorButton_Click"/>
                 <MenuItem Header="_Create Shield" Click="CreateShieldButton_Click"/>
+                <MenuItem Header="_Create Ammo" Click="CreateAmmoButton_Click"/>
                 <Separator />
             </MenuItem>
             <MenuItem Header="_Create Techniques">

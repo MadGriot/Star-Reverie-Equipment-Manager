@@ -6,6 +6,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using Star_Reverie_Inventory_Manager.CharacterManager;
+using Star_Reverie_Inventory_Manager.CreateItemWindows;
 using Star_Reverie_Inventory_Manager.CreateTechniquesWindows;
 using Star_Reverie_Inventory_Manager.ItemDetailsWindows;
 using StarReverieCore.Models;
@@ -37,7 +38,11 @@ namespace Star_Reverie_Inventory_Manager
             CreateArmorWindow createArmorWindow = new();
             createArmorWindow.ShowDialog();
         }
-
+        private void CreateAmmoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAmmoWindow createAmmoWindow = new();
+            createAmmoWindow.ShowDialog();
+        }
         private void CreateAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
         {
             CreateAstralTechniqueWindow createAstralTechniqueWindow = new();
@@ -86,9 +91,11 @@ namespace Star_Reverie_Inventory_Manager
         }
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Character character = (Character)ItemsListView.SelectedItem;
+            if (ItemsListView.SelectedItem is not Character character)
+                return;   // Ignore the "deselection" event
             CharacterDetailsWindow characterDetailsWindow = new(character);
             characterDetailsWindow.ShowDialog();
+            ItemsListView.SelectedItem = null;
         }
         void ReadCharactersFromDatabase()
         {

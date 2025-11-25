@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\App.xaml
 16-1011727907
 462009289287
-24-467606867
+231916391720
 224-106366637
 CharacterManager\CreateCharacterWindow.xaml;Controls\InventoryControl.xaml;Controls\ItemControl.xaml;Controls\SkillControl.xaml;CreateItemWindows\CreateAmmoWindow.xaml;CreateItemWindows\CreateArmorWindow.xaml;CreateItemWindows\CreateShieldWindow.xaml;CreateItemWindows\CreateWeaponsWindow.xaml;CreateTechniquesWindows\CreateAstralTechnique.xaml;CreateTechniquesWindows\CreateTechniqueWindow.xaml;DisplayItemsWindow.xaml;ItemDetailsWindows\ArmorDetailsWindow.xaml;ItemDetailsWindows\CharacterDetailsWindow.xaml;ItemDetailsWindows\ShieldDetailsWindow.xaml;ItemDetailsWindows\WeaponDetailsWindow.xaml;MainWindow.xaml;
 
-False
+True
 

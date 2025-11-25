@@ -4,18 +4,10 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Text;
+using StarReverieCore.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
+using static Star_Reverie_Inventory_Manager.InputValidator;
 namespace Star_Reverie_Inventory_Manager.CreateItemWindows
 {
     /// <summary>
@@ -26,6 +18,31 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
         public CreateAmmoWindow()
         {
             InitializeComponent();
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+            {
+                MessageBox.Show("Name is required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!TryParseInt(costTextBox, "Cost", out int cost)) return;
+            if (!TryParseDecimal(weightTextBox, "Weight", out decimal weight)) return;
+
+
+            AmmoModel ammoModel = new()
+            {
+                Name = nameTextBox.Text,
+                Cost = int.Parse(costTextBox.Text),
+                Weight = decimal.Parse(weightTextBox.Text),
+            };
+            App.StarReverieDbContext.Ammos.Add(ammoModel);
+            App.StarReverieDbContext.SaveChanges();
+
+            MessageBox.Show("Ammo saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
         }
     }
 }

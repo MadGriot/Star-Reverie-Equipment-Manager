@@ -5,6 +5,7 @@
 //  -----------------------------------------------------------------------
 
 using Star_Reverie_Inventory_Manager.ItemDetailsWindows;
+using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,7 @@ namespace Star_Reverie_Inventory_Manager
         private Character character = new() { FirstName = "Unknown", LastName = "Person" };
         private int quantity = 1;
         private ActionStatus actionStatus = ActionStatus.None;
-        private CharacterDetailsWindow characterDetailsWindow = null;
+        private CharacterDetailsWindow? characterDetailsWindow = null;
         public DisplayItemsWindow(ItemType itemType, Character character, CharacterDetailsWindow characterDetailsWindow)
         {
             InitializeComponent();
@@ -49,24 +50,24 @@ namespace Star_Reverie_Inventory_Manager
             InitializeComponent();
             actionStatus = ActionStatus.EquippingItem;
             this.character = character;
-            ReadItemsFromInventory(character.Inventory.Units, itemType);
+            ReadItemsFromInventory(character.Inventory?.Units, itemType);
         }
 
         public void SetCharacterDetailsWindow(CharacterDetailsWindow characterDetailsWindow)
             => this.characterDetailsWindow = characterDetailsWindow;
-        public void ReadItemsFromInventory(List<UnitStack> inventory, ItemType itemType)
+        public void ReadItemsFromInventory(List<UnitStack>? inventory, ItemType itemType)
         {
             switch (itemType)
             {
                 case ItemType.Weapon:
-                    List<Unit?> weapons = inventory
+                    List<Unit?>? weapons = inventory?
                         .Where(s => s.Unit is WeaponModel)
                         .Select(s => s.Unit)
                         .ToList();
                     ItemsListView.ItemsSource = weapons;
                     break;
                 case ItemType.Shield:
-                    List<Unit?> shields = inventory
+                    List<Unit?>? shields = inventory?
                         .Where(s => s.Unit is ShieldModel)
                         .Select(s => s.Unit)
                         .ToList();
@@ -74,7 +75,7 @@ namespace Star_Reverie_Inventory_Manager
                     break;
 
                 case ItemType.Armor:
-                    List<Unit?> armors = inventory
+                    List<Unit?>? armors = inventory?
                         .Where(s => s.Unit is ArmorModel)
                         .Select(s => s.Unit)
                         .ToList();
@@ -140,9 +141,10 @@ namespace Star_Reverie_Inventory_Manager
             {
                 if (actionStatus == ActionStatus.AddingItem)
                 {
-                    Equipper.AddItemsIntoInventory(selectedItem, character, quantity);
+                    InventoryActions.AddItemsIntoInventory(selectedItem, character, quantity);
                     actionStatus = ActionStatus.None;
-                    characterDetailsWindow.SetInventory();
+                    characterDetailsWindow!.SetInventory();
+                    App.StarReverieDbContext.SaveChanges();
                     Close();
                     return;
                 }
@@ -153,21 +155,24 @@ namespace Star_Reverie_Inventory_Manager
                     switch (selectedItem)
                     {
                         case WeaponModel:
-                            Equipper.EquipWeapon(selectedItem, character);
+                            InventoryActions.EquipWeapon(selectedItem, character);
                             actionStatus = ActionStatus.None;
-                            characterDetailsWindow.UpdateCharacterStats();
+                            characterDetailsWindow!.UpdateCharacterStats();
+                            App.StarReverieDbContext.SaveChanges();
                             Close();
                             return;
                         case ArmorModel:
-                            Equipper.EquipArmor(selectedItem, character);
+                            InventoryActions.EquipArmor(selectedItem, character);
                             actionStatus = ActionStatus.None;
-                            characterDetailsWindow.UpdateCharacterStats();
+                            characterDetailsWindow!.UpdateCharacterStats();
+                            App.StarReverieDbContext.SaveChanges();
                             Close();
                             return;
                         case ShieldModel:
-                            Equipper.EquipShield(selectedItem, character);
+                            InventoryActions.EquipShield(selectedItem, character);
                             actionStatus = ActionStatus.None;
-                            characterDetailsWindow.UpdateCharacterStats();
+                            characterDetailsWindow!.UpdateCharacterStats();
+                            App.StarReverieDbContext.SaveChanges();
                             Close();
                             return;
 
