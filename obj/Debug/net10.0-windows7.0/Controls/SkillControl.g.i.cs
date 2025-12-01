@@ -85,7 +85,7 @@ namespace Star_Reverie_Inventory_Manager.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/controls/skillcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/controls/skillcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\SkillControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

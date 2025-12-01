@@ -93,8 +93,8 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/itemdetailswindows/armordetailswindow.x" +
-                    "aml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/itemdetailswindows/armordetail" +
+                    "swindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ItemDetailsWindows\ArmorDetailsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

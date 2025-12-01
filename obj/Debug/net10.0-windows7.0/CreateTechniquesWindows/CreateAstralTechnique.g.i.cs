@@ -173,8 +173,8 @@ namespace Star_Reverie_Inventory_Manager.CreateTechniquesWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/createtechniqueswindows/createastraltec" +
-                    "hnique.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/createtechniqueswindows/create" +
+                    "astraltechnique.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CreateTechniquesWindows\CreateAstralTechnique.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
