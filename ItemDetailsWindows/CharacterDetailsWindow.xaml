@@ -28,6 +28,14 @@
                     <MenuItem Header="_Equip Armor" Click="EquipArmorButton_Click" />
                     <MenuItem Header="_Equip Shield" Click="EquipShieldButton_Click" />
                 </MenuItem>
+                <MenuItem Header="_Add Techniques">
+                    <MenuItem Header="_Add Technique" Click="AddTechniqueButton_Click" />
+                    <MenuItem Header="_Add Astral Technique" Click="AddAstralTechniqueButton_Click" />
+                </MenuItem>
+                <MenuItem Header="_Display Techniques">
+                    <MenuItem Header="_Display Techniques" Click="DisplayTechniques_Click" />
+                    <MenuItem Header="_Display Astral Techniques" Click="DisplayAstralTechniques_Click" />
+                </MenuItem>
             </Menu>
         </DockPanel>
         <!-- CHARACTER STATS -->
