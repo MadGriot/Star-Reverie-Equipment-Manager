@@ -12,7 +12,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
     /// <summary>
     /// Interaction logic for ShieldDetailsWindow.xaml
     /// </summary>
-    public partial class ShieldDetailsWindow : Window
+    public partial class ShieldDetailsWindow : Window, IDetails
     {
         private ShieldModel shield;
         private DisplayItemsWindow displayItemsWindow;
@@ -30,7 +30,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
 
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        public void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             shield.Name = nameTextBox.Text;
             shield.MaxSP = int.Parse(spTextBox.Text);
@@ -44,7 +44,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
 
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        public void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             App.StarReverieDbContext.Shields.Remove(shield);
             App.StarReverieDbContext.SaveChanges();
@@ -52,6 +52,6 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             Close();
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
+        public void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

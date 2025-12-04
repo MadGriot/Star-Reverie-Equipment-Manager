@@ -342,8 +342,8 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;V1.0.0.0;component/charactermanager/createcharact" +
-                    "erwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Star Reverie Inventory Manager;component/charactermanager/createcharacterwindow." +
+                    "xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CharacterManager\CreateCharacterWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

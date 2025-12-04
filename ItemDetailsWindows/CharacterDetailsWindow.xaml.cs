@@ -101,5 +101,26 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             displayItemsWindow.SetCharacterDetailsWindow(this);
             displayItemsWindow.ShowDialog();
         }
+
+        private void AddAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void AddTechniqueButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DisplayTechniques_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DisplayAstralTechniques_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+
+
     }
 }
