@@ -13,12 +13,13 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
     /// <summary>
     /// Interaction logic for ArmorDetailsWindow.xaml
     /// </summary>
-    public partial class ArmorDetailsWindow : Window
+    public partial class ArmorDetailsWindow : Window, IDetails
     {
         private ArmorModel armor;
         private DisplayItemsWindow displayItemsWindow;
         public Array ArmorLocations { get; } = Enum.GetValues(typeof(ArmorLocation));
         public ArmorLocation SelectedArmorLocation { get; set; }
+
         public ArmorDetailsWindow(ArmorModel armor, DisplayItemsWindow displayItemsWindow)
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             costTextBox.Text = armor.Cost.ToString();
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        public void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             armor.Name = nameTextBox.Text;
             armor.ArmorLocation = SelectedArmorLocation;
@@ -45,7 +46,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             Close();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        public void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             App.StarReverieDbContext.Remove(armor);
             App.StarReverieDbContext.SaveChanges();
@@ -53,6 +54,6 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             Close();
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
+        public void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

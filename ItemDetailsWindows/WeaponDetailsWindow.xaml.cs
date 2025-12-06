@@ -14,7 +14,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
     /// <summary>
     /// Interaction logic for WeaponDetailsWindow.xaml
     /// </summary>
-    public partial class WeaponDetailsWindow : Window
+    public partial class WeaponDetailsWindow : Window, IDetails
     {
         private WeaponModel weapon;
         private DisplayItemsWindow displayItemsWindow;
@@ -58,7 +58,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             costTextBox.Text = weapon.Cost.ToString();
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        public void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
 
             weapon.Name = nameTextBox.Text;
@@ -84,7 +84,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             Close();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        public void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             App.StarReverieDbContext.Weapons.Remove(weapon);
             App.StarReverieDbContext.SaveChanges();
@@ -92,6 +92,6 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             Close();
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
+        public void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

@@ -9,12 +9,12 @@ using StarReverieCore.Models;
 using System.Windows;
 
 using static Star_Reverie_Inventory_Manager.InputValidator;
-namespace Star_Reverie_Inventory_Manager
+namespace Star_Reverie_Inventory_Manager.CreateItemWindows
 {
     /// <summary>
     /// Interaction logic for CreateArmorWindow.xaml
     /// </summary>
-    public partial class CreateArmorWindow : Window
+    public partial class CreateArmorWindow : Window, ICreate
     {
         public Array ArmorLocations { get; } = Enum.GetValues(typeof(ArmorLocation));
         public ArmorLocation SelectedArmorLocation { get; set; } = ArmorLocation.FullSuit;
@@ -24,7 +24,7 @@ namespace Star_Reverie_Inventory_Manager
             DataContext = this;
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        public void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))

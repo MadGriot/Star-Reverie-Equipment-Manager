@@ -8,12 +8,12 @@ using StarReverieCore.Models;
 using System.Windows;
 using static Star_Reverie_Inventory_Manager.InputValidator;
 
-namespace Star_Reverie_Inventory_Manager
+namespace Star_Reverie_Inventory_Manager.CreateItemWindows
 {
     /// <summary>
     /// Interaction logic for CreateShieldWindow.xaml
     /// </summary>
-    public partial class CreateShieldWindow : Window
+    public partial class CreateShieldWindow : Window, ICreate
     {
         public CreateShieldWindow()
         {
@@ -21,7 +21,7 @@ namespace Star_Reverie_Inventory_Manager
             DataContext = this;
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        public void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
             // Validate required name

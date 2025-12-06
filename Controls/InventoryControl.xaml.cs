@@ -13,7 +13,7 @@ namespace Star_Reverie_Inventory_Manager.Controls
     /// <summary>
     /// Interaction logic for InventoryControl.xaml
     /// </summary>
-    public partial class InventoryControl : UserControl
+    public partial class InventoryControl : UserControl, IText
     {
 
 

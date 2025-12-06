@@ -13,14 +13,14 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
     /// <summary>
     /// Interaction logic for CreateAmmoWindow.xaml
     /// </summary>
-    public partial class CreateAmmoWindow : Window
+    public partial class CreateAmmoWindow : Window, ICreate
     {
         public CreateAmmoWindow()
         {
             InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        public void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))

@@ -23,7 +23,7 @@ namespace Star_Reverie_Inventory_Manager
     /// </summary>
     public partial class DisplayItemsWindow : Window
     {
-        List<Unit> items;
+        private List<Unit> items;
         private Character character = new() { FirstName = "Unknown", LastName = "Person" };
         private int quantity = 1;
         private ActionStatus actionStatus = ActionStatus.None;

@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// 	DetailsWindow.cs
+// 	Itext.cs
 // 	Author: Trenton Scott 
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
@@ -9,14 +9,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 
-namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
+namespace Star_Reverie_Inventory_Manager.Controls
 {
-    public abstract class DetailsWindow : Window
+    public interface IText
     {
-
-        protected DetailsWindow()
+        static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            // Optional shared logic
+
         }
     }
 }
