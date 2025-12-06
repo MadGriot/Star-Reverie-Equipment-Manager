@@ -24,37 +24,35 @@ namespace Star_Reverie_Inventory_Manager
     public partial class DisplayItemsWindow : Window
     {
         private List<Unit> items;
-        private Character character = new() { FirstName = "Unknown", LastName = "Person" };
         private int quantity = 1;
-        private ActionStatus actionStatus = ActionStatus.None;
-        private CharacterDetailsWindow? characterDetailsWindow = null;
+        private IItemSelectionStrategy strategy;
+        public CharacterDetailsWindow? CharacterDetailsWindow { get; private set; } = null;
         public DisplayItemsWindow(ItemType itemType, Character character, CharacterDetailsWindow characterDetailsWindow)
         {
             InitializeComponent();
             items = new();
-            this.character = character;
-            actionStatus = ActionStatus.AddingItem;
             ReadItemsFromDatabase(itemType);
-            this.characterDetailsWindow = characterDetailsWindow;
+            this.CharacterDetailsWindow = characterDetailsWindow;
+            strategy = new AddItemStrategy(character, quantity);
         }
         public DisplayItemsWindow(ItemType itemType)
         {
             InitializeComponent();
             items = new();
-            actionStatus = ActionStatus.None;
+            strategy = new SelectionStrategy();
             ReadItemsFromDatabase(itemType);
         }
 
         public DisplayItemsWindow(ItemType itemType, Character character)
         {
             InitializeComponent();
-            actionStatus = ActionStatus.EquippingItem;
-            this.character = character;
+            items = new();
+            strategy = new EquipItemStrategy(character);
             ReadItemsFromInventory(character.Inventory?.Units, itemType);
         }
 
         public void SetCharacterDetailsWindow(CharacterDetailsWindow characterDetailsWindow)
-            => this.characterDetailsWindow = characterDetailsWindow;
+            => this.CharacterDetailsWindow = characterDetailsWindow;
         public void ReadItemsFromInventory(List<UnitStack>? inventory, ItemType itemType)
         {
             switch (itemType)
@@ -135,67 +133,8 @@ namespace Star_Reverie_Inventory_Manager
 
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Unit selectedItem = (Unit)ItemsListView.SelectedItem;
-
-            if (selectedItem != null)
-            {
-                if (actionStatus == ActionStatus.AddingItem)
-                {
-                    InventoryActions.AddItemsIntoInventory(selectedItem, character, quantity);
-                    actionStatus = ActionStatus.None;
-                    characterDetailsWindow!.SetInventory();
-                    App.StarReverieDbContext.SaveChanges();
-                    Close();
-                    return;
-                }
-
-                if (actionStatus == ActionStatus.EquippingItem)
-                {
-
-                    switch (selectedItem)
-                    {
-                        case WeaponModel:
-                            InventoryActions.EquipWeapon(selectedItem, character);
-                            actionStatus = ActionStatus.None;
-                            characterDetailsWindow!.UpdateCharacterStats();
-                            App.StarReverieDbContext.SaveChanges();
-                            Close();
-                            return;
-                        case ArmorModel:
-                            InventoryActions.EquipArmor(selectedItem, character);
-                            actionStatus = ActionStatus.None;
-                            characterDetailsWindow!.UpdateCharacterStats();
-                            App.StarReverieDbContext.SaveChanges();
-                            Close();
-                            return;
-                        case ShieldModel:
-                            InventoryActions.EquipShield(selectedItem, character);
-                            actionStatus = ActionStatus.None;
-                            characterDetailsWindow!.UpdateCharacterStats();
-                            App.StarReverieDbContext.SaveChanges();
-                            Close();
-                            return;
-
-
-                    }
-
-                }
-                switch (selectedItem)
-                {
-                    case WeaponModel:
-                        WeaponDetailsWindow weaponDetailsWindow = new((WeaponModel)selectedItem, this);
-                        weaponDetailsWindow.ShowDialog();
-                        break;
-                    case ArmorModel:
-                        ArmorDetailsWindow armorDetailsWindow = new((ArmorModel)selectedItem, this);
-                        armorDetailsWindow.ShowDialog();
-                        break;
-                    case ShieldModel:
-                        ShieldDetailsWindow shieldDetailsWindow = new((ShieldModel)selectedItem, this);
-                        shieldDetailsWindow.ShowDialog();
-                        break;
-                }
-            }
+            if (ItemsListView.SelectedItem is Unit selectedItem)
+                strategy.HandleSelection(selectedItem, this);
         }
     }
 }
