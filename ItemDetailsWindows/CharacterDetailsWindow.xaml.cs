@@ -65,46 +65,44 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         }
         private void AddWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, character, this);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.Weapon, ActionStatus.AddingItem, character, this);
+            window.ShowDialog();
         }
 
         private void AddArmorButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Armor, character, this);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.Armor, ActionStatus.AddingItem, character, this);
+            window.ShowDialog();
         }
 
         private void AddShieldButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Shield, character, this);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.Shield, ActionStatus.AddingItem, character, this);
+            window.ShowDialog();
         }
 
         private void EquipWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Weapon, character);
-            displayItemsWindow.SetCharacterDetailsWindow(this);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.Weapon, ActionStatus.EquippingItem, character, this);
+            window.ShowDialog();
         }
 
         private void EquipArmorButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Armor, character);
-            displayItemsWindow.SetCharacterDetailsWindow(this);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.Armor, ActionStatus.EquippingItem, character, this);
+            window.ShowDialog();
         }
 
         private void EquipShieldButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Shield, character);
-            displayItemsWindow.SetCharacterDetailsWindow(this);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.Shield, ActionStatus.EquippingItem, character, this);
+            window.ShowDialog();
         }
 
         private void AddAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //DisplayItemsWindow window = new(ItemType.AstralTechnique, ActionStatus.AddingItem, character, this);
+            //window.ShowDialog();
         }
         private void AddTechniqueButton_Click(object sender, RoutedEventArgs e)
         {

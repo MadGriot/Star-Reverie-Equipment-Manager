@@ -7,6 +7,7 @@
 using Star_Reverie_Inventory_Manager.ItemDetailsWindows;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
+using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -26,98 +27,28 @@ namespace Star_Reverie_Inventory_Manager
         private List<Unit> items;
         private int quantity = 1;
         private IItemSelectionStrategy strategy;
+        private ItemType itemType;
+        private Character? character;
+        private ActionStatus status;
         public CharacterDetailsWindow? CharacterDetailsWindow { get; private set; } = null;
-        public DisplayItemsWindow(ItemType itemType, Character character, CharacterDetailsWindow characterDetailsWindow)
+        public DisplayItemsWindow(ItemType itemType, ActionStatus status = ActionStatus.None, 
+            Character? character = null, CharacterDetailsWindow? characterWindow = null)
         {
             InitializeComponent();
-            items = new();
-            ReadItemsFromDatabase(itemType);
-            this.CharacterDetailsWindow = characterDetailsWindow;
-            strategy = new AddItemStrategy(character, quantity);
-        }
-        public DisplayItemsWindow(ItemType itemType)
-        {
-            InitializeComponent();
-            items = new();
-            strategy = new SelectionStrategy();
-            ReadItemsFromDatabase(itemType);
-        }
+            CharacterDetailsWindow = characterWindow;
 
-        public DisplayItemsWindow(ItemType itemType, Character character)
-        {
-            InitializeComponent();
-            items = new();
-            strategy = new EquipItemStrategy(character);
-            ReadItemsFromInventory(character.Inventory?.Units, itemType);
-        }
-
-        public void SetCharacterDetailsWindow(CharacterDetailsWindow characterDetailsWindow)
-            => this.CharacterDetailsWindow = characterDetailsWindow;
-        public void ReadItemsFromInventory(List<UnitStack>? inventory, ItemType itemType)
-        {
-            switch (itemType)
-            {
-                case ItemType.Weapon:
-                    List<Unit?>? weapons = inventory?
-                        .Where(s => s.Unit is WeaponModel)
-                        .Select(s => s.Unit)
-                        .ToList();
-                    ItemsListView.ItemsSource = weapons;
-                    break;
-                case ItemType.Shield:
-                    List<Unit?>? shields = inventory?
-                        .Where(s => s.Unit is ShieldModel)
-                        .Select(s => s.Unit)
-                        .ToList();
-                    ItemsListView.ItemsSource = shields;
-                    break;
-
-                case ItemType.Armor:
-                    List<Unit?>? armors = inventory?
-                        .Where(s => s.Unit is ArmorModel)
-                        .Select(s => s.Unit)
-                        .ToList();
-                    ItemsListView.ItemsSource = armors;
-                    break;
-            }
-
-        }
-        public void ReadItemsFromDatabase(ItemType itemType)
-        {
-            switch (itemType)
-            {
-                case ItemType.Weapon:
-                    items = App.StarReverieDbContext.Weapons
-                        .OfType<Unit>()
-                        .ToList();
-                    break;
-
-                case ItemType.Armor:
-                    items = App.StarReverieDbContext.Armors
-                        .OfType<Unit>()
-                        .ToList();
-                    break;
-                case ItemType.Shield:
-                    items = App.StarReverieDbContext.Shields
-                        .OfType<Unit>()
-                        .ToList();
-                    break;
-
-                case ItemType.Technique:
-                    items = App.StarReverieDbContext.Techniques
-                        .OfType<Unit>()
-                        .ToList();
-                    break;
-
-                case ItemType.AstralTechnique:
-                    items = App.StarReverieDbContext.AstralTechniques
-                        .OfType<Unit>()
-                        .ToList();
-                    break;
-            }
-
-
+            strategy = StrategyFactory.CreateStrategy(status, character, quantity);
+            items = ItemSourceFactory.LoadItems(itemType, character, status);
+            this.itemType = itemType;
+            this.character = character;
+            this.status = status;
             ItemsListView.ItemsSource = items;
+        }
+
+
+        public void RefreshItems()
+        {
+            ItemsListView.ItemsSource = ItemSourceFactory.LoadItems(itemType, character, status);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

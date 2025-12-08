@@ -39,7 +39,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             shield.Weight = int.Parse(weightTextBox.Text);
             App.StarReverieDbContext.Shields.Update(shield);
             App.StarReverieDbContext.SaveChanges();
-            displayItemsWindow.ReadItemsFromDatabase(ItemType.Shield);
+            displayItemsWindow.RefreshItems();
             Close();
 
         }
@@ -48,7 +48,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         {
             App.StarReverieDbContext.Shields.Remove(shield);
             App.StarReverieDbContext.SaveChanges();
-            displayItemsWindow.ReadItemsFromDatabase(ItemType.Shield);
+            displayItemsWindow.RefreshItems();
             Close();
         }
 

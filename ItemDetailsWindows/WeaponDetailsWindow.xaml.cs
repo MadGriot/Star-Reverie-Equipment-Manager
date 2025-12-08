@@ -80,7 +80,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             weapon.Modifier = int.Parse(modifierTextBox.Text);
             App.StarReverieDbContext.Weapons.Update(weapon);
             App.StarReverieDbContext.SaveChanges();
-            displayItemsWindow.ReadItemsFromDatabase(ItemType.Weapon);
+            displayItemsWindow.RefreshItems();
             Close();
         }
 
@@ -88,7 +88,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         {
             App.StarReverieDbContext.Weapons.Remove(weapon);
             App.StarReverieDbContext.SaveChanges();
-            displayItemsWindow.ReadItemsFromDatabase(ItemType.Weapon);
+            displayItemsWindow.RefreshItems();
             Close();
         }
 

@@ -42,7 +42,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             armor.Cost = int.Parse(costTextBox.Text);
             App.StarReverieDbContext.Update(armor);
             App.StarReverieDbContext.SaveChanges();
-            displayItemsWindow.ReadItemsFromDatabase(ItemType.Armor);
+            displayItemsWindow.RefreshItems();
             Close();
         }
 
@@ -50,7 +50,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         {
             App.StarReverieDbContext.Remove(armor);
             App.StarReverieDbContext.SaveChanges();
-            displayItemsWindow.ReadItemsFromDatabase(ItemType.Armor);
+            displayItemsWindow.RefreshItems();
             Close();
         }
 

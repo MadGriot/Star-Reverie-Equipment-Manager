@@ -56,13 +56,13 @@ namespace Star_Reverie_Inventory_Manager
 
         private void DisplayTechniqueButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Technique);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new ( ItemType.Technique, ActionStatus.None);
+            window.ShowDialog();
         }
         private void DisplayAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.AstralTechnique);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new(ItemType.AstralTechnique, ActionStatus.None);
+            window.ShowDialog();
         }
         private void CreateShieldButton_Click(object sender, RoutedEventArgs e)
         {
@@ -71,18 +71,18 @@ namespace Star_Reverie_Inventory_Manager
         }
         private void DisplayWeaponsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayWeaponsWindow = new(ItemType.Weapon);
-            displayWeaponsWindow.ShowDialog();
+            DisplayItemsWindow window = new DisplayItemsWindow(ItemType.Weapon, ActionStatus.None);
+            window.ShowDialog();
         }
         private void DisplayArmorsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Armor);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new DisplayItemsWindow(ItemType.Armor, ActionStatus.None);
+            window.ShowDialog();
         }
         private void DisplayShieldsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow displayItemsWindow = new(ItemType.Shield);
-            displayItemsWindow.ShowDialog();
+            DisplayItemsWindow window = new DisplayItemsWindow(ItemType.Shield, ActionStatus.None);
+            window.ShowDialog();
         }
         private void CreateCharacterButton_Click(object sender, RoutedEventArgs e)
         {
