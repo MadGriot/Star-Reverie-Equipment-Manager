@@ -8,7 +8,7 @@ After downloading the project files, you should be able to open and run the solu
 The application relies on an external library named StarReverieCore, distributed as a .dll file.\
 To view its implementation, you must either:
 
-* download the StarReverieCore source code included with the submission, or
+* unpack the StarReverieCore zip file in the docs folder, or
 * decompile the .dll using a tool such as ILSpy or dotPeek
 
 Once the library is available and referenced correctly, the project will build and run without additional configuration.
