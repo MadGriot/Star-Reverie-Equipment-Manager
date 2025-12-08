@@ -1,9 +1,17 @@
 # ITCS 3112 Project Overview
-This is an inventory system that helps users manage character's inventory for a game. It can create items and characters and add items to a selected character.
+This project implements an inventory management system designed to support a role-playing game. It allows users to create and manage characters, generate new items, and assign items to a selected character’s inventory. The system provides a user-friendly interface for browsing, editing, and organizing equipment, techniques, and other character assets.
 
 # Build & Run Instructions
-The tools used for this project is .NET 10, Visual Studio 2026, and Entity Framework Core 10.
-If you download the project you should be able to run it on Visual Studio 2026. This project uses a dll file called StarReverieCore. You need to download the source code from the submission or decompile it in order to view it. 
+This project was developed using .NET 10, Visual Studio 2026, and Entity Framework Core 10.
+After downloading the project files, you should be able to open and run the solution directly in Visual Studio 2026.
+
+The application relies on an external library named StarReverieCore, distributed as a .dll file.\
+To view its implementation, you must either:
+
+* download the StarReverieCore source code included with the submission, or
+* decompile the .dll using a tool such as ILSpy or dotPeek
+
+Once the library is available and referenced correctly, the project will build and run without additional configuration.
 
 # Required OOP Features (with File & Line References)
 | OOP Feature  | File Name(s) | Line Numbers | Reasoning / Purpose |
