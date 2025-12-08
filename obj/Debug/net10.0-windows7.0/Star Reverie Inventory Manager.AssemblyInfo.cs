@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Star Reverie Inventory Manager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+755c27f1fde5cd62556504586836ad509dc5eb3f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+589ecb26e1614cd32c436f519c511be6759185b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Star Reverie Inventory Manager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Star Reverie Inventory Manager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
