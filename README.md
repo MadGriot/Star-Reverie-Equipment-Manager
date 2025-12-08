@@ -30,3 +30,4 @@ If you download the project you should be able to run it on Visual Studio 2026. 
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Singleton     | Creational     |  InputValidator.cs | All | Allow input validation throughout the project. |
 | Strategy     | Behavioral     |  DisplayItemsWindow.xaml.cs | Lines 30-52 and Lines 136-137 | Behaviors are isolated in strategy classes and follows SRP |
+| Factory     | Creational     |  ItemSourceFactory.xaml.cs | All | Determines the type of Item that needs to be displayed |
