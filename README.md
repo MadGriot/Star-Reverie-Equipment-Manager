@@ -8,7 +8,7 @@ After downloading the project files, you should be able to open and run the solu
 The application relies on an external library named StarReverieCore, distributed as a .dll file.\
 To view its implementation, you must either:
 
-* download the StarReverieCore source code included with the submission, or
+* unpack the StarReverieCore zip file in the docs folder, or
 * decompile the .dll using a tool such as ILSpy or dotPeek
 
 Once the library is available and referenced correctly, the project will build and run without additional configuration.
@@ -16,10 +16,10 @@ Once the library is available and referenced correctly, the project will build a
 # Required OOP Features (with File & Line References)
 | OOP Feature  | File Name(s) | Line Numbers | Reasoning / Purpose |
 | ------------- | ------------- | ------------- | ------------- |
-| Inheritance Example  | ArmorModel.cs  | Line 10  | ArmorModel inherits from the Unit abstract class to share common attributes and behavior.  |
-| Inheritance Example  | WeaponModel.cs  | Line 10  | WeaponModel inherits from the Unit abstract class to share common attributes and behavior.  |
-| Inheritance Example  | ShieldModel.cs  | Line 10  | ShieldModel inherits from the Unit abstract class to share common attributes and behavior.  |
-| Inheritance Example  | AmmoModel.cs  | Line 10  | AmmoModel inherits from the Unit abstract class to share common attributes and behavior.  |
+| Inheritance Example  | ArmorModel.cs (From StarReverieCore)  | Line 10  | ArmorModel inherits from the Unit abstract class to share common attributes and behavior.  |
+| Inheritance Example  | WeaponModel.cs (From StarReverieCore) | Line 10  | WeaponModel inherits from the Unit abstract class to share common attributes and behavior.  |
+| Inheritance Example  | ShieldModel.cs (From StarReverieCore) | Line 10  | ShieldModel inherits from the Unit abstract class to share common attributes and behavior.  |
+| Inheritance Example  | AmmoModel.cs (From StarReverieCore) | Line 10  | AmmoModel inherits from the Unit abstract class to share common attributes and behavior.  |
 | Interface Implementation  | ICreate.cs  | All | Defines a contract for the SaveButton_Click Method. Implemented by multiple classes.  |
 | Interface Implementation  | IDetails.cs  | All | Defines a contract for SaveButton_Click, DeleteButton_Click, and ExitButton_Click Method. Implemented by multiple classes.  |
 | Interface Implementation  | IText.cs  | All | Defines a contract for SetText Method. Implemented by InventoryControl and ItemControl.  |
