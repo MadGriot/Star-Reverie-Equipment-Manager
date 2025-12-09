@@ -13,10 +13,14 @@ namespace Star_Reverie_Inventory_Manager
     {
         public static List<Unit> LoadItems(ItemType type, Character? character, ActionStatus status)
         {
-            if (status == ActionStatus.AddingItem)
-                return LoadFromDatabase(type);
 
-            return LoadFromInventory(character!.Inventory?.Units, type);
+            return status switch
+            {
+                ActionStatus.AddingItem => LoadFromDatabase(type),
+                ActionStatus.None => LoadFromDatabase(type),
+                _ => LoadFromInventory(character!.Inventory?.Units, type)
+            };
+
         }
 
         private static List<Unit> LoadFromInventory(List<UnitStack>? inventory, ItemType type)
@@ -43,7 +47,7 @@ namespace Star_Reverie_Inventory_Manager
             return type switch
             {
                 ItemType.Weapon => context.Weapons.OfType<Unit>().ToList(),
-                ItemType.Armor => context.Ammos.OfType<Unit>().ToList(),
+                ItemType.Armor => context.Armors.OfType<Unit>().ToList(),
                 ItemType.Shield => context.Shields.OfType<Unit>().ToList(),
                 ItemType.Technique => context.Techniques.OfType<Unit>().ToList(),
                 ItemType.AstralTechnique => context.AstralTechniques.OfType<Unit>().ToList(),

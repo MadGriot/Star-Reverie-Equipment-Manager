@@ -56,7 +56,7 @@ namespace Star_Reverie_Inventory_Manager
 
         private void DisplayTechniqueButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow window = new ( ItemType.Technique, ActionStatus.None);
+            DisplayItemsWindow window = new(ItemType.Technique, ActionStatus.None);
             window.ShowDialog();
         }
         private void DisplayAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
@@ -71,17 +71,17 @@ namespace Star_Reverie_Inventory_Manager
         }
         private void DisplayWeaponsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow window = new DisplayItemsWindow(ItemType.Weapon, ActionStatus.None);
+            DisplayItemsWindow window = new(ItemType.Weapon, ActionStatus.None);
             window.ShowDialog();
         }
         private void DisplayArmorsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow window = new DisplayItemsWindow(ItemType.Armor, ActionStatus.None);
+            DisplayItemsWindow window = new(ItemType.Armor, ActionStatus.None);
             window.ShowDialog();
         }
         private void DisplayShieldsButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayItemsWindow window = new DisplayItemsWindow(ItemType.Shield, ActionStatus.None);
+            DisplayItemsWindow window = new(ItemType.Shield, ActionStatus.None);
             window.ShowDialog();
         }
         private void CreateCharacterButton_Click(object sender, RoutedEventArgs e)
