@@ -18,6 +18,8 @@ namespace Star_Reverie_Inventory_Manager
             {
                 ActionStatus.AddingItem => LoadFromDatabase(type),
                 ActionStatus.None => LoadFromDatabase(type),
+                ActionStatus.DisplayTechniques => LoadFromCharacter(type, character),
+                ActionStatus.LearnTechnique => LoadLearnableTechniques(type, character),
                 _ => LoadFromInventory(character!.Inventory?.Units, type)
             };
 
@@ -40,6 +42,18 @@ namespace Star_Reverie_Inventory_Manager
             };
         }
 
+        private static List<Unit> LoadFromCharacter(ItemType type, Character? character)
+        {
+            List<Technique> characterKnownTechniques = character?.Techniques?.ToList() ?? new();
+            List<AstralTech> characterKnownAstralTechniques = character?.AstralTech?.ToList() ?? new();
+
+            return type switch
+            {
+                ItemType.Technique => characterKnownTechniques.OfType<Unit>().ToList(),
+                ItemType.AstralTechnique => characterKnownAstralTechniques.OfType<Unit>().ToList(),
+                _ => new()
+            };
+        }
         private static List<Unit> LoadFromDatabase(ItemType type)
         {
             StarReverieDbContext context = App.StarReverieDbContext;
@@ -54,6 +68,22 @@ namespace Star_Reverie_Inventory_Manager
                 _ => new()
             };
         }
+        private static List<Unit> LoadLearnableTechniques(ItemType type, Character? character)
+        {
+            StarReverieDbContext context = App.StarReverieDbContext;
+            List<Technique> characterKnownTechniques = character?.Techniques?.ToList() ?? new();
+            List<AstralTech> characterKnownAstralTechniques = character?.AstralTech?.ToList() ?? new();
+
+            return type switch
+            {
+                ItemType.Technique => context.Techniques.OfType<Unit>()
+                    .Where(t => !characterKnownTechniques.Contains(t)).ToList(),
+                ItemType.AstralTechnique => context.AstralTechniques.OfType<Unit>()
+                    .Where(at => !characterKnownAstralTechniques.Contains(at)).ToList(),
+                _ => new()
+            };
+        }
+
     }
 
 

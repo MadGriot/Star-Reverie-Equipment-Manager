@@ -18,6 +18,9 @@ namespace Star_Reverie_Inventory_Manager
         None,
         AddingItem,
         EquippingItem,
+        LearnTechnique,
+        DisplayTechniques
+
     }
     /// <summary>
     /// Interaction logic for DisplayItemssWindow.xaml

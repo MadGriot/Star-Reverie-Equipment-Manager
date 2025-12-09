@@ -25,7 +25,18 @@ namespace Star_Reverie_Inventory_Manager
 
         public void HandleSelection(Unit selectedItem, DisplayItemsWindow window)
         {
-            InventoryActions.AddItemsIntoInventory(selectedItem, character, quantity);
+            switch (selectedItem)
+            {
+                case AstralTech:
+                case Technique:
+                    TechniqueActions.LearnTechnique(character, selectedItem);
+                    break;
+                default:
+                    InventoryActions.AddItemsIntoInventory(selectedItem, character, quantity);
+                    break;
+
+            }
+
             window.CharacterDetailsWindow?.SetInventory();
             App.StarReverieDbContext.SaveChanges();
             window.Close();
