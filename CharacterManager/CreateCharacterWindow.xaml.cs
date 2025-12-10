@@ -228,10 +228,6 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             }
             perceptionNumber.Text = currentPerception.ToString();
 
-            foreach (SkillModel skill in Skills)
-            {
-                
-            }
         }
 
         private void OnSpeciesChange(Species oldSpecies, Species newSpecies)
