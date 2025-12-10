@@ -86,7 +86,7 @@ namespace Star_Reverie_Inventory_Manager
         }
         private void CreateCharacterButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateCharacterWindow createCharacterWindow = new();
+            CreateCharacterWindow createCharacterWindow = new(this);
             createCharacterWindow.ShowDialog();
         }
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,7 +97,7 @@ namespace Star_Reverie_Inventory_Manager
             characterDetailsWindow.ShowDialog();
             ItemsListView.SelectedItem = null;
         }
-        void ReadCharactersFromDatabase()
+        public void ReadCharactersFromDatabase()
         {
             characters = App.StarReverieDbContext.Characters
                 .Include(w => w.Weapon)

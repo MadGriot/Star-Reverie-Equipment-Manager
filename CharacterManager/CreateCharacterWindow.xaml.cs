@@ -22,6 +22,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
 
         private Species selectedSpecies = Species.Human;
         private Species previousSpecies = Species.Human;
+        private readonly MainWindow mainWindow;
         public Species SelectedSpecies
         {
             get => selectedSpecies;
@@ -36,9 +37,10 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             }
         }
         public Gender SelectedGender { get; set; } = Gender.Male;
-        public CreateCharacterWindow()
+        public CreateCharacterWindow(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
             DataContext = this;
         }
 
@@ -322,7 +324,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             App.StarReverieDbContext.SaveChanges();
 
             MessageBox.Show("Character saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            mainWindow.ReadCharactersFromDatabase();
             Close();
         }
     }
