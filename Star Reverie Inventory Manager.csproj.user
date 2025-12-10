@@ -8,6 +8,9 @@
     <Compile Update="CharacterManager\CreateSquadWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CharacterManager\DisplaySquadWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\InventoryControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

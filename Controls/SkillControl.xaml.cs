@@ -80,26 +80,26 @@ namespace Star_Reverie_Inventory_Manager.Controls
 
             if (SkillModel.Level > 0)
             {
-                int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
+                int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock?.Text ?? "0");
                 int refund = SkillMechanics.GetSkillCost(SkillModel.Level - 1);
 
                 SkillModel.Level -= 1;
                 skillLevel.Text = SkillModel.Level.ToString();
-                CurrentSkillPointsTextBlock.Text = (currentSkillPoints + refund).ToString();
+                CurrentSkillPointsTextBlock?.Text = (currentSkillPoints + refund).ToString();
             }
         }
 
         private void AddSkillButton_Click(object sender, RoutedEventArgs e)
         {
 
-            int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock.Text);
+            int currentSkillPoints = int.Parse(CurrentSkillPointsTextBlock?.Text ?? "0");
             int cost = SkillMechanics.GetSkillCost(SkillModel.Level);
 
             if (currentSkillPoints >= cost)
             {
                 SkillModel.Level += 1;
                 skillLevel.Text = SkillModel.Level.ToString();
-                CurrentSkillPointsTextBlock.Text = (currentSkillPoints - cost).ToString();
+                CurrentSkillPointsTextBlock?.Text = (currentSkillPoints - cost).ToString();
             }
         }
     }

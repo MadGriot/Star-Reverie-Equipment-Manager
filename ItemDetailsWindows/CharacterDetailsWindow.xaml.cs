@@ -4,6 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using Star_Reverie_Inventory_Manager.CharacterManager;
 using StarReverieCore.Models;
 using System.Windows;
 
@@ -34,7 +35,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             ItemsListView.ItemsSource = inventory;
         }
 
-        private void SetText()
+        public void SetText()
         {
             NameText.Text = $"{character.FirstName} {character.LastName}";
             EquippedWeaponText.Text = character.Weapon?.Name ?? "No Weapon";
@@ -57,12 +58,6 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             EncumbranceText.Text = character.AttributeScore.Encumbrance.ToString();
             SquadName.Text = character.Squad?.Name.ToString() ?? "None";
 
-        }
-        public void UpdateCharacterStats()
-        {
-            EquippedWeaponText.Text = character.Weapon?.Name ?? "No Weapon";
-            EquippedArmorText.Text = character.Armor?.Name ?? "No Armor";
-            EquippedShieldText.Text = character.Shield?.Name ?? "No Shield";
         }
         private void AddWeaponButton_Click(object sender, RoutedEventArgs e)
         {
@@ -124,7 +119,8 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
 
         private void ChangeSquad_Click(object sender, RoutedEventArgs e)
         {
-
+            DisplaySquadWindow window = new(character, this);
+            window.ShowDialog();
         }
 
 

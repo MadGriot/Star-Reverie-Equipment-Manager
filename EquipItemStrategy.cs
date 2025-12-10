@@ -36,7 +36,7 @@ namespace Star_Reverie_Inventory_Manager
                     break;
             }
 
-            window.CharacterDetailsWindow?.UpdateCharacterStats();
+            window.CharacterDetailsWindow?.SetText();
             App.StarReverieDbContext.SaveChanges();
             window.Close();
         }

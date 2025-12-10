@@ -30,14 +30,14 @@ namespace Star_Reverie_Inventory_Manager.Controls
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ItemControl itemControl = (ItemControl)d;
+            SquadControl squadControl = (SquadControl)d;
 
-            if (itemControl != null )
+            if (squadControl != null )
             {
                 SquadModel squad = (SquadModel)e.NewValue;
 
-                itemControl.nameTextBlock.Text = squad.Name;
-                itemControl.itemProperty1TextBlock.Text = $"Member Count: {squad?.Characters?.Count}";
+                squadControl.nameTextBlock.Text = squad.Name;
+                squadControl.itemProperty1TextBlock.Text = $"Member Count: {squad?.Characters?.Count}";
                 // Enter platoon in the future
                 //itemControl.itemProperty2Block.Text = 
             }
