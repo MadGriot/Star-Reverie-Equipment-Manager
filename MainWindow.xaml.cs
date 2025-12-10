@@ -113,6 +113,7 @@ namespace Star_Reverie_Inventory_Manager
                 .Include(a => a.AstralTech)
                 .Include(t => t.Techniques)
                 .Include(o => o.Shield)
+                .Include(sq => sq.Squad)
                 .Include(si => si.ShieldInstances)
                 .Include(i => i.Inventory)
                     .ThenInclude(u => u.Units)

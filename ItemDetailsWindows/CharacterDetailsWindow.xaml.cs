@@ -37,9 +37,9 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         private void SetText()
         {
             NameText.Text = $"{character.FirstName} {character.LastName}";
-            EquippedWeaponText.Text = character.Weapon?.Name;
-            EquippedArmorText.Text = character.Armor?.Name;
-            EquippedShieldText.Text = character.Shield?.Name;
+            EquippedWeaponText.Text = character.Weapon?.Name ?? "No Weapon";
+            EquippedArmorText.Text = character.Armor?.Name ?? "No Armor";
+            EquippedShieldText.Text = character.Shield?.Name ?? "No Shield";
 
             LevelText.Text = character.Level.ToString();
             StrengthText.Text = character.AttributeScore.Strength.ToString();
@@ -55,13 +55,14 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             DamageResistanceText.Text = $"{character.Armor?.DamageResistance}";
             WeightText.Text = character.AttributeScore.Weight.ToString();
             EncumbranceText.Text = character.AttributeScore.Encumbrance.ToString();
+            SquadName.Text = character.Squad?.Name.ToString() ?? "None";
 
         }
         public void UpdateCharacterStats()
         {
-            EquippedWeaponText.Text = character.Weapon?.Name;
-            EquippedArmorText.Text = character.Armor?.Name;
-            EquippedShieldText.Text = character.Shield?.Name;
+            EquippedWeaponText.Text = character.Weapon?.Name ?? "No Weapon";
+            EquippedArmorText.Text = character.Armor?.Name ?? "No Armor";
+            EquippedShieldText.Text = character.Shield?.Name ?? "No Shield";
         }
         private void AddWeaponButton_Click(object sender, RoutedEventArgs e)
         {
@@ -120,7 +121,11 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             DisplayItemsWindow window = new(ItemType.AstralTechnique, ActionStatus.DisplayTechniques, character, this);
             window.ShowDialog();
         }
-        
+
+        private void ChangeSquad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
 
     }

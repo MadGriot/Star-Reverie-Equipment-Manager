@@ -36,6 +36,9 @@
                     <MenuItem Header="_Display Techniques" Click="DisplayTechniques_Click" />
                     <MenuItem Header="_Display Astral Techniques" Click="DisplayAstralTechniques_Click" />
                 </MenuItem>
+                <MenuItem Header="_Squad Menu">
+                    <MenuItem Header="_Change Squad" Click="ChangeSquad_Click" />
+                </MenuItem>
             </Menu>
         </DockPanel>
         <!-- CHARACTER STATS -->
@@ -136,6 +139,11 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Encumbrance: " />
                 <TextBlock x:Name="EncumbranceText" Text="0"/>
+            </StackPanel>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Squad: " />
+                <TextBlock x:Name="SquadName" Text="None"/>
             </StackPanel>
         </StackPanel>
 
