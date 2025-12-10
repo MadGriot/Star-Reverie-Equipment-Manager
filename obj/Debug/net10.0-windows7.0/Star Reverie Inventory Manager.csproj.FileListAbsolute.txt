@@ -226,3 +226,5 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\ref\Star Reverie Inventory Manager.dll
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CreateItemWindows\CreateAmmoWindow.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CreateItemWindows\CreateAmmoWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\CreateSquadWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\CreateSquadWindow.baml

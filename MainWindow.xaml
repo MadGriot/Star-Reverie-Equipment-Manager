@@ -28,6 +28,7 @@
             </MenuItem>
             <MenuItem Header="_Character Manager">
                 <MenuItem Header="_Create Character" Click="CreateCharacterButton_Click"/>
+                <MenuItem Header="_Create Squad" Click="CreateSquadButton_Click"/>
             </MenuItem>
         </Menu>
         <StackPanel Margin="10">

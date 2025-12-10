@@ -89,6 +89,12 @@ namespace Star_Reverie_Inventory_Manager
             CreateCharacterWindow createCharacterWindow = new(this);
             createCharacterWindow.ShowDialog();
         }
+
+        private void CreateSquadButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateSquadWindow createSquadWindow = new();
+            createSquadWindow.ShowDialog();
+        }
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ItemsListView.SelectedItem is not Character character)
