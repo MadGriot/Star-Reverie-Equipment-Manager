@@ -21,6 +21,7 @@ namespace Star_Reverie_Inventory_Manager
             return status switch
             {
                 ActionStatus.AddingItem => new AddItemStrategy(character!, quantity),
+                ActionStatus.LearnTechnique => new AddItemStrategy(character!, quantity),
                 ActionStatus.EquippingItem => new EquipItemStrategy(character!),
                 _ => new SelectionStrategy(),
             };
