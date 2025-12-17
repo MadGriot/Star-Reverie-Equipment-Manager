@@ -36,4 +36,8 @@
     <None Include="C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DialogueManager\" />
+  </ItemGroup>
+
 </Project>

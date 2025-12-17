@@ -4,6 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using StarReverieCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,15 +24,27 @@ namespace Star_Reverie_Inventory_Manager.QuestManager
     /// </summary>
     public partial class CreateQuestStageWindow : Window
     {
+        List<QuestStage> questStages;
+        private TextBlock textBlockNumber;
 
-        public CreateQuestStageWindow()
+        public CreateQuestStageWindow(List<QuestStage> questStages, TextBlock textBlockNumber)
         {
             InitializeComponent();
+            this.questStages = questStages;
+            this.textBlockNumber = textBlockNumber;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            QuestStage questStage = new()
+            {
+                Description = descriptionTextBox.Text,
+                StageIndex = Math.Min(0, questStages.Count - 1)
+            };
+            questStages.Add(questStage);
+            textBlockNumber.Text = questStages.Count.ToString();
+            Close();
+ 
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -19,7 +19,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Width="70" Height="100" Text="Description: "/>
-            <TextBox Width="500" x:Name="damageResistanceTextBox"
+            <TextBox Width="500" x:Name="descriptionTextBox"
                        Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">

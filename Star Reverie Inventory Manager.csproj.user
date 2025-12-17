@@ -41,6 +41,9 @@
     <Compile Update="CreateTechniquesWindows\CreateTechniqueWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DialogueManager\CreateDialogueWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DisplayItemsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

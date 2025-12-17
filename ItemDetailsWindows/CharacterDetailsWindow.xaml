@@ -39,6 +39,9 @@
                 <MenuItem Header="_Squad">
                     <MenuItem Header="_Change Squad" Click="ChangeSquad_Click" />
                 </MenuItem>
+                <MenuItem Header="_Dialogue">
+                    <MenuItem Header="_Create Dialogue" Click="CreateDialogue_Click" />
+                </MenuItem>
             </Menu>
         </DockPanel>
         <!-- CHARACTER STATS -->

@@ -122,7 +122,10 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             DisplaySquadWindow window = new(character, this);
             window.ShowDialog();
         }
-
+        private void CreateDialogue_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
     }
 }
