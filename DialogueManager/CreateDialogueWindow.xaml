@@ -8,9 +8,37 @@
         Title="CreateDialogueWindow" Height="450" Width="700">
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal">
-            <TextBlock Width="70" Height="100" Text="Dialogue Text: "/>
+            <TextBlock Width="80" Height="100" Text="Dialogue Text: "/>
             <TextBox Width="500" x:Name="dialogueTextBox"
                        Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="80" Height="100" Text="Next Node: "/>
+            <TextBlock Width="500" x:Name="nextNodeTextBox"
+                       Margin="0,0,0,5"/>
+        </StackPanel>
+        <Button Content="Select Next Node"
+                    Click="SelectNextNodeButton_Click" HorizontalAlignment="Left" Margin="0,0,0,5"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Choices: "/>
+            <TextBlock Width="100" x:Name="dialogueChoiceAmount"
+                        Text="0" Margin="0,0,0,5"/>
+            <Button Content="Add Dialogue Choice"
+                    Click="AddDialogueChoiceButton_Click" Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Conditions: "/>
+            <TextBlock Width="100" x:Name="dialogueConditionAmount"
+                        Text="0" Margin="0,0,0,5"/>
+            <Button Content="Add Dialogue Condition"
+                    Click="AddDialogueConditionButton_Click" Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Effects: "/>
+            <TextBlock Width="100" x:Name="dialogueEffectAmount"
+                        Text="0" Margin="0,0,0,5"/>
+            <Button Content="Add Dialogue Effect"
+                    Click="AddDialogueEffectButton_Click" Margin="0,0,0,5"/>
         </StackPanel>
         <Button Content="Cancel " Margin="2" Background="LightCyan"
                     Click="CancelButton_Click" />

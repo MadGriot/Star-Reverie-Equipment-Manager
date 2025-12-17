@@ -4,17 +4,8 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Text;
+using StarReverieCore.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Star_Reverie_Inventory_Manager.DialogueManager
 {
@@ -23,9 +14,41 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
     /// </summary>
     public partial class CreateDialogueWindow : Window
     {
-        public CreateDialogueWindow()
+        private readonly Character character;
+        public DialogueNode? NextDialogueNode { get; set; } = null;
+        public CreateDialogueWindow(Character character)
         {
             InitializeComponent();
+            this.character = character;
+            nextNodeTextBox.Text = NextDialogueNode?.Text ?? "None";
+        }
+
+        private void AddDialogueChoiceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddDialogueConditionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void AddDialogueEffectButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void SelectNextNodeButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectNextNodeWindow selectNextNodeWindow = new();
+            selectNextNodeWindow.ShowDialog();
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

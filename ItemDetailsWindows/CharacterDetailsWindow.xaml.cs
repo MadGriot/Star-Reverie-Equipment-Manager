@@ -5,6 +5,7 @@
 //  -----------------------------------------------------------------------
 
 using Star_Reverie_Inventory_Manager.CharacterManager;
+using Star_Reverie_Inventory_Manager.DialogueManager;
 using StarReverieCore.Models;
 using System.Windows;
 
@@ -124,7 +125,8 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         }
         private void CreateDialogue_Click(object sender, RoutedEventArgs e)
         {
-            
+            CreateDialogueWindow createDialogueWindow = new(character);
+            createDialogueWindow.ShowDialog();
         }
 
     }
