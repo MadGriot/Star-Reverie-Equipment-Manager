@@ -9,6 +9,7 @@ using Star_Reverie_Inventory_Manager.CharacterManager;
 using Star_Reverie_Inventory_Manager.CreateItemWindows;
 using Star_Reverie_Inventory_Manager.CreateTechniquesWindows;
 using Star_Reverie_Inventory_Manager.ItemDetailsWindows;
+using Star_Reverie_Inventory_Manager.QuestManager;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -132,6 +133,12 @@ namespace Star_Reverie_Inventory_Manager
                 .ToList();
 
             ItemsListView.ItemsSource = filteredList;
+        }
+
+        private void CreateQuestButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateQuestWindow createQuestWindow = new();
+            createQuestWindow.ShowDialog();
         }
     }
 }

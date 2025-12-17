@@ -56,5 +56,11 @@
     <Compile Update="ItemDetailsWindows\WeaponDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="QuestManager\CreateQuestStageWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="QuestManager\CreateQuestWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -232,3 +232,7 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\Controls\SquadControl.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\DisplaySquadWindow.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\DisplaySquadWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\QuestManager\CreateQuestWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\QuestManager\CreateQuestWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\QuestManager\CreateQuestStageWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\QuestManager\CreateQuestStageWindow.baml

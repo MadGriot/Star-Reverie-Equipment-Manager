@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
         mc:Ignorable="d"
-        Title="Star Reverie Database Manager" Height="450" Width="500">
+        Title="Star Reverie Database Manager" Height="450" Width="600">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Create Item">
@@ -29,6 +29,10 @@
             <MenuItem Header="_Character Manager">
                 <MenuItem Header="_Create Character" Click="CreateCharacterButton_Click"/>
                 <MenuItem Header="_Create Squad" Click="CreateSquadButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Quest Manager">
+                <MenuItem Header="_Create Quest" Click="CreateQuestButton_Click" />
+                <MenuItem Header="_Display Quests" />
             </MenuItem>
         </Menu>
         <StackPanel Margin="10">
