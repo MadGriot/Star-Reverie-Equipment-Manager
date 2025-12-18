@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\GeneratedInternalTypeHelper.g.cs
 
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CharacterManager\CreateCharacterWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CharacterManager\CreateSquadWindow.xaml;;
@@ -13,6 +13,9 @@ FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Invento
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateWeaponsWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateTechniquesWindows\CreateAstralTechnique.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateTechniquesWindows\CreateTechniqueWindow.xaml;;
+FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\DialogueManager\CreateDialogueConditionWindow.xaml;;
+FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\DialogueManager\CreateDialogueWindow.xaml;;
+FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\DialogueManager\SelectNextNodeWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\DisplayItemsWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\ItemDetailsWindows\ArmorDetailsWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\ItemDetailsWindows\CharacterDetailsWindow.xaml;;
@@ -21,6 +24,4 @@ FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Invento
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\MainWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\QuestManager\CreateQuestStageWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\QuestManager\CreateQuestWindow.xaml;;
-FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\DialogueManager\CreateDialogueWindow.xaml;;
-FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\DialogueManager\SelectNextNodeWindow.xaml;;
 

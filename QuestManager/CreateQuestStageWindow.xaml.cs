@@ -39,7 +39,7 @@ namespace Star_Reverie_Inventory_Manager.QuestManager
             QuestStage questStage = new()
             {
                 Description = descriptionTextBox.Text,
-                StageIndex = Math.Min(0, questStages.Count - 1)
+                StageIndex = Math.Max(0, questStages.Count - 1)
             };
             questStages.Add(questStage);
             textBlockNumber.Text = questStages.Count.ToString();

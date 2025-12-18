@@ -15,6 +15,9 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
     public partial class CreateDialogueWindow : Window
     {
         private readonly Character character;
+        public List<DialogueCondition> DialogueConditions { get; set; } = new();
+        public List<DialogueChoice> DialogueChoices { get; set; } = new();
+        public List<DialogueEffect> DialogueEffects { get; set; } = new();
         public DialogueNode? NextDialogueNode { get; set; } = null;
         public CreateDialogueWindow(Character character)
         {
@@ -30,7 +33,8 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
 
         private void AddDialogueConditionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateDialogueConditionWindow createDialogueConditionWindow = new(DialogueConditions, dialogueConditionAmount);
+            createDialogueConditionWindow.ShowDialog();
         }
         private void AddDialogueEffectButton_Click(object sender, RoutedEventArgs e)
         {
@@ -43,7 +47,25 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (DialogueConditions.Count > 0)
+            {
+                DialogueNode dialogueNode = new()
+                {
+                    Text = dialogueTextBox.Text,
+                    NextNode = NextDialogueNode,
+                    Conditions = DialogueConditions,
+                    Choices = DialogueChoices,
+                    Effects = DialogueEffects,
 
+                };
+                character.Dialogues.Add(dialogueNode);
+                App.StarReverieDbContext.SaveChanges();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show($"You must have aleast one Dialogue Condition to save", "Ivalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

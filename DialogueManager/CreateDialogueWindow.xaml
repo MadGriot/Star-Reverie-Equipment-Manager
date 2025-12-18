@@ -42,7 +42,7 @@
         </StackPanel>
         <Button Content="Cancel " Margin="2" Background="LightCyan"
                     Click="CancelButton_Click" />
-        <Button Content="Add" Margin="2"
+        <Button Content="Save" Margin="2"
                     Click="SaveButton_Click"/>
     </StackPanel>
 </Window>

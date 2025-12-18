@@ -1,0 +1,40 @@
+﻿<Window x:Class="Star_Reverie_Inventory_Manager.DialogueManager.CreateDialogueConditionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.DialogueManager"
+        mc:Ignorable="d"
+        Title="CreateDialogueConditionWindow" Height="450" Width="500">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Condition Type: "/>
+            <ComboBox x:Name="dialogueConditionType"
+                      Margin="0,0,0,5"
+                      ItemsSource="{Binding DialogueConditionTypes}"
+                      SelectedItem="{Binding SelectedDialogueCondition, Mode=TwoWay}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Quest Key: "/>
+            <ComboBox x:Name="questKey"
+                      Margin="0,0,0,5"
+                      ItemsSource="{Binding Keys}"
+                      SelectedItem="{Binding SelectedKey, Mode=TwoWay}" />
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Quest Value: "/>
+            <TextBox Width="75" x:Name="questValueBox"
+                       Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Bool Value: " />
+            <CheckBox IsChecked="{Binding BoolValue, Mode=TwoWay}"
+              VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button Content="Cancel " Margin="2" Background="LightCyan"
+                    Click="CancelButton_Click" />
+        <Button Content="Add" Margin="2"
+                    Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>
