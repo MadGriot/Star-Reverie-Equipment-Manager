@@ -42,7 +42,8 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
                 {
                     Key = SelectedKey,
                     IntValue = questValue,
-                    BoolValue = BoolValue
+                    BoolValue = BoolValue,
+                    Type = SelectedDialogueCondition
                 };
                 //if (DialogueConditionExists(App.StarReverieDbContext.DialogueConditions.ToList(), newDialogueCondition)) 
                 //    return;
