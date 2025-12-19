@@ -27,12 +27,16 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
     public partial class SelectNextNodeWindow : Window
     {
         private List<DialogueNode> dialogueNodes;
-        public SelectNextNodeWindow()
+        private DialogueNode? nextNode;
+        private TextBlock nextNodeText;
+        public SelectNextNodeWindow(DialogueNode? nextNode, TextBlock nextNodeText)
         {
             InitializeComponent();
             dialogueNodes = App.StarReverieDbContext.DialogueNodes
                 .Include(n => n.NextNode).ToList();
             ItemsListView.ItemsSource = dialogueNodes;
+            this.nextNode = nextNode;
+            this.nextNodeText = nextNodeText;
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -46,7 +50,12 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
         }
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            if (ItemsListView.SelectedItem is DialogueNode selectedItem)
+            {
+                nextNode = selectedItem;
+                nextNodeText.Text = selectedItem.Text;
+                Close();
+            }
         }
     }
 }
