@@ -100,6 +100,12 @@
                 <TextBlock x:Name="encumbranceText" Text="None" />
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Text="XP Dropped: "/>
+                <TextBox Margin="5" MinWidth="100" x:Name="xpDropAmount"/>
+            </StackPanel>
+        </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Species: "/>
@@ -128,6 +134,10 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="5" Text="Portrait Path: "/>
                 <TextBox Margin="5" MinWidth="100" x:Name="portraitPath"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Text="Sprite Sheet Path: "/>
+                <TextBox Margin="5" MinWidth="100" x:Name="spriteSheetPath"/>
             </StackPanel>
             <Button x:Name="SaveButton" Click="SaveButton_Click">Save</Button>
         </StackPanel>

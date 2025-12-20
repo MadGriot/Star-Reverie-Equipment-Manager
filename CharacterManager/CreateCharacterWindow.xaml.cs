@@ -270,6 +270,8 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
                 AttributePoints = int.Parse(attributePointsNumber.Text),
                 SkillPoints = int.Parse(skillPointsNumber.Text),
                 PortraitPath = portraitPath.Text,
+                SpriteSheetPath = spriteSheetPath.Text,
+                XPDropAmount = int.Parse(xpDropAmount.Text),
                 AttributeScore = new()
                 {
                     Strength = int.Parse(strengthNumber.Text),
@@ -286,6 +288,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
                     Speed = decimal.Parse(speed.Text),
                     Dodge = int.Parse(dodge.Text),
                     XP = 1000,
+                    MinXP = 1000,
                 },
             };
 
