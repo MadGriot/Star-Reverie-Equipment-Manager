@@ -32,7 +32,7 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
         public SelectNextNodeWindow(DialogueNode? nextNode, TextBlock nextNodeText)
         {
             InitializeComponent();
-            dialogueNodes = App.StarReverieDbContext.DialogueNodes
+            dialogueNodes = App.StarReverieDbContext.Dialogues
                 .Include(n => n.NextNode).ToList();
             ItemsListView.ItemsSource = dialogueNodes;
             this.nextNode = nextNode;

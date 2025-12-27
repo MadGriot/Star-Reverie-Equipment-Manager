@@ -38,8 +38,8 @@ namespace Star_Reverie_Inventory_Manager.Controls
 
                 squadControl.nameTextBlock.Text = squad.Name;
                 squadControl.itemProperty1TextBlock.Text = $"Member Count: {squad?.Characters?.Count}";
-                // Enter platoon in the future
-                //itemControl.itemProperty2Block.Text = 
+
+                squadControl.itemProperty2Block.Text = squad?.Platoon?.Name ?? "None"; 
             }
         }
         public SquadControl()

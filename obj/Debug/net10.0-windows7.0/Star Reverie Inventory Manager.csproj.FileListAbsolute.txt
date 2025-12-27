@@ -244,3 +244,10 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\DialogueManager\CreateDialogueConditionWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\Controls\DialogueControl.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\Controls\DialogueControl.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\CreatePlatoonWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\bin\Debug\net10.0-windows7.0\StarReverieCore.dll
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\CreatePlatoonWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\DisplayPlatoonsWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\Controls\PlatoonControl.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\DisplayPlatoonsWindow.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\Controls\PlatoonControl.baml

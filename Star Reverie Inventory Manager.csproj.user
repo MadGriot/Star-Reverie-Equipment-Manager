@@ -5,7 +5,13 @@
     <Compile Update="CharacterManager\CreateCharacterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CharacterManager\CreatePlatoonWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CharacterManager\CreateSquadWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CharacterManager\DisplayPlatoonsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CharacterManager\DisplaySquadWindow.xaml.cs">
@@ -18,6 +24,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\ItemControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\PlatoonControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\SkillControl.xaml.cs">

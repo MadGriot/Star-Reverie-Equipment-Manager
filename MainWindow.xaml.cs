@@ -96,6 +96,18 @@ namespace Star_Reverie_Inventory_Manager
             CreateSquadWindow createSquadWindow = new();
             createSquadWindow.ShowDialog();
         }
+
+        private void CreatePlatoonButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreatePlatoonWindow createPlatoonWindow = new();
+            createPlatoonWindow.ShowDialog();
+        }
+
+        private void DisplayPlatoonsButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayPlatoonsWindow window = new();
+            window.ShowDialog();
+        }
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ItemsListView.SelectedItem is not Character character)

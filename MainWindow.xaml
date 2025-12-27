@@ -29,6 +29,8 @@
             <MenuItem Header="_Character Manager">
                 <MenuItem Header="_Create Character" Click="CreateCharacterButton_Click"/>
                 <MenuItem Header="_Create Squad" Click="CreateSquadButton_Click"/>
+                <MenuItem Header="_Create Platoon" Click="CreatePlatoonButton_Click"/>
+                <MenuItem Header="_Display Platoons" Click="DisplayPlatoonsButton_Click"/>
             </MenuItem>
             <MenuItem Header="_Quest Manager">
                 <MenuItem Header="_Create Quest" Click="CreateQuestButton_Click" />
