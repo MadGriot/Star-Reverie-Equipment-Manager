@@ -4,6 +4,7 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using Microsoft.EntityFrameworkCore;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,7 +20,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         public DisplayPlatoonsWindow()
         {
             InitializeComponent();
-            platoons = App.StarReverieDbContext.Platoons.ToList();
+            platoons = App.StarReverieDbContext.Platoons.Include(s => s.Squads).ToList();
                         ItemsListView.ItemsSource = platoons;
         }
 

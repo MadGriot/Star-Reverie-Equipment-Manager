@@ -36,7 +36,7 @@ namespace Star_Reverie_Inventory_Manager.Controls
                 PlatoonModel platoon = (PlatoonModel)e.NewValue;
 
                 platoonControl.nameTextBlock.Text = platoon.Name;
-                platoonControl.itemProperty1TextBlock.Text = $"Squad Count: {platoon?.Squads?.Count}";
+                platoonControl.itemProperty1TextBlock.Text = $"PlatoonSquad Count: {platoon?.Squads?.Count}";
                 //Add Companies in the future:
                 //platoonControl.itemProperty2Block.Text =
             }

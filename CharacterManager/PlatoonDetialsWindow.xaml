@@ -11,17 +11,22 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock x:Name="namePlatoon" Text="Platoon Name: "/>
         </StackPanel>
-        <ItemsControl x:Name="SquadsItemsControl"
-              ItemsSource="{Binding Squads}">
-                <ItemsControl.ItemTemplate>
+        <StackPanel>
+            <ListView x:Name="ItemsListView"
+                      Height="200"
+                      SelectionChanged="ItemsListView_SelectionChanged"
+                      Margin="0 5 0 0">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <pc:PlatoonSquadsControl
-                Squad="{Binding}"
+                PlatoonSquad="{Binding}"
                 DeleteRequested="PlatoonSquadsControl_DeleteRequested"/>
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <Button Content="Add Squad" Margin="2"
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <Button Content="Add Squad" Margin="2"
                     Click="AddSquadButton_Click"/>
             <Button Content="Delete Platoon" Margin="2" Background="Red" Foreground="White"
                     Click="DeletePlatoonButton_Click"/>

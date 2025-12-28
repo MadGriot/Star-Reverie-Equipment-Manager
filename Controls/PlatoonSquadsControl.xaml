@@ -8,7 +8,7 @@
              d:DesignHeight="30" d:DesignWidth="800">
     <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
         <TextBlock Text="Squad Name: "/>
-        <TextBlock Text="A Name "/>
+        <TextBlock x:Name="squadNameTextBlock" Text="A Name " Margin="0,0,5,0"/>
         <Button Content="Delete Squad" Background="Red" Foreground="White" Click="DeleteSquadButton_Click"/>
     </StackPanel>
 </UserControl>

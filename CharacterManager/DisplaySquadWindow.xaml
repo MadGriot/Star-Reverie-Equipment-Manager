@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CharacterManager"
-        xmlns:sc="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
+        xmlns:pc="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
         mc:Ignorable="d"
         Title="DisplaySquadWindow" Height="450" Width="500">
     <StackPanel Margin="10">
@@ -16,7 +16,7 @@
                       Margin="0 5 0 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <sc:SquadControl Squad="{Binding}"/>
+                    <pc:SquadControl Squad="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

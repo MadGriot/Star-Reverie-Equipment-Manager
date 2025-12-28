@@ -36,7 +36,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             App.StarReverieDbContext.Squads.Add(squadModel);
             App.StarReverieDbContext.SaveChanges();
 
-            MessageBox.Show("Squad saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("PlatoonSquad saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
     }
