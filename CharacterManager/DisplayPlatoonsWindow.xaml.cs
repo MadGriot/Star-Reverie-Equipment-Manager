@@ -33,9 +33,15 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         {
             if (ItemsListView.SelectedItem is not PlatoonModel platoon)
                 return;
-            PlatoonDetialsWindow window = new(platoon);
+            PlatoonDetialsWindow window = new(platoon, this);
             window.ShowDialog();
             ItemsListView.SelectedItem = null;
+        }
+
+        public void UpdateListView()
+        {
+            ItemsListView.ItemsSource = null;
+            ItemsListView.ItemsSource = platoons;
         }
     }
 }

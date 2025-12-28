@@ -55,13 +55,21 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         {
             if (ItemsListView.SelectedItem is SquadModel selectedItem)
             {
-                platoon.Squads?.Add(selectedItem);
-                if (selectedItem == null)
+                if (platoon.Squads?.Count < 4)
                 {
-                    throw new NullReferenceException();
+                    platoon.Squads?.Add(selectedItem);
+                    if (selectedItem == null)
+                    {
+                        throw new NullReferenceException();
+                    }
+                    App.StarReverieDbContext.SaveChanges();
+                    platoonDetialsWindow.SetText();
                 }
-                App.StarReverieDbContext.SaveChanges();
-                platoonDetialsWindow.SetText();
+                else
+                {
+                    MessageBox.Show("Cannot add more than 4 Squads", "Max Squad Limit", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
             }
             Close();
         }
