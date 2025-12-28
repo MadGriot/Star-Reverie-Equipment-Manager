@@ -5,17 +5,8 @@
 //  -----------------------------------------------------------------------
 
 using StarReverieCore.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Star_Reverie_Inventory_Manager.CharacterManager
 {
@@ -28,8 +19,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
         public DisplayPlatoonsWindow()
         {
             InitializeComponent();
-            platoons = App.StarReverieDbContext.Platoons
-                .Where(s => s.Squads.Count() < 4).ToList();
+            platoons = App.StarReverieDbContext.Platoons.ToList();
                         ItemsListView.ItemsSource = platoons;
         }
 
@@ -40,7 +30,11 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
 
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (ItemsListView.SelectedItem is not PlatoonModel platoon)
+                return;
+            PlatoonDetialsWindow window = new(platoon);
+            window.ShowDialog();
+            ItemsListView.SelectedItem = null;
         }
     }
 }

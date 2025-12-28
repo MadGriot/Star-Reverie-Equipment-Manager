@@ -17,6 +17,9 @@
     <Compile Update="CharacterManager\DisplaySquadWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CharacterManager\PlatoonDetialsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\DialogueControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +30,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\PlatoonControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\PlatoonSquadsControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\SkillControl.xaml.cs">
