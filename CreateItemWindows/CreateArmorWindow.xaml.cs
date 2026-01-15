@@ -17,7 +17,9 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
     public partial class CreateArmorWindow : Window, ICreate
     {
         public Array ArmorLocations { get; } = Enum.GetValues(typeof(ArmorLocation));
+        public Array TechnologyLevels { get; } = Enum.GetValues(typeof(TechnologyLevel));
         public ArmorLocation SelectedArmorLocation { get; set; } = ArmorLocation.FullSuit;
+        public TechnologyLevel SelectedTechnologyLevel { get; set; } = TechnologyLevel.Current;
         public CreateArmorWindow()
         {
             InitializeComponent();
@@ -53,6 +55,11 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
                 Name = nameTextBox.Text,
                 DamageResistance = int.Parse(damageResistanceTextBox.Text),
                 ArmorLocation = SelectedArmorLocation,
+                Description = damageResistanceTextBox.Text,
+                TriechAppearanceDate = triechAppearanceTextBox.Text,
+                EarthAppearanceDate = earthAppearanceTextBox.Text,
+                Origin = originTextBox.Text,
+                TechnologyLevel = SelectedTechnologyLevel,
                 Cost = int.Parse(costTextBox.Text),
                 Weight = int.Parse(weightTextBox.Text),
             };

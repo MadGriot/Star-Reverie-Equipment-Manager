@@ -15,6 +15,8 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
     /// </summary>
     public partial class CreateShieldWindow : Window, ICreate
     {
+        public Array TechnologyLevels { get; } = Enum.GetValues(typeof(TechnologyLevel));
+        public TechnologyLevel SelectedTechnologyLevel { get; set; } = TechnologyLevel.Current;
         public CreateShieldWindow()
         {
             InitializeComponent();
@@ -52,6 +54,11 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
             ShieldModel shieldModel = new()
             {
                 Name = nameTextBox.Text,
+                Description = descriptionTextBox.Text,
+                Origin = originTextBox.Text,
+                EarthAppearanceDate = earthAppearanceTextBox.Text,
+                TriechAppearanceDate = triechAppearanceTextBox.Text,
+                TechnologyLevel = SelectedTechnologyLevel,
                 MaxSP = int.Parse(spTextBox.Text),
                 MinSP = int.Parse(spTextBox.Text),
                 SPCost = int.Parse(spCostTextBox.Text),

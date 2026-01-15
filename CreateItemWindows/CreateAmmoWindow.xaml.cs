@@ -37,6 +37,11 @@ namespace Star_Reverie_Inventory_Manager.CreateItemWindows
                 Name = nameTextBox.Text,
                 Cost = int.Parse(costTextBox.Text),
                 Weight = decimal.Parse(weightTextBox.Text),
+                Description = descriptionTextBox.Text,
+                Origin = originTextBox.Text,
+                TriechAppearanceDate = triechAppearanceTextBox.Text,
+                EarthAppearanceDate = earthAppearanceTextBox.Text,
+                
             };
             App.StarReverieDbContext.Ammos.Add(ammoModel);
             App.StarReverieDbContext.SaveChanges();

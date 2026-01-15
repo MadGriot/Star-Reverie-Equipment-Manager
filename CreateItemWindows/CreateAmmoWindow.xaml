@@ -5,12 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CreateItemWindows"
         mc:Ignorable="d"
-        Title="CreateAmmoWindow" Height="200" Width="450">
+        Title="CreateAmmoWindow" Height="300" Width="450">
 
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Name: "/>
             <TextBox Width="300" x:Name="nameTextBox"
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Description: "/>
+            <TextBox Width="300" Height="100" x:Name="descriptionTextBox"
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Origin: "/>
+            <TextBox Width="300" x:Name="originTextBox"
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Appearance Date (Triech): "/>
+            <TextBox Width="200" x:Name="triechAppearanceTextBox"
+                         Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Appearance Date (Earth): "/>
+            <TextBox Width="200" x:Name="earthAppearanceTextBox"
                          Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">

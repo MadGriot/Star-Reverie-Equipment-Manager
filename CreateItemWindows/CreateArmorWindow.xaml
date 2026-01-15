@@ -5,13 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
         mc:Ignorable="d"
-        Title="CreateArmorWindow"  Height="200" Width="450">
+        Title="CreateArmorWindow"  Height="400" Width="450">
     <Grid>
         <StackPanel Margin="10">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name: "/>
                 <TextBox Width="300" x:Name="nameTextBox"
                          Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Description: "/>
+                <TextBox Width="300" Height="100" x:Name="descriptionTextBox"
+                         Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Origin: "/>
+                <TextBox Width="300" x:Name="originTextBox"
+                         Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Appearance Date (Triech): "/>
+                <TextBox Width="200" x:Name="triechAppearanceTextBox"
+                         Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Appearance Date (Earth): "/>
+                <TextBox Width="200" x:Name="earthAppearanceTextBox"
+                         Margin="0,0,0,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Technology Level: "/>
+                <ComboBox x:Name="techLevelComboBox"
+                      Margin="0,0,0,5"
+                      ItemsSource="{Binding TechnologyLevels}"
+                      SelectedItem="{Binding SelectedTechnologyLevel, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Armor Location: "/>

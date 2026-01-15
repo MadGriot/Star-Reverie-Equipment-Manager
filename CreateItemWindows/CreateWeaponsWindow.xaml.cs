@@ -17,6 +17,8 @@ namespace Star_Reverie_Inventory_Manager
     /// </summary>
     public partial class CreateWeaponsWindow : Window
     {
+        public Array TechnologyLevels { get; } = Enum.GetValues(typeof(TechnologyLevel));
+        public TechnologyLevel SelectedTechnologyLevel { get; set; } = TechnologyLevel.Current;
         public Array DamageTypes { get; } = Enum.GetValues(typeof(DamageType));
         public Array WeaponTypes { get; } = Enum.GetValues(typeof(WeaponType));
         public Array WeaponClasses { get; } = Enum.GetValues(typeof(WeaponClass));
@@ -66,6 +68,11 @@ namespace Star_Reverie_Inventory_Manager
             WeaponModel weaponModel = new()
             {
                 Name = nameTextBox.Text,
+                Description = descriptionTextBox.Text,
+                Origin = originTextBox.Text,
+                EarthAppearanceDate = earthAppearanceTextBox.Text,
+                TriechAppearanceDate = triechAppearanceTextBox.Text,
+                TechnologyLevel = SelectedTechnologyLevel,
                 DamageType = SelectedDamageType,
                 WeaponType = SelectedWeaponType,
                 WeaponClass = SelectedWeaponClass,
