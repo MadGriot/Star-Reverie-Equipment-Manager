@@ -65,6 +65,12 @@ namespace Star_Reverie_Inventory_Manager.Controls
                         itemControl.itemProperty1TextBlock.Text = $"Stamina Cost: {astralTech.StaminaCost}";
                         itemControl.itemProperty2Block.Text = $"Cost: {astralTech.Cost}";
                         break;
+                    case AmmoModel:
+                        AmmoModel ammoModel = (AmmoModel)item;
+                        itemControl.nameTextBlock.Text = ammoModel.Name;
+                        itemControl.itemProperty1TextBlock.Text = $"Weight: {ammoModel.Weight}";
+                        itemControl.itemProperty2Block.Text = $"Cost: {ammoModel.Cost}";
+                        break;
                 }
 
             }

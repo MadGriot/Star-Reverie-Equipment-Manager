@@ -12,10 +12,10 @@ using System.Text;
 
 namespace Star_Reverie_Inventory_Manager
 {
-    public class AddItemStrategy : IItemSelectionStrategy
+    public class AddItemStrategy : ItemSelectionStrategy
     {
         private readonly Character character;
-        private readonly int quantity;
+
 
         public AddItemStrategy(Character character, int quantity)
         {
@@ -23,7 +23,7 @@ namespace Star_Reverie_Inventory_Manager
             this.quantity = quantity;
         }
 
-        public void HandleSelection(Unit selectedItem, DisplayItemsWindow window)
+        public override void HandleSelection(Unit selectedItem, DisplayItemsWindow window)
         {
             switch (selectedItem)
             {

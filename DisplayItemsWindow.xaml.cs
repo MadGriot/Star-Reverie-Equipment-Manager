@@ -29,7 +29,7 @@ namespace Star_Reverie_Inventory_Manager
     {
         private List<Unit> items;
         private int quantity = 1;
-        private IItemSelectionStrategy strategy;
+        private ItemSelectionStrategy strategy;
         private ItemType itemType;
         private Character? character;
         private ActionStatus status;
@@ -48,7 +48,26 @@ namespace Star_Reverie_Inventory_Manager
             ItemsListView.ItemsSource = items;
         }
 
+        private void SubtractQuantityButton_Click(object sender, RoutedEventArgs e)
+        {
+            quantity = int.Parse(quantityNumber.Text);
+            if (quantity > 1)
+            {
+                quantity -= 1;
+                strategy.quantity = quantity;
 
+            }
+            quantityNumber.Text = quantity.ToString();
+        }
+
+        private void AddQuantityButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            quantity = int.Parse(quantityNumber.Text);
+            quantity += 1;
+            strategy.quantity = quantity;
+            quantityNumber.Text = quantity.ToString();
+        }
         public void RefreshItems()
         {
             ItemsListView.ItemsSource = ItemSourceFactory.LoadItems(itemType, character, status);

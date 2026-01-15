@@ -10,6 +10,12 @@
     <StackPanel Margin="10">
         <TextBox Margin="0 5 0 5"
                                  TextChanged="TextBox_TextChanged"/>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="SubtractQuantityButton" Click="SubtractQuantityButton_Click" Margin="5">-</Button>
+            <TextBlock Text="Quantity" Margin="2" VerticalAlignment="Center"/>
+            <TextBlock  x:Name="quantityNumber" Text="1" VerticalAlignment="Center"/>
+            <Button x:Name="AddQuantityButton" Click="AddQuantityButton_Click" Margin="5">+</Button>
+        </StackPanel>
         <ListView x:Name="ItemsListView"
                       Height="400"
                       SelectionChanged="ItemsListView_SelectionChanged"

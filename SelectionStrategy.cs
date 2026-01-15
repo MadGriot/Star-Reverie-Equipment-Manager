@@ -12,9 +12,9 @@ using System.Text;
 
 namespace Star_Reverie_Inventory_Manager
 {
-    public class SelectionStrategy : IItemSelectionStrategy
+    public class SelectionStrategy : ItemSelectionStrategy
     {
-        public void HandleSelection(Unit item, DisplayItemsWindow window)
+        public override void HandleSelection(Unit item, DisplayItemsWindow window)
         {
             switch (item)
             {

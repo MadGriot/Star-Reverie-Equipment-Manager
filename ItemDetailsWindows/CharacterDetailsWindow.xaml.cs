@@ -71,6 +71,11 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             DisplayItemsWindow window = new(ItemType.Armor, ActionStatus.AddingItem, character, this);
             window.ShowDialog();
         }
+        private void AddAmmoButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayItemsWindow window = new(ItemType.Ammo, ActionStatus.AddingItem, character, this);
+            window.ShowDialog();
+        }
 
         private void AddShieldButton_Click(object sender, RoutedEventArgs e)
         {

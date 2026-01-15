@@ -13,7 +13,7 @@ namespace Star_Reverie_Inventory_Manager
 {
     public static class StrategyFactory
     {
-        public static IItemSelectionStrategy CreateStrategy(
+        public static ItemSelectionStrategy CreateStrategy(
             ActionStatus status,
             Character? character,
             int quantity = 1)

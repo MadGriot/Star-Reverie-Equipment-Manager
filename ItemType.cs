@@ -13,5 +13,6 @@ namespace Star_Reverie_Inventory_Manager
         Shield,
         Technique,
         AstralTechnique,
+        Ammo,
     }
 }

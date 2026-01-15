@@ -11,8 +11,12 @@ using System.Text;
 
 namespace Star_Reverie_Inventory_Manager
 {
-    public interface IItemSelectionStrategy
+    public abstract class ItemSelectionStrategy
     {
-        void HandleSelection(Unit selectedItem, DisplayItemsWindow window);
+        public int quantity;
+        public virtual void HandleSelection(Unit selectedItem, DisplayItemsWindow window)
+        {
+
+        }
     }
 }
