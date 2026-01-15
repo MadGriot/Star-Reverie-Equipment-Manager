@@ -157,6 +157,7 @@
             <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
             <ListView x:Name="ItemsListView"
                       Height="400"
+                      SelectionChanged="ItemsListView_SelectionChanged"
                       Margin="0 5 0 0">
                 <ListView.ItemTemplate>
                     <DataTemplate>

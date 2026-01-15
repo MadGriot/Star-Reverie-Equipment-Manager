@@ -19,7 +19,8 @@ namespace Star_Reverie_Inventory_Manager
         AddingItem,
         EquippingItem,
         LearnTechnique,
-        DisplayTechniques
+        DisplayTechniques,
+        DisplayInventoryItem,
 
     }
     /// <summary>

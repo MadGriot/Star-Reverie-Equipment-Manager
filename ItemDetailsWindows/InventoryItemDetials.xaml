@@ -1,0 +1,39 @@
+﻿<Window x:Class="Star_Reverie_Inventory_Manager.ItemDetailsWindows.InventoryItemDetials"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.ItemDetailsWindows"
+        mc:Ignorable="d"
+        Title="InventoryItemDetials" Height="450" Width="600">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Name: "/>
+            <TextBlock Width="300" x:Name="nameTextBox"
+                       Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="115" Text="Description: "/>
+            <TextBlock Width="250" Height="200" x:Name="descriptionTextBox"
+                     Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="75" Text="Quantity: "/>
+            <TextBlock Width="100" x:Name="quantityTextBox"
+                     Margin="0,0,0,5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Remove" Margin="2" Background="Red" Foreground="White"
+                  Click="DeleteButton_Click"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SubtractQuantityButton" Click="SubtractQuantityButton_Click" Margin="5">-</Button>
+                <TextBlock Text="Quantity" Margin="2" VerticalAlignment="Center"/>
+                <TextBlock  x:Name="quantityNumber" Text="1" VerticalAlignment="Center"/>
+                <Button x:Name="AddQuantityButton" Click="AddQuantityButton_Click" Margin="5">+</Button>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Exit" Margin="2" Background="LightCyan"
+              Click="ExitButton_Click" />
+    </StackPanel>
+</Window>

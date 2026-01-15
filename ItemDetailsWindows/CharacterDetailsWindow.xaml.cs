@@ -8,6 +8,7 @@ using Star_Reverie_Inventory_Manager.CharacterManager;
 using Star_Reverie_Inventory_Manager.DialogueManager;
 using StarReverieCore.Models;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
 {
@@ -133,6 +134,15 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             CreateDialogueWindow createDialogueWindow = new(character);
             createDialogueWindow.ShowDialog();
         }
+        private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ItemsListView.SelectedItem is UnitStack selectedItem)
+            {
+                InventoryItemDetials window = new(selectedItem, character);
+                window.ShowDialog();
 
+            }
+
+        }
     }
 }
