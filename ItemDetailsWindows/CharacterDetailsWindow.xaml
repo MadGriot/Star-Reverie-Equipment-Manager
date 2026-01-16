@@ -29,6 +29,11 @@
                     <MenuItem Header="_Equip Armor" Click="EquipArmorButton_Click" />
                     <MenuItem Header="_Equip Shield" Click="EquipShieldButton_Click" />
                 </MenuItem>
+                <MenuItem Header="_Unequip Item">
+                    <MenuItem Header="_Unequip Weapon" Click="UnequipWeaponButton_Click" />
+                    <MenuItem Header="_Unequip Armor" Click="UnequipArmorButton_Click" />
+                    <MenuItem Header="_Unequip Shield" Click="UnequipShieldButton_Click" />
+                </MenuItem>
                 <MenuItem Header="_Add Techniques">
                     <MenuItem Header="_Add Technique" Click="AddTechniqueButton_Click" />
                     <MenuItem Header="_Add Astral Technique" Click="AddAstralTechniqueButton_Click" />

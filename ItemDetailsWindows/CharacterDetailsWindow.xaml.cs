@@ -6,6 +6,7 @@
 
 using Star_Reverie_Inventory_Manager.CharacterManager;
 using Star_Reverie_Inventory_Manager.DialogueManager;
+using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -90,6 +91,24 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
             window.ShowDialog();
         }
 
+        private void UnequipWeaponButton_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryActions.UnequipWeapon(character);
+            SetText();
+            App.StarReverieDbContext.SaveChanges();
+        }
+        private void UnequipArmorButton_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryActions.UnequipArmor(character);
+            SetText();
+            App.StarReverieDbContext.SaveChanges();
+        }
+        private void UnequipShieldButton_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryActions.UnequipShield(character);
+            SetText();
+            App.StarReverieDbContext.SaveChanges();
+        }
         private void EquipArmorButton_Click(object sender, RoutedEventArgs e)
         {
             DisplayItemsWindow window = new(ItemType.Armor, ActionStatus.EquippingItem, character, this);
@@ -138,7 +157,7 @@ namespace Star_Reverie_Inventory_Manager.ItemDetailsWindows
         {
             if (ItemsListView.SelectedItem is UnitStack selectedItem)
             {
-                InventoryItemDetials window = new(selectedItem, character);
+                InventoryItemDetials window = new(selectedItem, character, this);
                 window.ShowDialog();
 
             }
