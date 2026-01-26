@@ -51,7 +51,8 @@ namespace Star_Reverie_Inventory_Manager
         }
         private void CreateFirstAidButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CreateFirstAidWindow createFirstAidWindow = new();
+            createFirstAidWindow.ShowDialog();
         }
         private void CreateAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
         {

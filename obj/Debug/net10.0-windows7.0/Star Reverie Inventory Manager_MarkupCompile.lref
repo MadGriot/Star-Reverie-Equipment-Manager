@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\GeneratedInternalTypeHelper.g.cs
 
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CharacterManager\CreateCharacterWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CharacterManager\CreatePlatoonWindow.xaml;;
@@ -16,6 +16,8 @@ FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Invento
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\Controls\SquadControl.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateAmmoWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateArmorWindow.xaml;;
+FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateBatteryWindow.xaml;;
+FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateFirstAidWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateShieldWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateWeaponsWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateTechniquesWindows\CreateAstralTechnique.xaml;;
@@ -32,5 +34,4 @@ FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Invento
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\MainWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\QuestManager\CreateQuestStageWindow.xaml;;
 FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\QuestManager\CreateQuestWindow.xaml;;
-FC:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\CreateItemWindows\CreateBatteryWindow.xaml;;
 

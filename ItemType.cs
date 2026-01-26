@@ -15,6 +15,6 @@ namespace Star_Reverie_Inventory_Manager
         AstralTechnique,
         Ammo,
         Battery,
-        FirstAid,
+        FirstAid
     }
 }
