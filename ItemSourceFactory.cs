@@ -41,6 +41,9 @@ namespace Star_Reverie_Inventory_Manager
                 ItemType.Ammo => inventory?.Where(a => a.Unit is AmmoModel)
                     .Select(u => u.Unit!)
                     .ToList() ?? new(),
+                ItemType.Battery => inventory?.Where(a => a.Unit is BatteryModel)
+                    .Select(u => u.Unit!)
+                    .ToList() ?? new(),
                 _ => new(),
             };
         }
@@ -69,6 +72,7 @@ namespace Star_Reverie_Inventory_Manager
                 ItemType.Technique => context.Techniques.OfType<Unit>().ToList(),
                 ItemType.AstralTechnique => context.AstralTechniques.OfType<Unit>().ToList(),
                 ItemType.Ammo => context.Ammos.OfType<Unit>().ToList(),
+                ItemType.Battery => context.Batteries.OfType<Unit>().ToList(),
                 _ => new()
             };
         }

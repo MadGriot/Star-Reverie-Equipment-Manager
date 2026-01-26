@@ -259,3 +259,5 @@ C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventor
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CharacterManager\DisplayPlatoonSquadsWindow.baml
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\ItemDetailsWindows\InventoryItemDetials.g.cs
 C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\ItemDetailsWindows\InventoryItemDetials.baml
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CreateItemWindows\CreateBatteryWindow.g.cs
+C:\Users\Insan\source\repos\Star Reverie Inventory Manager\Star Reverie Inventory Manager\obj\Debug\net10.0-windows7.0\CreateItemWindows\CreateBatteryWindow.baml

@@ -71,6 +71,12 @@ namespace Star_Reverie_Inventory_Manager.Controls
                         itemControl.itemProperty1TextBlock.Text = $"Weight: {ammoModel.Weight}";
                         itemControl.itemProperty2Block.Text = $"Cost: {ammoModel.Cost}";
                         break;
+                    case BatteryModel:
+                        BatteryModel batteryModel = (BatteryModel)item;
+                        itemControl.nameTextBlock.Text = batteryModel.Name;
+                        itemControl.itemProperty1TextBlock.Text = $"Weight: {batteryModel.Weight}";
+                        itemControl.itemProperty2Block.Text = $"Cost: {batteryModel.Cost}";
+                        break;
                 }
 
             }

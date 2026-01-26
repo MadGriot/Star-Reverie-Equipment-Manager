@@ -13,6 +13,8 @@
                 <MenuItem Header="_Create Armor" Click="CreateArmorButton_Click"/>
                 <MenuItem Header="_Create Shield" Click="CreateShieldButton_Click"/>
                 <MenuItem Header="_Create Ammo" Click="CreateAmmoButton_Click"/>
+                <MenuItem Header="_Create Battery" Click="CreateBatteryButton_Click"/>
+                <MenuItem Header="_Create First Aid" Click="CreateFirstAidButton_Click"/>
                 <Separator />
             </MenuItem>
             <MenuItem Header="_Create Techniques">

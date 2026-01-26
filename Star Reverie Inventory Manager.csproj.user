@@ -50,6 +50,9 @@
     <Compile Update="CreateItemWindows\CreateArmorWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CreateItemWindows\CreateBatteryWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreateItemWindows\CreateShieldWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

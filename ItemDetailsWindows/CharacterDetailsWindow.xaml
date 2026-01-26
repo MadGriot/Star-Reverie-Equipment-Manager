@@ -23,6 +23,7 @@
                     <MenuItem Header="_Add Armor" Click="AddArmorButton_Click"/>
                     <MenuItem Header="_Add Shield" Click="AddShieldButton_Click"/>
                     <MenuItem Header="_Add Ammo" Click="AddAmmoButton_Click"/>
+                    <MenuItem Header="_Add Battery" Click="AddBatteryButton_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Equip Item">
                     <MenuItem Header="_Equip Weapon" Click="EquipWeaponButton_Click" />

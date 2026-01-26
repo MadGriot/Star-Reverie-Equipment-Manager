@@ -44,6 +44,15 @@ namespace Star_Reverie_Inventory_Manager
             CreateAmmoWindow createAmmoWindow = new();
             createAmmoWindow.ShowDialog();
         }
+        private void CreateBatteryButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateBatteryWindow createBatteryWindow = new();
+            createBatteryWindow.ShowDialog();
+        }
+        private void CreateFirstAidButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void CreateAstralTechniqueButton_Click(object sender, RoutedEventArgs e)
         {
             CreateAstralTechniqueWindow createAstralTechniqueWindow = new();
