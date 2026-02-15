@@ -1,75 +1,190 @@
 ﻿<Window x:Class="Star_Reverie_Inventory_Manager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager"
-        mc:Ignorable="d"
-        Title="Star Reverie Database Manager" Height="450" Width="600">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Create Item">
-                <MenuItem Header="_Create Weapon" Click="CreateWeaponButton_Click" />
-                <MenuItem Header="_Create Armor" Click="CreateArmorButton_Click"/>
-                <MenuItem Header="_Create Shield" Click="CreateShieldButton_Click"/>
-                <MenuItem Header="_Create Ammo" Click="CreateAmmoButton_Click"/>
-                <MenuItem Header="_Create Battery" Click="CreateBatteryButton_Click"/>
-                <MenuItem Header="_Create First Aid" Click="CreateFirstAidButton_Click"/>
-                <Separator />
-            </MenuItem>
-            <MenuItem Header="_Create Techniques">
-                <MenuItem Header="_Create Astral Technique" Click="CreateAstralTechniqueButton_Click" />
-                <MenuItem Header="_Create Technique" Click="CreateTechniqueButton_Click" />
-            </MenuItem>
-            <MenuItem Header="_Display Items">
-                <MenuItem Header="_Display Weapons" Click="DisplayWeaponsButton_Click" />
-                <MenuItem Header="_Display Armors" Click="DisplayArmorsButton_Click" />
-                <MenuItem Header="_Display Shields" Click="DisplayShieldsButton_Click" />
-                <MenuItem Header="_Display Techniques" Click="DisplayTechniqueButton_Click"/>
-                <MenuItem Header="_Display Astral Techniques" Click="DisplayAstralTechniqueButton_Click" />
-            </MenuItem>
-            <MenuItem Header="_Character Manager">
-                <MenuItem Header="_Create Character" Click="CreateCharacterButton_Click"/>
-                <MenuItem Header="_Create Squad" Click="CreateSquadButton_Click"/>
-                <MenuItem Header="_Create Platoon" Click="CreatePlatoonButton_Click"/>
-                <MenuItem Header="_Display Platoons" Click="DisplayPlatoonsButton_Click"/>
-            </MenuItem>
-            <MenuItem Header="_Quest Manager">
-                <MenuItem Header="_Create Quest" Click="CreateQuestButton_Click" />
-                <MenuItem Header="_Display Quests" />
-            </MenuItem>
-        </Menu>
-        <StackPanel Margin="10">
-            <TextBox Margin="0 5 0 5"
-                 TextChanged="TextBox_TextChanged"/>
+        Title="STAR REVERIE // COMMAND TERMINAL"
+        Height="550"
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f061a">
+
+    <Window.Resources>
+
+        <!-- Deep Space Gradient -->
+        <LinearGradientBrush x:Key="SpaceBackground" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#0f061a" Offset="0"/>
+            <GradientStop Color="#1a0b2e" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Neon Accent -->
+        <SolidColorBrush x:Key="NeonPurple" Color="#b14cff"/>
+        <SolidColorBrush x:Key="PanelBackground" Color="#160a26"/>
+
+        <!-- Glow Text -->
+        <Style x:Key="GlowText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <!-- Terminal Button -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="BorderBrush" Value="#b14cff"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- ListView Item Style -->
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+    </Window.Resources>
+
+    <DockPanel Background="{StaticResource SpaceBackground}">
+
+        <!-- TOP COMMAND BAR -->
+        <Border DockPanel.Dock="Top"
+                Background="#140822"
+                Padding="10">
+            <TextBlock Text="STAR REVERIE // COMMAND TERMINAL"
+                       Foreground="#b14cff"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- BOTTOM STATUS BAR -->
+        <Border DockPanel.Dock="Bottom"
+                Background="#140822"
+                Padding="5">
+            <TextBlock Text="SYSTEM STATUS: ONLINE  |  DATABASE LINK: ACTIVE"
+                       Foreground="#8a5ccf"
+                       FontSize="12"/>
+        </Border>
+
+<!-- LEFT NAVIGATION CONSOLE -->
+<Border DockPanel.Dock="Left"
+        Width="240"
+        Background="#160a26"
+        Padding="12">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+        <StackPanel>
+
+            <!-- ITEM FABRICATION -->
+            <TextBlock Text="ITEM FABRICATION"
+                       Foreground="#b14cff"
+                       FontWeight="Bold"
+                       Margin="0 0 0 8"/>
+
+            <Button Content="Create Weapon" Click="CreateWeaponButton_Click"/>
+            <Button Content="Create Armor" Click="CreateArmorButton_Click"/>
+            <Button Content="Create Shield" Click="CreateShieldButton_Click"/>
+            <Button Content="Create Ammo" Click="CreateAmmoButton_Click"/>
+            <Button Content="Create Battery" Click="CreateBatteryButton_Click"/>
+            <Button Content="Create First Aid" Click="CreateFirstAidButton_Click"/>
+
+            <Separator Margin="0 12"/>
+
+            <!-- TECHNIQUES -->
+            <TextBlock Text="TECHNIQUES"
+                       Foreground="#b14cff"
+                       FontWeight="Bold"
+                       Margin="0 0 0 8"/>
+
+            <Button Content="Create Technique" Click="CreateTechniqueButton_Click"/>
+            <Button Content="Create Astral Technique" Click="CreateAstralTechniqueButton_Click"/>
+
+            <Separator Margin="0 12"/>
+
+            <!-- CHARACTER OPS -->
+            <TextBlock Text="CHARACTER OPS"
+                       Foreground="#b14cff"
+                       FontWeight="Bold"
+                       Margin="0 0 0 8"/>
+
+            <Button Content="Create Character" Click="CreateCharacterButton_Click"/>
+            <Button Content="Create Squad" Click="CreateSquadButton_Click"/>
+            <Button Content="Create Platoon" Click="CreatePlatoonButton_Click"/>
+
+            <Separator Margin="0 12"/>
+
+            <!-- QUEST CONTROL -->
+            <TextBlock Text="QUEST CONTROL"
+                       Foreground="#b14cff"
+                       FontWeight="Bold"
+                       Margin="0 0 0 8"/>
+
+            <Button Content="Create Quest" Click="CreateQuestButton_Click"/>
+
+        </StackPanel>
+
+    </ScrollViewer>
+</Border>
+
+        <!-- MAIN DATA TERMINAL -->
+        <Grid Margin="15">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Search Console -->
+            <TextBox Height="35"
+                     Margin="0 0 0 15"
+                     Background="#1c0f30"
+                     Foreground="#ffffff"
+                     BorderBrush="#b14cff"
+                     BorderThickness="1"
+                     Padding="8"
+                     TextChanged="TextBox_TextChanged"
+                     VerticalContentAlignment="Center"
+                     ToolTip="Search database..."/>
+
+            <!-- Data Display -->
             <ListView x:Name="ItemsListView"
-                  SelectionChanged="ItemsListView_SelectionChanged"
-                  Height="280"
-                  Margin="0 5 0 0">
+                      Grid.Row="1"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      SelectionChanged="ItemsListView_SelectionChanged">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock FontSize="20" Foreground="DarkCyan" FontWeight="Bold">
+
+                            <TextBlock FontSize="18"
+                                       Foreground="#c084fc"
+                                       FontWeight="Bold">
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat="{}{0} {1}">
-                                        <Binding Path="FirstName" />
-                                        <Binding Path="LastName" />
+                                        <Binding Path="FirstName"/>
+                                        <Binding Path="LastName"/>
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontSize="15" FontWeight="Bold" Text="Equipped Weapon: "/>
-                                <TextBlock FontSize="15" Text="{Binding Weapon.Name}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontSize="15" FontWeight="Bold" Text="Equipped Armor: "/>
-                                <TextBlock FontSize="15" Text="{Binding Armor.Name}"/>
-                            </StackPanel>
+
+                            <TextBlock Foreground="#dddddd"
+                                       Text="{Binding Weapon.Name, StringFormat=Weapon Equipped: {0}}"/>
+
+                            <TextBlock Foreground="#dddddd"
+                                       Text="{Binding Armor.Name, StringFormat=Armor Equipped: {0}}"/>
+
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-    </DockPanel>
 
+            </ListView>
+
+        </Grid>
+
+    </DockPanel>
 </Window>
