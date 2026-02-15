@@ -3,13 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="800">
-    <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
-        <Button VerticalAlignment="Top" x:Name="SubtractSkillButton" Click="SubtractSkillButton_Click" Margin="5">-</Button>
-        <TextBlock VerticalAlignment="Center" x:Name="nameTextBlock" Margin="0,0,5,0" Text="Skill Name" FontSize="10" />
-        <TextBlock VerticalAlignment="Center" x:Name="skillLevel" Text="0" FontSize="10" />
-        <Button VerticalAlignment="Top" x:Name="AddSkillButton" Click="AddSkillButton_Click" Margin="5">+</Button>
-    </StackPanel>
+             d:DesignHeight="40" d:DesignWidth="800"
+             Background="#160a26">
+
+    <UserControl.Resources>
+        <!-- Button Style for +/- -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="BorderBrush" Value="#b14cff"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2a1245"/>
+                    <Setter Property="Foreground" Value="#ffffff"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- TextBlock for numbers -->
+        <Style x:Key="NumberTextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- TextBlock for labels -->
+        <Style x:Key="LabelTextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Border Background="#1c0f30" BorderBrush="#301a4d" BorderThickness="1" CornerRadius="5" Padding="5" Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Subtract Skill Button -->
+            <Button x:Name="SubtractSkillButton" Click="SubtractSkillButton_Click" Content="-" Margin="0 0 5 0"/>
+
+            <!-- Skill Name -->
+            <TextBlock x:Name="nameTextBlock" Grid.Column="1" Text="Skill Name" Style="{StaticResource LabelTextBlock}"/>
+
+            <!-- Skill Level -->
+            <TextBlock x:Name="skillLevel" Grid.Column="2" Text="0" Style="{StaticResource NumberTextBlock}" HorizontalAlignment="Center"/>
+
+            <!-- Add Skill Button -->
+            <Button x:Name="AddSkillButton" Grid.Column="3" Click="AddSkillButton_Click" Content="+" Margin="5 0 0 0"/>
+        </Grid>
+    </Border>
 </UserControl>

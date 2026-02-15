@@ -1,103 +1,229 @@
 ﻿<Window x:Class="Star_Reverie_Inventory_Manager.CreateTechniquesWindows.CreateAstralTechniqueWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CreateTechniquesWindows"
-        mc:Ignorable="d"
-        Title="CreateAstralTechnique" Height="475" Width="500">
-    <Grid>
-        <StackPanel Margin="10">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Name: "/>
-                <TextBox Width="300" x:Name="nameTextBox"
-                         Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="115" Text="Dice Count: "/>
-                <TextBox Width="75" x:Name="diceCountTextBox"
-                    Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Damage Type: "/>
-                <ComboBox x:Name="damageTypeBox"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding DamageTypes}"
-                      SelectedItem="{Binding SelectedDamageType, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Effect: "/>
-                <ComboBox x:Name="effectBox"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding AstralTechEffects}"
-                      SelectedItem="{Binding SelectedEffect, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Status Effect: "/>
-                <ComboBox x:Name="statuseffectBox"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding StatusEffects}"
-                      SelectedItem="{Binding SelectedStatusEffect, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="80" Text="Effect Strength: "/>
-                <TextBox Width="100" x:Name="statusEffectStrengthTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Accuracy: "/>
-                <TextBox Width="100" x:Name="accuracyTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Range: "/>
-                <TextBox Width="100" x:Name="rangeTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Turn Count: "/>
-                <TextBox Width="100" x:Name="turnCountTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Turn Duration: "/>
-                <TextBox Width="100" x:Name="turnDurationTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Stamina Cost: "/>
-                <TextBox Width="100" x:Name="staminaCostTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Int Req: "/>
-                <TextBox Width="100" x:Name="intTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Radius: "/>
-                <TextBox Width="100" x:Name="radiusTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Cost: "/>
-                <TextBox Width="100" x:Name="costTextBox"
-                       Margin="0,0,0,5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Target Area: "/>
-                <ComboBox x:Name="targetAreaBox"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding TargetAreas}"
-                      SelectedItem="{Binding SelectedTargetArea, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="75" Text="Is Offensive: " />
-                <CheckBox IsChecked="{Binding IsOffensive, Mode=TwoWay}"
-              VerticalAlignment="Center"/>
-            </StackPanel>
-            <Button Content="Save"
-                    Click="SaveButton_Click"/>
-        </StackPanel>
-    </Grid>
+        Title="ASTRAL TECHNIQUE MANIFESTATION"
+        Height="650" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f061a">
+    <Window.Resources>
+
+        <!-- Dark ComboBox Style -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#1c0f30"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Padding" Value="5"/>
+
+                        <Style.Triggers>
+                            <!-- Hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2a1245"/>
+                                <Setter Property="Foreground" Value="#c084fc"/>
+                            </Trigger>
+
+                            <!-- Selected -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#3b1c60"/>
+                                <Setter Property="Foreground" Value="#b14cff"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <DockPanel>
+
+        <!-- Header -->
+        <Border DockPanel.Dock="Top" Background="#140822" Padding="12">
+            <TextBlock Text="ASTRAL TECHNIQUE MANIFESTATION"
+                       Foreground="#b14cff"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Border Background="#160a26" Margin="20" Padding="20" CornerRadius="8">
+                <StackPanel>
+
+                    <!-- BASIC DATA -->
+                    <TextBlock Text="CORE PARAMETERS"
+                               Foreground="#b14cff"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
+
+                    <Grid Margin="0 0 0 15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Name:" Foreground="#d6c8ff"/>
+                        <TextBox x:Name="nameTextBox" Grid.Column="1"
+                                 Background="#1c0f30"
+                                 Foreground="White"
+                                 BorderBrush="#301a4d"
+                                 Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Dice Count:" Grid.Row="1" Foreground="#d6c8ff"/>
+                        <TextBox x:Name="diceCountTextBox" Grid.Row="1" Grid.Column="1"
+                                 Background="#1c0f30"
+                                 Foreground="White"
+                                 BorderBrush="#301a4d"
+                                 Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Damage Type:" Grid.Row="2" Foreground="#d6c8ff"/>
+                        <ComboBox x:Name="damageTypeBox"
+                                  Grid.Row="2" Grid.Column="1"
+                                  Background="#1c0f30"
+                                  Foreground="White"
+                                  BorderBrush="#301a4d"
+                                  ItemsSource="{Binding DamageTypes}"
+                                  SelectedItem="{Binding SelectedDamageType, Mode=TwoWay}"
+                                  Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Target Area:" Grid.Row="3" Foreground="#d6c8ff"/>
+                        <ComboBox x:Name="targetAreaBox"
+                                  Grid.Row="3" Grid.Column="1"
+                                  Background="#1c0f30"
+                                  Foreground="White"
+                                  BorderBrush="#301a4d"
+                                  ItemsSource="{Binding TargetAreas}"
+                                  SelectedItem="{Binding SelectedTargetArea, Mode=TwoWay}"
+                                  Margin="0 0 0 5"/>
+                    </Grid>
+
+                    <!-- EFFECT SYSTEM -->
+                    <TextBlock Text="EFFECT SYSTEM"
+                               Foreground="#b14cff"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
+
+                    <Grid Margin="0 0 0 15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Effect:" Foreground="#d6c8ff"/>
+                        <ComboBox x:Name="effectBox"
+                                  Grid.Column="1"
+                                  Background="#1c0f30"
+                                  Foreground="White"
+                                  BorderBrush="#301a4d"
+                                  ItemsSource="{Binding AstralTechEffects}"
+                                  SelectedItem="{Binding SelectedEffect, Mode=TwoWay}"
+                                  Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Status Effect:" Grid.Row="1" Foreground="#d6c8ff"/>
+                        <ComboBox x:Name="statuseffectBox"
+                                  Grid.Row="1" Grid.Column="1"
+                                  Background="#1c0f30"
+                                  Foreground="White"
+                                  BorderBrush="#301a4d"
+                                  ItemsSource="{Binding StatusEffects}"
+                                  SelectedItem="{Binding SelectedStatusEffect, Mode=TwoWay}"
+                                  Margin="0 0 0 5"/>
+
+                        <TextBlock Text="Effect Strength:" Grid.Row="2" Foreground="#d6c8ff"/>
+                        <TextBox x:Name="statusEffectStrengthTextBox"
+                                 Grid.Row="2" Grid.Column="1"
+                                 Background="#1c0f30"
+                                 Foreground="White"
+                                 BorderBrush="#301a4d"
+                                 Margin="0 0 0 5"/>
+                    </Grid>
+
+                    <!-- COMBAT METRICS -->
+                    <TextBlock Text="COMBAT METRICS"
+                               Foreground="#b14cff"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Margin="0 0 0 10"/>
+
+                    <UniformGrid Columns="2" Margin="0 0 0 15">
+
+                        <!-- Left Column -->
+                        <StackPanel>
+                            <TextBlock Text="Accuracy:" Foreground="#d6c8ff"/>
+                            <TextBox x:Name="accuracyTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+
+                            <TextBlock Text="Range:" Foreground="#d6c8ff" Margin="0 8 0 0"/>
+                            <TextBox x:Name="rangeTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+
+                            <TextBlock Text="Turn Count:" Foreground="#d6c8ff" Margin="0 8 0 0"/>
+                            <TextBox x:Name="turnCountTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+
+                            <TextBlock Text="Turn Duration:" Foreground="#d6c8ff" Margin="0 8 0 0"/>
+                            <TextBox x:Name="turnDurationTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+                        </StackPanel>
+
+                        <!-- Right Column -->
+                        <StackPanel>
+                            <TextBlock Text="Stamina Cost:" Foreground="#d6c8ff"/>
+                            <TextBox x:Name="staminaCostTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+
+                            <TextBlock Text="Int Req:" Foreground="#d6c8ff" Margin="0 8 0 0"/>
+                            <TextBox x:Name="intTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+
+                            <TextBlock Text="Radius:" Foreground="#d6c8ff" Margin="0 8 0 0"/>
+                            <TextBox x:Name="radiusTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+
+                            <TextBlock Text="Cost:" Foreground="#d6c8ff" Margin="0 8 0 0"/>
+                            <TextBox x:Name="costTextBox" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <!-- Toggle -->
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 15">
+                        <TextBlock Text="Is Offensive:"
+                                   Foreground="#b14cff"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center"/>
+                        <CheckBox IsChecked="{Binding IsOffensive, Mode=TwoWay}"
+                                  Margin="10 0 0 0"
+                                  VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Save Button -->
+                    <Button Content="MANIFEST ASTRAL TECHNIQUE"
+                            Click="SaveButton_Click"
+                            Background="#1c0f30"
+                            Foreground="#c084fc"
+                            BorderBrush="#b14cff"
+                            BorderThickness="1"
+                            FontWeight="Bold"
+                            Height="45"
+                            Cursor="Hand"/>
+
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

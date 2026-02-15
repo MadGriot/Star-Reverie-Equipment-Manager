@@ -1,177 +1,172 @@
 ﻿<Window x:Class="Star_Reverie_Inventory_Manager.ItemDetailsWindows.CharacterDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.ItemDetailsWindows"
         xmlns:ic="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
-        mc:Ignorable="d"
-        Title="CharacterDetailsWindow" Height="550" Width="500">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <DockPanel Grid.ColumnSpan="2">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_Add Item">
-                    <MenuItem Header="_Add Weapon" Click="AddWeaponButton_Click" />
-                    <MenuItem Header="_Add Armor" Click="AddArmorButton_Click"/>
-                    <MenuItem Header="_Add Shield" Click="AddShieldButton_Click"/>
-                    <MenuItem Header="_Add Ammo" Click="AddAmmoButton_Click"/>
-                    <MenuItem Header="_Add Battery" Click="AddBatteryButton_Click"/>
-                    <MenuItem Header="_Add First Aid" Click="AddFirstAidButton_Click"/>
-                </MenuItem>
-                <MenuItem Header="_Equip Item">
-                    <MenuItem Header="_Equip Weapon" Click="EquipWeaponButton_Click" />
-                    <MenuItem Header="_Equip Armor" Click="EquipArmorButton_Click" />
-                    <MenuItem Header="_Equip Shield" Click="EquipShieldButton_Click" />
-                </MenuItem>
-                <MenuItem Header="_Unequip Item">
-                    <MenuItem Header="_Unequip Weapon" Click="UnequipWeaponButton_Click" />
-                    <MenuItem Header="_Unequip Armor" Click="UnequipArmorButton_Click" />
-                    <MenuItem Header="_Unequip Shield" Click="UnequipShieldButton_Click" />
-                </MenuItem>
-                <MenuItem Header="_Add Techniques">
-                    <MenuItem Header="_Add Technique" Click="AddTechniqueButton_Click" />
-                    <MenuItem Header="_Add Astral Technique" Click="AddAstralTechniqueButton_Click" />
-                </MenuItem>
-                <MenuItem Header="_Display Techniques">
-                    <MenuItem Header="_Display Techniques" Click="DisplayTechniques_Click" />
-                    <MenuItem Header="_Display Astral Techniques" Click="DisplayAstralTechniques_Click" />
-                </MenuItem>
-                <MenuItem Header="_Squad">
-                    <MenuItem Header="_Change Squad" Click="ChangeSquad_Click" />
-                </MenuItem>
-                <MenuItem Header="_Dialogue">
-                    <MenuItem Header="_Create Dialogue" Click="CreateDialogue_Click" />
-                </MenuItem>
-            </Menu>
-        </DockPanel>
-        <!-- CHARACTER STATS -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
-            <TextBlock Text="Character Stats" FontWeight="Bold" FontSize="14"/>
-            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
+        Title="CHARACTER DETAILS TERMINAL"
+        Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f061a">
 
-            <!-- Name -->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Name: " FontWeight="SemiBold"/>
-                <TextBlock x:Name="NameText" Text="First Last"/>
-            </StackPanel>
+    <DockPanel>
+        <!-- Top Menu Bar -->
+        <Menu DockPanel.Dock="Top" Background="#140822" Foreground="#c084fc">
+            <MenuItem Header="_Add Item">
+                <MenuItem Header="_Add Weapon" Click="AddWeaponButton_Click"/>
+                <MenuItem Header="_Add Armor" Click="AddArmorButton_Click"/>
+                <MenuItem Header="_Add Shield" Click="AddShieldButton_Click"/>
+                <MenuItem Header="_Add Ammo" Click="AddAmmoButton_Click"/>
+                <MenuItem Header="_Add Battery" Click="AddBatteryButton_Click"/>
+                <MenuItem Header="_Add First Aid" Click="AddFirstAidButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Equip Item">
+                <MenuItem Header="_Equip Weapon" Click="EquipWeaponButton_Click"/>
+                <MenuItem Header="_Equip Armor" Click="EquipArmorButton_Click"/>
+                <MenuItem Header="_Equip Shield" Click="EquipShieldButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Unequip Item">
+                <MenuItem Header="_Unequip Weapon" Click="UnequipWeaponButton_Click"/>
+                <MenuItem Header="_Unequip Armor" Click="UnequipArmorButton_Click"/>
+                <MenuItem Header="_Unequip Shield" Click="UnequipShieldButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Techniques">
+                <MenuItem Header="_Add Technique" Click="AddTechniqueButton_Click"/>
+                <MenuItem Header="_Add Astral Technique" Click="AddAstralTechniqueButton_Click"/>
+                <Separator/>
+                <MenuItem Header="_Display Techniques" Click="DisplayTechniques_Click"/>
+                <MenuItem Header="_Display Astral Techniques" Click="DisplayAstralTechniques_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Squad">
+                <MenuItem Header="_Change Squad" Click="ChangeSquad_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Dialogue">
+                <MenuItem Header="_Create Dialogue" Click="CreateDialogue_Click"/>
+            </MenuItem>
+        </Menu>
 
-            <!-- Equipped Items -->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Equipped Weapon: " FontWeight="SemiBold"/>
-                <TextBlock x:Name="EquippedWeaponText" Text="None"/>
-            </StackPanel>
+        <!-- Main Content -->
+        <Grid Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Equipped Armor: " FontWeight="SemiBold"/>
-                <TextBlock x:Name="EquippedArmorText" Text="None"/>
-            </StackPanel>
+            <!-- CHARACTER STATS -->
+            <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+                <Border Background="#160a26" Padding="15">
+                    <StackPanel>
+                        <TextBlock Text="CHARACTER STATS" Foreground="#b14cff" FontWeight="Bold" FontSize="16" Margin="0 10 0 6"/>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Equipped Shield: " FontWeight="SemiBold"/>
-                <TextBlock x:Name="EquippedShieldText" Text="None"/>
-            </StackPanel>
+                        <!-- Name -->
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="Name: " FontWeight="SemiBold" Foreground="#d6c8ff"/>
+                            <TextBlock x:Name="NameText" Text="First Last" Foreground="#ffffff"/>
+                        </StackPanel>
 
-            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
+                        <!-- Equipped Items -->
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="Weapon: " FontWeight="SemiBold" Foreground="#d6c8ff"/>
+                            <TextBlock x:Name="EquippedWeaponText" Text="None" Foreground="#ffffff"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="Armor: " FontWeight="SemiBold" Foreground="#d6c8ff"/>
+                            <TextBlock x:Name="EquippedArmorText" Text="None" Foreground="#ffffff"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="Shield: " FontWeight="SemiBold" Foreground="#d6c8ff"/>
+                            <TextBlock x:Name="EquippedShieldText" Text="None" Foreground="#ffffff"/>
+                        </StackPanel>
 
-            <!-- STATS -->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Level: " />
-                <TextBlock x:Name="LevelText" Text="0"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Strength: " />
-                <TextBlock x:Name="StrengthText" Text="0"/>
-            </StackPanel>
+                        <Border BorderBrush="#301a4d" BorderThickness="1" Margin="0,5"/>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Dexterity: " />
-                <TextBlock x:Name="DexterityText" Text="0"/>
-            </StackPanel>
+                        <!-- Stats -->
+                        <StackPanel Orientation="Vertical" Margin="0,2">
+                            <WrapPanel>
+                                <TextBlock Text="Level: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="LevelText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Strength: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="StrengthText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Dexterity: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="DexterityText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Intelligence: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="IntelligenceText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Constitution: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="ConstitutionText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Wisdom: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="WisdomText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Perception: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="PerceptionText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Basic Lift: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="BasicLiftText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Speed: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="SpeedText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Dodge: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="DodgeText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Damage: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="DamageText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Damage Resistance: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="DamageResistanceText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Weight: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="WeightText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Encumbrance: " Foreground="#d6c8ff"/>
+                                <TextBlock x:Name="EncumbranceText" Text="0" Foreground="#ffffff"/>
+                            </WrapPanel>
+                        </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Intelligence: " />
-                <TextBlock x:Name="IntelligenceText" Text="0"/>
-            </StackPanel>
+                        <Border BorderBrush="#301a4d" BorderThickness="1" Margin="0,5"/>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Constitution: " />
-                <TextBlock x:Name="ConstitutionText" Text="0"/>
-            </StackPanel>
+                        <!-- Squad -->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Squad: " FontWeight="Bold" Foreground="#b14cff"/>
+                            <TextBlock x:Name="SquadName" Text="None" Foreground="#ffffff"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Wisdom: " />
-                <TextBlock x:Name="WisdomText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Perception: " />
-                <TextBlock x:Name="PerceptionText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Basic Lift: " />
-                <TextBlock x:Name="BasicLiftText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Speed: " />
-                <TextBlock x:Name="SpeedText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Dodge: " />
-                <TextBlock x:Name="DodgeText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Damage: " />
-                <TextBlock x:Name="DamageText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Damage Resistance: " />
-                <TextBlock x:Name="DamageResistanceText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Weight: " />
-                <TextBlock x:Name="WeightText" Text="0"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Encumbrance: " />
-                <TextBlock x:Name="EncumbranceText" Text="0"/>
-            </StackPanel>
-            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock FontWeight="Bold" Text="Squad: " />
-                <TextBlock x:Name="SquadName" Text="None"/>
-            </StackPanel>
-        </StackPanel>
-
-        <!-- INVENTORY -->
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
-            <TextBlock Text="Character Inventory" FontWeight="Bold" FontSize="14"/>
-            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5"/>
-            <ListView x:Name="ItemsListView"
-                      Height="400"
-                      SelectionChanged="ItemsListView_SelectionChanged"
-                      Margin="0 5 0 0">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ic:InventoryControl Items="{Binding}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-    </Grid>
+            <!-- INVENTORY -->
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                <Border Background="#160a26" Padding="15">
+                    <StackPanel>
+                        <TextBlock Text="CHARACTER INVENTORY" Foreground="#b14cff" FontWeight="Bold" FontSize="16" Margin="0 10 0 6"/>
+                        <Border BorderBrush="#301a4d" BorderThickness="1" Margin="0,5"/>
+                        <ListView x:Name="ItemsListView" Height="400" Margin="0,5"
+                                  SelectionChanged="ItemsListView_SelectionChanged"
+                                  Background="Transparent" BorderBrush="Transparent">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ic:InventoryControl Items="{Binding}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+        </Grid>
+    </DockPanel>
 </Window>

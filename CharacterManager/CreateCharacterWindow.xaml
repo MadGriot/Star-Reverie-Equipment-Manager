@@ -1,165 +1,265 @@
 ﻿<Window x:Class="Star_Reverie_Inventory_Manager.CharacterManager.CreateCharacterWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CharacterManager"
         xmlns:sc="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
-        mc:Ignorable="d"
-        Title="CreateCharacterWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="First Name: "/>
-            <TextBox Margin="5" MinWidth="100" x:Name="firstName"/>
-            <TextBlock Margin="5" Text="Last Name: "/>
-            <TextBox Margin="5" MinWidth="100" x:Name="lastName"/>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractAgeButton" Click="SubtractAgeButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Age" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="ageNumber" Text="21" VerticalAlignment="Center"/>
-                <Button x:Name="AddAgeButton" Click="AddAgeButton_Click" Margin="5">+</Button>
-                <TextBlock Text="Attribute Points:" VerticalAlignment="Center" Margin="5"/>
-                <TextBlock x:Name="attributePointsNumber" Text="6"  Margin="2"  VerticalAlignment="Center"/>
-                <TextBlock Text="Skill Points:" VerticalAlignment="Center" Margin="5"/>
-                <TextBlock x:Name="skillPointsNumber" Text="15"  Margin="2"  VerticalAlignment="Center"/>
+        Title="CreateCharacterWindow" Height="780" Width="1150"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f061a">
+
+    <Window.Resources>
+        <!-- TextBox Style -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <!-- Dark ComboBox Style -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#1c0f30"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2a1245"/>
+                                <Setter Property="Foreground" Value="#c084fc"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#3b1c60"/>
+                                <Setter Property="Foreground" Value="#b14cff"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="BorderBrush" Value="#b14cff"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- Number TextBlock Style -->
+        <Style x:Key="NumberTextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ================= LEFT COLUMN ================= -->
+            <StackPanel Grid.Column="0" Margin="15">
+                <!-- Identity -->
+                <Grid Margin="0 0 0 15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="First Name:" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBox x:Name="firstName" Grid.Column="1" Margin="5 0"/>
+                    <TextBlock Text="Last Name:" Grid.Column="2" Margin="15 0 0 0" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBox x:Name="lastName" Grid.Column="3" Margin="5 0"/>
+                </Grid>
+
+                <!-- Age -->
+                <Grid Margin="0 0 0 15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Age:" VerticalAlignment="Center" Foreground="White"/>
+                    <Button x:Name="SubtractAgeButton" Grid.Column="1" Click="SubtractAgeButton_Click">-</Button>
+                    <TextBlock x:Name="ageNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="21"/>
+                    <Button x:Name="AddAgeButton" Grid.Column="3" Click="AddAgeButton_Click">+</Button>
+                </Grid>
+
+                <!-- Attribute & Skill Points -->
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Text="Attribute Points:" Foreground="White" Margin="0 0 10 0"/>
+                    <TextBlock x:Name="attributePointsNumber" Style="{StaticResource NumberTextBlock}" Text="6"/>
+                    <TextBlock Text="   Skill Points:" Foreground="White" Margin="20 0 10 0"/>
+                    <TextBlock x:Name="skillPointsNumber" Style="{StaticResource NumberTextBlock}" Text="15"/>
+                </StackPanel>
+
+                <!-- Attributes -->
+                <TextBlock Text="ATTRIBUTES" Foreground="#b14cff" FontWeight="Bold" FontSize="16" Margin="0 0 0 10"/>
+                <StackPanel>
+                    <!-- Strength -->
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SubtractStrengthButton" Click="SubtractStrengthButton_Click">-</Button>
+                        <TextBlock Text="Strength" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="strengthNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="10"/>
+                        <Button x:Name="AddStrengthButton" Grid.Column="3" Click="AddStrengthButton_Click">+</Button>
+                    </Grid>
+
+                    <!-- Dexterity -->
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SubtractDexterityButton" Click="SubtractDexterityButton_Click">-</Button>
+                        <TextBlock Text="Dexterity" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="dexterityNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="10"/>
+                        <Button x:Name="AddDexterityButton" Grid.Column="3" Click="AddDexterityButton_Click">+</Button>
+                    </Grid>
+
+                    <!-- Intelligence -->
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SubtractIntelligenceButton" Click="SubtractIntelligenceButton_Click">-</Button>
+                        <TextBlock Text="Intelligence" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="intelligenceNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="10"/>
+                        <Button x:Name="AddIntelligenceButton" Grid.Column="3" Click="AddIntelligenceButton_Click">+</Button>
+                    </Grid>
+
+                    <!-- Constitution -->
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SubtractConstitutionButton" Click="SubtractConstitutionButton_Click">-</Button>
+                        <TextBlock Text="Constitution" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="constitutionNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="10"/>
+                        <Button x:Name="AddConstitutionButton" Grid.Column="3" Click="AddConstitutionButton_Click">+</Button>
+                    </Grid>
+
+                    <!-- Wisdom -->
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SubtractWisdomButton" Click="SubtractWisdomButton_Click">-</Button>
+                        <TextBlock Text="Wisdom" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="wisdomNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="10"/>
+                        <Button x:Name="AddWisdomButton" Grid.Column="3" Click="AddWisdomButton_Click">+</Button>
+                    </Grid>
+
+                    <!-- Perception -->
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="SubtractPerceptionButton" Click="SubtractPerceptionButton_Click">-</Button>
+                        <TextBlock Text="Perception" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="perceptionNumber" Grid.Column="2" Style="{StaticResource NumberTextBlock}" Text="10"/>
+                        <Button x:Name="AddPerceptionButton" Grid.Column="3" Click="AddPerceptionButton_Click">+</Button>
+                    </Grid>
+                </StackPanel>
+
+                <!-- Carry Weight, Speed, Dodge -->
+                <TextBlock Text="MISC STATS" Foreground="#b14cff" FontWeight="Bold" FontSize="16" Margin="0 15 0 5"/>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                    <TextBlock Text="Carry Weight:" Foreground="White" Margin="0 0 10 0"/>
+                    <TextBlock x:Name="carryWeight" Style="{StaticResource NumberTextBlock}" Text="20"/>
+                    <TextBlock Text="   Speed:" Foreground="White" Margin="20 0 10 0"/>
+                    <TextBlock x:Name="speed" Style="{StaticResource NumberTextBlock}" Text="5"/>
+                    <TextBlock Text="   Dodge:" Foreground="White" Margin="20 0 10 0"/>
+                    <TextBlock x:Name="dodge" Style="{StaticResource NumberTextBlock}" Text="8"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Encumbrance:" Foreground="White" Margin="0 0 10 0"/>
+                    <TextBlock x:Name="encumbranceText" Style="{StaticResource NumberTextBlock}" Text="None"/>
+                </StackPanel>
+
             </StackPanel>
 
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractStrengthButton" Click="SubtractStrengthButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Strength" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="strengthNumber" Text="10" VerticalAlignment="Center"/>
-                <Button x:Name="AddStrengthButton" Click="AddStrengthButton_Click" Margin="5">+</Button>
+            <!-- ================= CENTER COLUMN ================= -->
+            <StackPanel Grid.Column="1" Margin="15">
+                <TextBlock Text="BIO AND SYSTEM" Foreground="#b14cff" FontSize="16" FontWeight="Bold" Margin="0 0 0 12"/>
+
+                <TextBlock Text="Species:" Foreground="White"/>
+                <ComboBox x:Name="speciesTypeBox" ItemsSource="{Binding SpeciesList}" SelectedItem="{Binding SelectedSpecies, Mode=TwoWay}"/>
+
+                <TextBlock Text="Gender:" Margin="10 10 0 0" Foreground="White"/>
+                <ComboBox x:Name="genderTypeBox" ItemsSource="{Binding Genders}" SelectedItem="{Binding SelectedGender, Mode=TwoWay}"/>
+
+                <TextBlock Text="HP:" Margin="15 15 0 0" Foreground="White"/>
+                <TextBlock x:Name="hpNumber" Style="{StaticResource NumberTextBlock}" Text="30"/>
+
+                <TextBlock Text="Stamina:" Margin="0 5 0 0" Foreground="White"/>
+                <TextBlock x:Name="staminaNumber" Style="{StaticResource NumberTextBlock}" Text="30"/>
+
+                <TextBlock Text="XP Dropped:" Margin="20 20 0 0" Foreground="White"/>
+                <TextBox x:Name="xpDropAmount"/>
+
+                <TextBlock Text="Portrait Path:" Margin="20 20 0 0" Foreground="White"/>
+                <TextBox x:Name="portraitPath"/>
+
+                <TextBlock Text="Sprite Sheet Path:" Margin="10 10 0 0" Foreground="White"/>
+                <TextBox x:Name="spriteSheetPath"/>
+
+                <TextBlock Text="Enemy AI:" Margin="10 10 0 0" Foreground="White"/>
+                <ComboBox x:Name="enemyAIScript" ItemsSource="{Binding EnemyAIScripts}" SelectedItem="{Binding SelectedEnemyAIScript, Mode=TwoWay}"/>
+
+                <Button x:Name="SaveButton" Margin="30 30 0 0" Click="SaveButton_Click">
+                    MANIFEST CHARACTER
+                </Button>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractDexterityButton" Click="SubtractDexterityButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Dexterity" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="dexterityNumber" Text="10" VerticalAlignment="Center"/>
-                <Button x:Name="AddDexterityButton" Click="AddDexterityButton_Click" Margin="5">+</Button>
+            <!-- ================= RIGHT COLUMN ================= -->
+            <StackPanel Grid.Column="2" Margin="15">
+                <TextBlock Text="SKILLS" Foreground="#b14cff" FontSize="16" FontWeight="Bold" Margin="0 0 0 12"/>
+                <ListView x:Name="ItemsListView" ItemsSource="{Binding Skills}" Height="620" Background="#160a26" BorderBrush="#301a4d">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <sc:SkillControl SkillModel="{Binding}" Level="{Binding Level, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractIntelligenceButton" Click="SubtractIntelligenceButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Intelligence" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="intelligenceNumber" Text="10" VerticalAlignment="Center"/>                
-                <Button x:Name="AddIntelligenceButton" Click="AddIntelligenceButton_Click" Margin="5">+</Button>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractConstitutionButton" Click="SubtractConstitutionButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Constitution" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="constitutionNumber" Text="10" VerticalAlignment="Center"/>
-                <Button x:Name="AddConstitutionButton" Click="AddConstitutionButton_Click" Margin="5">+</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractWisdomButton" Click="SubtractWisdomButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Wisdom" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="wisdomNumber" Text="10" VerticalAlignment="Center"/>
-                <Button x:Name="AddWisdomButton" Click="AddWisdomButton_Click" Margin="5">+</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="SubtractPerceptionButton" Click="SubtractPerceptionButton_Click" Margin="5">-</Button>
-                <TextBlock Text="Perception" Margin="2" VerticalAlignment="Center"/>
-                <TextBlock  x:Name="perceptionNumber" Text="10" VerticalAlignment="Center"/>
-                <Button x:Name="AddPerceptionButton" Click="AddPerceptionButton_Click" Margin="5">+</Button>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
-                <TextBlock Text="Carry Weight: " VerticalAlignment="Center"/>
-                <TextBlock x:Name="carryWeight" Text="20"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
-                <TextBlock Text="Speed: " VerticalAlignment="Center"/>
-                <TextBlock x:Name="speed" Text="5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
-                <TextBlock Text="Dodge: " VerticalAlignment="Center"/>
-                <TextBlock x:Name="dodge" Text="8"/>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Encumbrance: "/>
-                <TextBlock x:Name="encumbranceText" Text="None" />
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5" Text="XP Dropped: "/>
-                <TextBox Margin="5" MinWidth="100" x:Name="xpDropAmount"/>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Species: "/>
-                <ComboBox x:Name="speciesTypeBox"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding SpeciesList}"
-                      SelectedItem="{Binding SelectedSpecies, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Gender: "/>
-                <ComboBox x:Name="genderTypeBox"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding Genders}"
-                      SelectedItem="{Binding SelectedGender, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="HP: "/>
-                <TextBlock x:Name="hpNumber"  Text="30"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Stamina: "/>
-                <TextBlock x:Name="staminaNumber"  Text="30"/>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="6" VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5" Text="Portrait Path: "/>
-                <TextBox Margin="5" MinWidth="100" x:Name="portraitPath"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5" Text="Sprite Sheet Path: "/>
-                <TextBox Margin="5" MinWidth="100" x:Name="spriteSheetPath"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5" Text="Enemy AI: "/>
-                <ComboBox x:Name="enemyAIScript"
-                      Margin="0,0,0,5"
-                      ItemsSource="{Binding EnemyAIScripts}"
-                      SelectedItem="{Binding SelectedEnemyAIScript, Mode=TwoWay}" />
-            </StackPanel>
-            <Button x:Name="SaveButton" Click="SaveButton_Click">Save</Button>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="6" VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
-            <ListView x:Name="ItemsListView"
-                      ItemsSource="{Binding Skills}"
-                      Height="400"
-                      Margin="0 5 0 0">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <sc:SkillControl SkillModel="{Binding}"
-                                         Level="{Binding Level, Mode=TwoWay}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>
