@@ -5,16 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.QuestManager"
         mc:Ignorable="d"
-        Title="CreateQuestStageWindow" Height="450" Width="700">
-    <StackPanel Margin="10">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Width="70" Height="100" Text="Description: "/>
-            <TextBox Width="500" x:Name="descriptionTextBox"
-                       Margin="0,0,0,5"/>
+        Title="Create Quest Stage" Height="300" Width="600"
+        Background="#160a26">
+
+    <Window.Resources>
+
+        <!-- Label TextBlock Style -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Group Box Header Style -->
+        <Style TargetType="GroupBox">
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+        <!-- TextBox Style -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="BorderBrush" Value="#b14cff"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2a1245"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+    </Window.Resources>
+
+    <StackPanel Margin="15">
+
+        <!-- Stage Description -->
+        <GroupBox Header="Quest Stage Description">
+            <StackPanel>
+                <TextBox x:Name="descriptionTextBox" 
+                         Width="520" 
+                         Height="120" 
+                         AcceptsReturn="True" 
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Action Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button Content="Cancel" Width="100" Margin="5" Click="CancelButton_Click"/>
+            <Button Content="Add Stage" Width="100" Margin="5" Click="SaveButton_Click"/>
         </StackPanel>
-        <Button Content="Cancel " Margin="2" Background="LightCyan"
-                    Click="CancelButton_Click" />
-        <Button Content="Add" Margin="2"
-                    Click="SaveButton_Click"/>
+
     </StackPanel>
 </Window>
