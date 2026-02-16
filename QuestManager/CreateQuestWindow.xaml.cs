@@ -5,6 +5,7 @@
 //  -----------------------------------------------------------------------
 
 using StarReverieCore.Models;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,38 +16,53 @@ namespace Star_Reverie_Inventory_Manager.QuestManager
     /// </summary>
     public partial class CreateQuestWindow : Window
     {
-        List<QuestStage> questStages;
+        private ObservableCollection<QuestStage> questStages;
         public CreateQuestWindow()
         {
             InitializeComponent();
             questStages = new();
+            QuestStagesListView.ItemsSource = questStages;
             questStageAmount.Text = questStages.Count.ToString();
+
+            questStages.CollectionChanged += (s, e) =>
+            {
+                questStageAmount.Text = questStages.Count.ToString();
+            };
         }
 
         private void AddQuestStageButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateQuestStageWindow createQuestStageWindow = new(questStages, questStageAmount);
-            createQuestStageWindow.ShowDialog();
+            CreateQuestStageWindow createQuestStageWindow = new();
+            if (createQuestStageWindow.ShowDialog() == true && createQuestStageWindow.CreatedStage != null)
+            {
+                // Assign required StageIndex here
+                createQuestStageWindow.CreatedStage.StageIndex = questStages.Count;
+
+                questStages.Add(createQuestStageWindow.CreatedStage);
+            }
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (questStages.Count > 0)
+            if (questStages.Count == 0)
             {
-                QuestModel questModel = new()
-                {
-                    QuestKey = questKeyTextBox.Text,
-                    Name = nameTextBox.Text,
-                    Description = descriptionTextBox.Text,
-                };
-                questModel.QuestStages = questStages;
-                App.StarReverieDbContext.QuestModels.Add(questModel);
-                App.StarReverieDbContext.SaveChanges();
-                Close();
+                MessageBox.Show("You must add a Quest Stage to save",
+                                "Invalid Input",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                return;
             }
-            else
+
+            QuestModel questModel = new()
             {
-                MessageBox.Show($"You must add a Quest Stage to save", "Ivalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+                QuestKey = questKeyTextBox.Text,
+                Name = nameTextBox.Text,
+                Description = descriptionTextBox.Text,
+                QuestStages = questStages.ToList()
+            };
+
+            App.StarReverieDbContext.QuestModels.Add(questModel);
+            App.StarReverieDbContext.SaveChanges();
+            Close();
         }
     }
 }

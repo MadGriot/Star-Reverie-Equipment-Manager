@@ -84,7 +84,31 @@
                         <Button Content="Add Stage" Click="AddQuestStageButton_Click" Margin="10,0,0,0"/>
                     </StackPanel>
 
-                    <ListView x:Name="questStagesListView" Height="150" Margin="0,5,0,0" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d" BorderThickness="1"/>
+                    <ListView ItemsSource="{Binding questStages}" x:Name="QuestStagesListView" Height="150" Margin="0,5,0,0" Background="#1c0f30" Foreground="White" BorderBrush="#301a4d" BorderThickness="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+
+                                    <!-- Stage Header -->
+                                    <TextBlock FontSize="16"
+                           Foreground="#c084fc"
+                           FontWeight="Bold">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="Stage {0}">
+                                                <Binding Path="StageIndex"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+
+                                    <!-- Description -->
+                                    <TextBlock Foreground="#dddddd"
+                           Text="{Binding Description}"
+                           TextWrapping="Wrap"/>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
             </GroupBox>
 
