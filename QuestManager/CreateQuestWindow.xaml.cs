@@ -7,7 +7,6 @@
 using StarReverieCore.Models;
 using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Star_Reverie_Inventory_Manager.QuestManager
 {

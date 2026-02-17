@@ -1,8 +1,10 @@
 ﻿<Window x:Class="Star_Reverie_Inventory_Manager.CreateTechniquesWindows.CreateTechniqueWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:StarReverieCore.Models;assembly=StarReverieCore"
+        xmlns:mechanics="clr-namespace:StarReverieCore.Mechanics;assembly=StarReverieCore"
         Title="TECHNIQUE MANIFESTATION"
-        Height="500" Width="550"
+        Height="750" Width="550"
         WindowStartupLocation="CenterScreen"
         Background="#0f061a">
 
@@ -91,7 +93,176 @@
                     <TextBlock Text="Cost:" Grid.Row="3" Foreground="#d6c8ff"/>
                     <TextBox x:Name="costTextBox" Grid.Row="3" Grid.Column="1" Margin="0 0 0 8"/>
                 </Grid>
+                <!-- Technique Requirements -->
+                <GroupBox Header="Technique Requirements"
+          Foreground="#c084fc"
+          FontWeight="Bold"
+          Margin="0,15,0,0"
+          Padding="10">
 
+                    <StackPanel>
+
+                        <!-- Add Requirement Controls -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+
+                            <ComboBox x:Name="requirementTypeComboBox"
+                                  Width="150"
+                                  Background="#1c0f30"
+                                  Foreground="White"
+                                  BorderBrush="#301a4d"
+                                  Padding="3"
+                                  SelectedIndex="0">
+                                <ComboBoxItem Content="Attribute Requirement"/>
+                                <ComboBoxItem Content="Skill Requirement"/>
+
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Background" Value="#1c0f30"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Padding" Value="3"/>
+                                        <Style.Triggers>
+                                            <!-- Hover color -->
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#2a1245"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                            <!-- Selected item color -->
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="#2a1245"/>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+
+                            <Button Content="Add Requirement"
+                    Margin="10,0,0,0"
+                    Click="AddRequirement_Click"/>
+                        </StackPanel>
+
+                        <!-- Requirements List -->
+                        <ListView ItemsSource="{Binding TechniqueRequirements}"
+                              Height="180"
+                              Background="#1c0f30"
+                              Foreground="White"
+                              BorderBrush="#301a4d"
+                              BorderThickness="1">
+
+                            <ListView.Resources>
+
+                                <!-- ATTRIBUTE REQUIREMENT TEMPLATE -->
+                                <DataTemplate DataType="{x:Type models:AttributeRequirement}">
+                                    <Border Padding="5" Margin="0,5" Background="#160a26">
+                                        <StackPanel>
+
+                                            <TextBlock Text="Attribute Requirement"
+                               Foreground="#c084fc"
+                               FontWeight="Bold"/>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+
+                                                <!-- Attribute Dropdown -->
+                                                <ComboBox Width="150"
+                                                  ItemsSource="{Binding DataContext.AttributeTypes,
+                                                      RelativeSource={RelativeSource AncestorType=Window}}"
+                                                  SelectedItem="{Binding AttributeType, Mode=TwoWay}"
+                                                  Background="#1c0f30"
+                                                  Foreground="White"
+                                                  BorderBrush="#301a4d"
+                                                  Padding="3"
+                                                  >
+                                                    <ComboBox.ItemContainerStyle>
+                                                        <Style TargetType="ComboBoxItem">
+                                                            <Setter Property="Background" Value="#1c0f30"/>
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                            <Setter Property="Padding" Value="3"/>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsSelected" Value="True">
+                                                                    <Setter Property="Background" Value="#2a1245"/>
+                                                                    <Setter Property="Foreground" Value="White"/>
+                                                                </Trigger>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#2a1245"/>
+                                                                    <Setter Property="Foreground" Value="White"/>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ComboBox.ItemContainerStyle>
+                                                </ComboBox>
+
+                                                <!-- Required Value -->
+                                                <TextBox Width="60"
+                                 Margin="10,0,0,0"
+                                 Text="{Binding RequiredValue,
+                                        Mode=TwoWay,
+                                        UpdateSourceTrigger=PropertyChanged}"/>
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+
+                                <!-- SKILL REQUIREMENT TEMPLATE -->
+                                <DataTemplate DataType="{x:Type models:SkillRequirement}">
+                                    <Border Padding="5" Margin="0,5" Background="#160a26">
+                                        <StackPanel>
+
+                                            <TextBlock Text="Skill Requirement"
+                               Foreground="#c084fc"
+                               FontWeight="Bold"/>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+
+                                                <!-- Skill Dropdown -->
+                                                <ComboBox Width="150"
+                                                      ItemsSource="{Binding DataContext.Skills,
+                                                          RelativeSource={RelativeSource AncestorType=Window}}"
+                                                      SelectedItem="{Binding Skill, Mode=TwoWay}"
+                                                      Background="#1c0f30"
+                                                      Foreground="White"
+                                                      BorderBrush="#301a4d"
+                                                      Padding="3">
+                                                    <ComboBox.ItemContainerStyle>
+                                                        <Style TargetType="ComboBoxItem">
+                                                            <Setter Property="Background" Value="#1c0f30"/>
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                            <Setter Property="Padding" Value="3"/>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsSelected" Value="True">
+                                                                    <Setter Property="Background" Value="#2a1245"/>
+                                                                    <Setter Property="Foreground" Value="White"/>
+                                                                </Trigger>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#2a1245"/>
+                                                                    <Setter Property="Foreground" Value="White"/>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ComboBox.ItemContainerStyle>
+                                                </ComboBox>
+
+
+                                                <!-- Required Level -->
+                                                <TextBox Width="60"
+                                 Margin="10,0,0,0"
+                                 Text="{Binding RequiredLevel,
+                                        Mode=TwoWay,
+                                        UpdateSourceTrigger=PropertyChanged}"/>
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+
+                            </ListView.Resources>
+
+                        </ListView>
+
+
+
+                    </StackPanel>
+                </GroupBox>
                 <StackPanel Orientation="Horizontal" Margin="0 20 0 20">
                     <TextBlock Text="Is Offensive:"
                                Foreground="#b14cff"
