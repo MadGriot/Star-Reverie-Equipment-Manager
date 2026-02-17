@@ -6,19 +6,105 @@
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CharacterManager"
         xmlns:pc="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
         mc:Ignorable="d"
-        Title="DisplayPlatoonsWindow" Height="450" Width="500">
-    <StackPanel Margin="10">
-        <TextBox Margin="0 5 0 5"
-                        TextChanged="TextBox_TextChanged"/>
-        <ListView x:Name="ItemsListView"
-                      Height="400"
-                      SelectionChanged="ItemsListView_SelectionChanged"
-                      Margin="0 5 0 0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <pc:PlatoonControl Platoon="{Binding}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+        Title="STAR REVERIE // PLATOON DATABASE"
+        Height="500"
+        Width="650"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f061a">
+
+    <Window.Resources>
+
+        <!-- Deep Space Gradient -->
+        <LinearGradientBrush x:Key="SpaceBackground" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#0f061a" Offset="0"/>
+            <GradientStop Color="#1a0b2e" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Neon Accent -->
+        <SolidColorBrush x:Key="NeonPurple" Color="#b14cff"/>
+        <SolidColorBrush x:Key="PanelBackground" Color="#160a26"/>
+
+        <!-- Terminal Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="BorderBrush" Value="#b14cff"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- Styled ListView Items -->
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+    </Window.Resources>
+
+    <DockPanel Background="{StaticResource SpaceBackground}">
+
+        <!-- TOP COMMAND HEADER -->
+        <Border DockPanel.Dock="Top"
+                Background="#140822"
+                Padding="10">
+            <TextBlock Text="STAR REVERIE // PLATOON DATABASE"
+                       Foreground="#b14cff"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- BOTTOM STATUS BAR -->
+        <Border DockPanel.Dock="Bottom"
+                Background="#140822"
+                Padding="5">
+            <TextBlock Text="DATABASE LINK: ACTIVE  |  PLATOON INDEX READY"
+                       Foreground="#8a5ccf"
+                       FontSize="12"/>
+        </Border>
+
+        <!-- MAIN CONTENT -->
+        <Grid Margin="15">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Search Console -->
+            <TextBox Grid.Row="0"
+                     Height="35"
+                     Margin="0 0 0 15"
+                     Background="#1c0f30"
+                     Foreground="#ffffff"
+                     BorderBrush="#b14cff"
+                     BorderThickness="1"
+                     Padding="8"
+                     TextChanged="TextBox_TextChanged"
+                     VerticalContentAlignment="Center"
+                     ToolTip="Search platoon database..."/>
+
+            <!-- Platoon Data Display -->
+            <ListView x:Name="ItemsListView"
+                      Grid.Row="1"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      SelectionChanged="ItemsListView_SelectionChanged">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <pc:PlatoonControl Platoon="{Binding}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </Grid>
+
+    </DockPanel>
 </Window>

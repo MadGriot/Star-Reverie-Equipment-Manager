@@ -4,14 +4,72 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="90" d:DesignWidth="450">
-    <StackPanel Margin="5">
-        <TextBlock x:Name="nameTextBlock" Text="Name" FontSize="20"
-                                   FontWeight="Bold"/>
-        <TextBlock x:Name="itemProperty1TextBlock" Text="Squad Count" FontSize="15"
-                                   Foreground="DodgerBlue"/>
-        <TextBlock x:Name="itemProperty2Block" Text="Company: " FontSize="15"
-                                   FontStyle="Italic"/>
-    </StackPanel>
+             mc:Ignorable="d"
+            Background="Transparent"
+             d:DesignHeight="100"
+             d:DesignWidth="450">
+    <Border x:Name="RootBorder"
+            Background="#1c0f30"
+            BorderBrush="#301a4d"
+            BorderThickness="1"
+            CornerRadius="6"
+            Padding="10"
+            Margin="4">
+
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="#000000"
+                                          BlurRadius="5"
+                                          ShadowDepth="0"
+                                          Opacity="0.4"/>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+
+                    <!-- Hover Glow -->
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="#b14cff"/>
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect Color="#b14cff"
+                                                  BlurRadius="15"
+                                                  ShadowDepth="0"
+                                                  Opacity="0.8"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <StackPanel>
+
+            <!-- Platoon Name -->
+            <TextBlock x:Name="nameTextBlock"
+                       Text="Platoon Name"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="#c084fc"/>
+
+            <!-- Squad Count -->
+            <TextBlock x:Name="itemProperty1TextBlock"
+                       Text="Squad Count"
+                       FontSize="13"
+                       Foreground="#8a5ccf"
+                       Margin="0,3,0,0"/>
+
+            <!-- Company -->
+            <TextBlock x:Name="itemProperty2Block"
+                       Text="Company"
+                       FontSize="12"
+                       FontStyle="Italic"
+                       Foreground="#dddddd"
+                       Margin="0,2,0,0"/>
+
+        </StackPanel>
+    </Border>
 </UserControl>

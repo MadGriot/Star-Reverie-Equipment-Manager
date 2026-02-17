@@ -5,10 +5,74 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="800">
-    <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
-        <TextBlock Text="Squad Name: "/>
-        <TextBlock x:Name="squadNameTextBlock" Text="A Name " Margin="0,0,5,0"/>
-        <Button Content="Delete Squad" Background="Red" Foreground="White" Click="DeleteSquadButton_Click"/>
-    </StackPanel>
+             Background="Transparent"
+             d:DesignHeight="40"
+             d:DesignWidth="800">
+
+    <Border Background="#160a26"
+            BorderBrush="#301a4d"
+            BorderThickness="1"
+            CornerRadius="5"
+            Padding="6"
+            Margin="4">
+
+        <Border.Style>
+            <Style TargetType="Border">
+                <Style.Triggers>
+
+                    <!-- Hover Glow -->
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="#b14cff"/>
+                    </Trigger>
+
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <DockPanel>
+
+            <!-- Squad Info -->
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Left"
+                        VerticalAlignment="Center">
+
+                <TextBlock Text="SQUAD:"
+                           Foreground="#8a5ccf"
+                           FontWeight="Bold"
+                           Margin="0,0,6,0"/>
+
+                <TextBlock x:Name="squadNameTextBlock"
+                           Text="Squad Name"
+                           Foreground="#dddddd"/>
+            </StackPanel>
+
+            <!-- Delete Button -->
+            <Button Content="DELETE"
+                    DockPanel.Dock="Right"
+                    Background="#2a0f1f"
+                    Foreground="#ff4c9f"
+                    BorderBrush="#ff4c9f"
+                    BorderThickness="1"
+                    Padding="6,2"
+                    Cursor="Hand"
+                    Click="DeleteSquadButton_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+
+                            <!-- Hover Alert Glow -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#ff4c9f"/>
+                                <Setter Property="Foreground" Value="#000000"/>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+            </Button>
+
+        </DockPanel>
+    </Border>
 </UserControl>

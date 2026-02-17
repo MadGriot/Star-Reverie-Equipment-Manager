@@ -69,66 +69,76 @@
                        FontSize="12"/>
         </Border>
 
-<!-- LEFT NAVIGATION CONSOLE -->
-<Border DockPanel.Dock="Left"
+        <!-- LEFT NAVIGATION CONSOLE -->
+        <Border DockPanel.Dock="Left"
         Width="240"
         Background="#160a26"
         Padding="12">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
 
-        <StackPanel>
+                <StackPanel>
 
-            <!-- ITEM FABRICATION -->
-            <TextBlock Text="ITEM FABRICATION"
+                    <!-- ITEM FABRICATION -->
+                    <TextBlock Text="ITEM FABRICATION"
                        Foreground="#b14cff"
                        FontWeight="Bold"
                        Margin="0 0 0 8"/>
 
-            <Button Content="Create Weapon" Click="CreateWeaponButton_Click"/>
-            <Button Content="Create Armor" Click="CreateArmorButton_Click"/>
-            <Button Content="Create Shield" Click="CreateShieldButton_Click"/>
-            <Button Content="Create Ammo" Click="CreateAmmoButton_Click"/>
-            <Button Content="Create Battery" Click="CreateBatteryButton_Click"/>
-            <Button Content="Create First Aid" Click="CreateFirstAidButton_Click"/>
+                    <Button Content="Create Weapon" Click="CreateWeaponButton_Click"/>
+                    <Button Content="Display Weapons" Click="DisplayWeaponsButton_Click"/>
 
-            <Separator Margin="0 12"/>
+                    <Button Content="Create Armor" Click="CreateArmorButton_Click"/>
+                    <Button Content="Display Armors" Click="DisplayArmorsButton_Click"/>
 
-            <!-- TECHNIQUES -->
-            <TextBlock Text="TECHNIQUES"
+                    <Button Content="Create Shield" Click="CreateShieldButton_Click"/>
+                    <Button Content="Display Shields" Click="DisplayShieldsButton_Click"/>
+
+                    <Button Content="Create Ammo" Click="CreateAmmoButton_Click"/>
+                    <Button Content="Create Battery" Click="CreateBatteryButton_Click"/>
+                    <Button Content="Create First Aid" Click="CreateFirstAidButton_Click"/>
+
+                    <Separator Margin="0 12"/>
+
+                    <!-- TECHNIQUES -->
+                    <TextBlock Text="TECHNIQUES"
                        Foreground="#b14cff"
                        FontWeight="Bold"
                        Margin="0 0 0 8"/>
 
-            <Button Content="Create Technique" Click="CreateTechniqueButton_Click"/>
-            <Button Content="Create Astral Technique" Click="CreateAstralTechniqueButton_Click"/>
+                    <Button Content="Create Technique" Click="CreateTechniqueButton_Click"/>
+                    <Button Content="Display Techniques" Click="DisplayTechniqueButton_Click"/>
 
-            <Separator Margin="0 12"/>
+                    <Button Content="Create Astral Technique" Click="CreateAstralTechniqueButton_Click"/>
+                    <Button Content="Display Astral Techniques" Click="DisplayAstralTechniqueButton_Click"/>
 
-            <!-- CHARACTER OPS -->
-            <TextBlock Text="CHARACTER OPS"
+                    <Separator Margin="0 12"/>
+
+                    <!-- CHARACTER OPS -->
+                    <TextBlock Text="CHARACTER OPS"
                        Foreground="#b14cff"
                        FontWeight="Bold"
                        Margin="0 0 0 8"/>
 
-            <Button Content="Create Character" Click="CreateCharacterButton_Click"/>
-            <Button Content="Create Squad" Click="CreateSquadButton_Click"/>
-            <Button Content="Create Platoon" Click="CreatePlatoonButton_Click"/>
+                    <Button Content="Create Character" Click="CreateCharacterButton_Click"/>
+                    <Button Content="Create Squad" Click="CreateSquadButton_Click"/>
+                    <Button Content="Create Platoon" Click="CreatePlatoonButton_Click"/>
+                    <Button Content="Display Platoons" Click="DisplayPlatoonsButton_Click"/>
 
-            <Separator Margin="0 12"/>
+                    <Separator Margin="0 12"/>
 
-            <!-- QUEST CONTROL -->
-            <TextBlock Text="QUEST CONTROL"
+                    <!-- QUEST CONTROL -->
+                    <TextBlock Text="QUEST CONTROL"
                        Foreground="#b14cff"
                        FontWeight="Bold"
                        Margin="0 0 0 8"/>
 
-            <Button Content="Create Quest" Click="CreateQuestButton_Click"/>
+                    <Button Content="Create Quest" Click="CreateQuestButton_Click"/>
 
-        </StackPanel>
+                </StackPanel>
 
-    </ScrollViewer>
-</Border>
+            </ScrollViewer>
+        </Border>
 
         <!-- MAIN DATA TERMINAL -->
         <Grid Margin="15">

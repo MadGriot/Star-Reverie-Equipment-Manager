@@ -6,31 +6,142 @@
         xmlns:local="clr-namespace:Star_Reverie_Inventory_Manager.CharacterManager"
         xmlns:pc="clr-namespace:Star_Reverie_Inventory_Manager.Controls"
         mc:Ignorable="d"
-        Title="PlatoonDetialsWindow" Height="450" Width="400">
-    <StackPanel Margin="10">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock x:Name="namePlatoon" Text="Platoon Name: "/>
-        </StackPanel>
-        <StackPanel>
+        Title="STAR REVERIE // PLATOON DETAILS"
+        Height="550"
+        Width="550"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f061a">
+
+    <Window.Resources>
+
+        <!-- Deep Space Gradient -->
+        <LinearGradientBrush x:Key="SpaceBackground" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#0f061a" Offset="0"/>
+            <GradientStop Color="#1a0b2e" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Base Button -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Foreground" Value="#c084fc"/>
+            <Setter Property="BorderBrush" Value="#b14cff"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="#c084fc"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Danger Button -->
+        <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Foreground" Value="#ff4c9f"/>
+            <Setter Property="BorderBrush" Value="#ff4c9f"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ff4c9f"/>
+                    <Setter Property="Foreground" Value="#000000"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Styled ListView Items -->
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="#1c0f30"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#301a4d"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+    </Window.Resources>
+
+    <DockPanel Background="{StaticResource SpaceBackground}">
+
+        <!-- TOP HEADER -->
+        <Border DockPanel.Dock="Top"
+                Background="#140822"
+                Padding="10">
+            <TextBlock Text="STAR REVERIE // PLATOON DETAILS"
+                       Foreground="#b14cff"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- BOTTOM STATUS -->
+        <Border DockPanel.Dock="Bottom"
+                Background="#140822"
+                Padding="5">
+            <TextBlock Text="UNIT MANAGEMENT: ACTIVE"
+                       Foreground="#8a5ccf"
+                       FontSize="12"/>
+        </Border>
+
+        <!-- MAIN CONTENT -->
+        <Grid Margin="15">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Platoon Name Display -->
+            <Border Background="#160a26"
+                    BorderBrush="#301a4d"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="10"
+                    Margin="0 0 0 10">
+
+                <TextBlock x:Name="namePlatoon"
+                           Text="Platoon Name"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#c084fc"/>
+            </Border>
+
+            <!-- Squad List -->
             <ListView x:Name="ItemsListView"
-                      Height="200"
-                      SelectionChanged="ItemsListView_SelectionChanged"
-                      Margin="0 5 0 0">
+                      Grid.Row="1"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      SelectionChanged="ItemsListView_SelectionChanged">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <pc:PlatoonSquadsControl
-                PlatoonSquad="{Binding}"
-                DeleteRequested="PlatoonSquadsControl_DeleteRequested"/>
+                            PlatoonSquad="{Binding}"
+                            DeleteRequested="PlatoonSquadsControl_DeleteRequested"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
 
-        <Button Content="Add Squad" Margin="2"
-                    Click="AddSquadButton_Click"/>
-            <Button Content="Delete Platoon" Margin="2" Background="Red" Foreground="White"
-                    Click="DeletePlatoonButton_Click"/>
-        <Button Content="Exit" Margin="2" Background="LightCyan"
-                Click="ExitButton_Click" />
-    </StackPanel>
+            </ListView>
+
+            <!-- Action Buttons -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0">
+
+                <Button Content="ADD SQUAD"
+                        Click="AddSquadButton_Click"/>
+
+                <Button Content="DELETE PLATOON"
+                        Style="{StaticResource DangerButton}"
+                        Click="DeletePlatoonButton_Click"/>
+
+                <Button Content="EXIT"
+                        Click="ExitButton_Click"/>
+
+            </StackPanel>
+
+        </Grid>
+
+    </DockPanel>
 </Window>
