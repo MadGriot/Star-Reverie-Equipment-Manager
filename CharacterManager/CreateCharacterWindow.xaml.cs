@@ -4,7 +4,6 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
-using Star_Reverie_Inventory_Manager.Controls;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
 using System.Collections.ObjectModel;
@@ -19,7 +18,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
     {
         public Array SpeciesList { get; } = Enum.GetValues(typeof(Species));
         public Array Genders { get; } = Enum.GetValues(typeof(Gender));
-        public Array EnemyAIScripts { get; } = Enum.GetValues(typeof(EnemyAIScript));
+        public Array AICombatPersonalities { get; } = Enum.GetValues(typeof(AICombatPersonality));
 
         private Species selectedSpecies = Species.Human;
         private Species previousSpecies = Species.Human;
@@ -38,7 +37,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
             }
         }
         public Gender SelectedGender { get; set; } = Gender.Male;
-        public EnemyAIScript SelectedEnemyAIScript { get; set; } = EnemyAIScript.EnemyAIBasic2D;
+        public AICombatPersonality SelectedAICombatPersonality { get; set; } = AICombatPersonality.None;
         public CreateCharacterWindow(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -273,7 +272,7 @@ namespace Star_Reverie_Inventory_Manager.CharacterManager
                 SkillPoints = int.Parse(skillPointsNumber.Text),
                 PortraitPath = portraitPath.Text,
                 SpriteSheetPath = spriteSheetPath.Text,
-                EnemyAIScript = SelectedEnemyAIScript,
+                AICombatPersonality = SelectedAICombatPersonality,
                 XPDropAmount = int.Parse(xpDropAmount.Text),
                 AttributeScore = new()
                 {

@@ -5,8 +5,6 @@
 //  -----------------------------------------------------------------------
 
 
-
-
 using StarReverieCore.Mechanics;
 
 namespace Star_Reverie_Inventory_Manager.CreateTechniquesWindows

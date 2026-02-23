@@ -240,7 +240,7 @@
                 <TextBox x:Name="spriteSheetPath"/>
 
                 <TextBlock Text="Enemy AI:" Margin="10 10 0 0" Foreground="White"/>
-                <ComboBox x:Name="enemyAIScript" ItemsSource="{Binding EnemyAIScripts}" SelectedItem="{Binding SelectedEnemyAIScript, Mode=TwoWay}"/>
+                <ComboBox x:Name="enemyAIScript" ItemsSource="{Binding AICombatPersonalities}" SelectedItem="{Binding SelectedAICombatPersonality, Mode=TwoWay}"/>
 
                 <Button x:Name="SaveButton" Margin="30 30 0 0" Click="SaveButton_Click">
                     MANIFEST CHARACTER
