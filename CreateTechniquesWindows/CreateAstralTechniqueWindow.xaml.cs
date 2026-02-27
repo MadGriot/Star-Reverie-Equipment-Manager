@@ -4,9 +4,11 @@
 // 	Copyright (c) Centuras. All rights reserved.
 //  -----------------------------------------------------------------------
 
+using Microsoft.Win32;
 using StarReverieCore.Equipment;
 using StarReverieCore.Mechanics;
 using StarReverieCore.Models;
+using System.IO;
 using System.Windows;
 
 using static Star_Reverie_Inventory_Manager.InputValidator;
@@ -71,6 +73,8 @@ namespace Star_Reverie_Inventory_Manager.CreateTechniquesWindows
                 TurnDuration = turnDuration,
                 StatusEffectStrength = (float)statusEffectStrength,
                 Skill = Skill.AstralTech,
+                AstralTechVfxPath = vfxPathTextBox.Text,
+                AstralTechSoundEffectPath = soundPathTextBox.Text,
             };
             App.StarReverieDbContext.AstralTechniques.Add(astralTech);
             App.StarReverieDbContext.SaveChanges();
@@ -78,6 +82,61 @@ namespace Star_Reverie_Inventory_Manager.CreateTechniquesWindows
             MessageBox.Show("Technique saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
             Close();
+        }
+
+        private void BrowseVfx_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "Select Astral VFX File",
+                Filter = "VFX Files (*.vfx;*.prefab;*.unity3d)|*.vfx;*.prefab;*.unity3d|All Files (*.*)|*.*",
+                CheckFileExists = true,
+                CheckPathExists = true
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                // Optional: Validate file actually exists
+                if (File.Exists(dialog.FileName))
+                {
+                    vfxPathTextBox.Text = dialog.FileName;
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Selected file could not be found.",
+                        "File Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
+                }
+            }
+        }
+
+        private void BrowseSfx_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "Select Astral Sound Effect",
+                Filter = "Audio Files (*.wav;*.mp3;*.ogg)|*.wav;*.mp3;*.ogg|All Files (*.*)|*.*",
+                CheckFileExists = true,
+                CheckPathExists = true
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                if (File.Exists(dialog.FileName))
+                {
+                    soundPathTextBox.Text = dialog.FileName;
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Selected audio file could not be found.",
+                        "File Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
+                }
+            }
         }
     }
 }
