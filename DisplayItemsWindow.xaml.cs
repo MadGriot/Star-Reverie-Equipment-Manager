@@ -89,6 +89,14 @@ namespace Star_Reverie_Inventory_Manager
         {
             if (ItemsListView.SelectedItem is Unit selectedItem)
                 strategy.HandleSelection(selectedItem, this);
+
+            if (ItemsListView.SelectedItem is Technique selectedTechnique)
+            {
+                CharacterTechniqueDetails characterTechniqueDetails = new(selectedTechnique, character, this);
+                characterTechniqueDetails.ShowDialog();
+
+            }
+
         }
     }
 }

@@ -86,6 +86,9 @@
     <Compile Update="ItemDetailsWindows\CharacterDetailsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ItemDetailsWindows\CharacterTechniqueDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ItemDetailsWindows\InventoryItemDetials.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
