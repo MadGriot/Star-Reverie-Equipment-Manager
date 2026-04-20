@@ -44,6 +44,7 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
         {
             SelectNextNodeWindow selectNextNodeWindow = new(NextDialogueNode, nextNodeTextBox);
             selectNextNodeWindow.ShowDialog();
+            NextDialogueNode = selectNextNodeWindow.nextNode;
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +54,7 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
                 {
                     Text = dialogueTextBox.Text,
                     NextNode = NextDialogueNode,
-                    NextNodeId = NextDialogueNode?.NextNodeId ?? null,
+                    NextNodeId = NextDialogueNode?.Id ?? null,
                     Conditions = DialogueConditions,
                     Choices = DialogueChoices,
                     Effects = DialogueEffects,

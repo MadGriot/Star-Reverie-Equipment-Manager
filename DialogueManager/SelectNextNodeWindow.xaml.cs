@@ -5,19 +5,9 @@
 //  -----------------------------------------------------------------------
 
 using Microsoft.EntityFrameworkCore;
-using Star_Reverie_Inventory_Manager.Controls;
 using StarReverieCore.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Star_Reverie_Inventory_Manager.DialogueManager
 {
@@ -27,7 +17,7 @@ namespace Star_Reverie_Inventory_Manager.DialogueManager
     public partial class SelectNextNodeWindow : Window
     {
         private List<DialogueNode> dialogueNodes;
-        private DialogueNode? nextNode;
+        public DialogueNode? nextNode { get; private set; }
         private TextBlock nextNodeText;
         public SelectNextNodeWindow(DialogueNode? nextNode, TextBlock nextNodeText)
         {
